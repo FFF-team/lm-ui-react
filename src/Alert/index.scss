@@ -1,0 +1,61 @@
+@import '../Style/mixin.scss';
+@import '../Style/helper.scss';
+
+.lm-ui-alert {
+	
+	width: 270px;
+	min-height: 145px;
+	border-radius: 5px;
+	background-color: $normal-bg-color;
+	@include animScale;
+
+	.alert-head {
+
+		padding-top: 28px;
+		padding-bottom: 14px;
+		text-align: center;
+		font-size: $normal-font-size;
+		color: $normal-font-color;
+
+	}
+
+	.alert-content {
+		
+		padding: 0 28px 0 28px;
+		font-size: $small-font-size;
+		color: #666666;
+		text-align: center;
+		padding-bottom: 20px;
+
+	}
+
+	.alert-btns {
+
+		border-top: $normal-solid-color;
+		@include rowLayout;
+
+	}
+
+	.alert-btn {
+
+		flex: 1;
+		display: block;
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		font-size: $normal-font-size;
+		border-right: $normal-solid-color;
+		color: $normal-font-color;
+
+		&::first-of-type {
+
+			border-right: 0;
+
+		}
+
+	}
+
+	.special { color: $special-font-color; }
+
+}
+
