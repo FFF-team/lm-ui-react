@@ -4,9 +4,9 @@
   "description": "loan mobile UI with react",
   "main": "lib/index.js",
   "scripts": {
-    "build": "babel-node tool/build-cli.js --build",
-    "lib": "babel-node tool/build-cli.js --lib",
-    "example": "babel-node tool/build-cli.js --example",
+    "build": "babel-node tools/build-cli.js --build",
+    "lib": "babel-node tools/build-cli.js --lib",
+    "example": "babel-node tools/build-cli.js --example",
     "test": "jest"
   },
   "repository": {
