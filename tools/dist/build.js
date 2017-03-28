@@ -3,7 +3,7 @@ import { exec } from '../exec';
 import fsp from 'fs-promise';
 import { srcRoot, distRoot } from '../constants';
 import buildBabel from '../buildBabel';
-console.log('test');
+
 export default function BuildDistributable() {
   	console.log('Building: '.cyan + 'dist'.green);
 

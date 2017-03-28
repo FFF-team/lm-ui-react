@@ -1,15 +1,15 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { IndexRedirect, Link, Route, Route } from 'react-router';
-import createHistory from 'history/createHashHistory'
+import { IndexRedirect, Link, Router, Route, hashHistory } from 'react-router';
+//import createHistory from 'history/createHashHistory'
 
 import Navigation from './components/Navigation.js'
 import UseAlert from './components/UseAlert.js';
 import '../css/index.scss';
 
 let rootElement = document.getElementById('root');
-let hashHistory = createHistory();
+//let hashHistory = createHistory();
 
 ReactDOM.render((
 	    
