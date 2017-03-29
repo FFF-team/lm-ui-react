@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import './index.scss';
 
-const ModelHOC = (WrappedComponent) => 
+const ValidateValHOC = (WrappedComponent) => 
 	
 	class extends React.Component {
 
@@ -18,13 +17,7 @@ const ModelHOC = (WrappedComponent) =>
 
 			return (
 
-				<div key="modelHOC" className={ showState ? "lm-ui-model" : "lm-ui-model hide"}>
-					
-					{
-					showState ? <WrappedComponent {...this.props} /> : null
-					}
-
-				</div>
+				<WrappedComponent {...this.props} />
 
 			)
 
@@ -32,4 +25,4 @@ const ModelHOC = (WrappedComponent) =>
 
 	}
 
-export default ModelHOC;
+export default ValidateValHOC

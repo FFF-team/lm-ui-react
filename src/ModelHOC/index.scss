@@ -1,9 +1,0 @@
-@import '../Style/mixin.scss';
-@import '../Style/helper.scss';
-
-.lm-ui-model {
-
-	@include fixedModel;
-	@include animOpacity;
-
-}
