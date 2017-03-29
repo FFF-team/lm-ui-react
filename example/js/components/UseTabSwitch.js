@@ -2,7 +2,7 @@
  * Created by khongyan on 2017/3/29.
  */
 import React from 'react';
-import { Tabs, Tab, TabSwitch } from 'src/Tabs'
+import { Tabs, Tab, TabSwitch } from 'src/index'
 
 /**
  * data = [

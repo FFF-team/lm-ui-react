@@ -20,6 +20,12 @@ export ValidateValHOC from './ValidateValHOC';
 
 export Dialog from './Dialog/index.js';
 
+// Tab
+export Tabs from './Tabs/Tabs'
+
+export Tab from './Tabs/Tab'
+
+export TabSwitch from './Tabs/TabSwitch'
 
 export Toast from './Toast/index.js';
 
