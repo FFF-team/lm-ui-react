@@ -21,8 +21,8 @@ export default class Navigation extends React.Component {
 
 					<li><Link to='/UserDialog' className="list-item">弹出框</Link></li>
 
-					<li><Link to='/UserDialog' className="list-item">弹出框</Link></li>
-
+					<li><Link to='/UseTab' className="list-item">选项卡</Link></li>
+					
 				</ul>
 
 			</div>
