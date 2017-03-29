@@ -1,0 +1,43 @@
+//
+// Variables
+// --------------------------------------------------
+$namespace: "lm-ui-" !default;
+
+// Type
+// --------------------------------------------------
+$font-family-default: "Helvetica Neue",Helvetica,STHeiTi,sans-serif !default;
+$font-size-default: 16px !default;
+$font-size-normal: 14px !default;
+$font-size-small: 12px !default;
+
+
+// Colors
+$default-color: #333 !default;
+$grey-color: #666 !default;
+$lighter-color: #999 !default;
+$primary-color: #ff552e !default;
+$warning-color: #ff8e33 !default;
+$error-color: #fc5e61 !default;
+
+
+
+
+// Cards
+// --------------------------------------------------
+
+$card-bg: #fff !default;
+$card-margin:10px !default;
+$card-border-radius:2px !default;
+$card-font-size:14px !default;
+$card-media-body-margin-left:44px !default;
+$card-footer-color:#6d6d72 !default;
+
+
+
+
+// Transitions
+// --------------------------------------------------
+
+$timing-fuction: cubic-bezier(.1,.5,.1,1) !default; // Inspired by @c2prods
+
+

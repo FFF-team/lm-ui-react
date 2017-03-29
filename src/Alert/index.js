@@ -55,7 +55,7 @@ class Alert extends React.Component {
 	}
 
 	render () {
-
+		
 		const { showState,
 				headText,
 				contentText,
