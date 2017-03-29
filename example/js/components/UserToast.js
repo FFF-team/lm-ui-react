@@ -23,7 +23,10 @@ export default class UserToast extends React.Component {
 
 	callBack() {
 
-		console.log(12);
+		let _this = this;
+		setTimeout(function() {
+			_this.setState({showState: !_this.state.showState});
+		}, 3000);
 
 	}
 
@@ -43,7 +46,7 @@ export default class UserToast extends React.Component {
 
 							<a href="javascript:;" 
 							 	className="list-item"
-								onClick={()=>{this.setState({showState: !this.state.showState, toastType: "Hint"})}}>
+								onClick={()=>{this.setState({showState: !this.state.showState, toastType: "Hint"}); this.callBack()}}>
 								Hint测试
 							</a>
 
@@ -53,7 +56,7 @@ export default class UserToast extends React.Component {
 
 							<a href="javascript:;" 
 							 	className="list-item"
-								onClick={()=>{this.setState({showState: !this.state.showState, toastType: "Loading"})}}>
+								onClick={()=>{this.setState({showState: !this.state.showState, toastType: "Loading"}); this.callBack()}}>
 								Loading测试
 							</a>
 
@@ -63,7 +66,7 @@ export default class UserToast extends React.Component {
 
 							<a href="javascript:;" 
 							 	className="list-item"
-								onClick={()=>{this.setState({showState: !this.state.showState, toastType: "Success"})}}>
+								onClick={()=>{this.setState({showState: !this.state.showState, toastType: "Success"}); this.callBack()}}>
 								Success测试
 							</a>
 
@@ -73,7 +76,7 @@ export default class UserToast extends React.Component {
 
 							<a href="javascript:;" 
 							 	className="list-item"
-								onClick={()=>{this.setState({showState: !this.state.showState, toastType: "Fail"})}}>
+								onClick={()=>{this.setState({showState: !this.state.showState, toastType: "Fail"}); this.callBack()}}>
 								Fail测试
 							</a>
 
@@ -82,7 +85,7 @@ export default class UserToast extends React.Component {
 
 							<a href="javascript:;" 
 							 	className="list-item"
-								onClick={()=>{this.setState({showState: !this.state.showState, toastType: "Netless"})}}>
+								onClick={()=>{this.setState({showState: !this.state.showState, toastType: "Netless"}); this.callBack()}}>
 								Netless测试
 							</a>
 

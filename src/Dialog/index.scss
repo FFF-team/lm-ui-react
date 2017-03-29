@@ -1,21 +1,18 @@
-@import '../Style/mixin.scss';
-@import '../Style/helper.scss';
 
 .lm-ui-dialog {
 
 	width: 72%;
 	max-width: 270px;
 	border-radius: 4px;
-	background-color: $normal-bg-color;
-	/* @include animScale; */
+	background-color: #FFF;
 
 	.dialog-head {
 
 		text-align: center;
 	    padding: 28px 28px 10px;
 	    font-size: 16px;
-		font-size: $normal-font-size;
-		color: $normal-font-color;
+		font-size: 16px;
+		color: #333;
 
 	}
 
@@ -64,7 +61,7 @@
 		    right: 0;
 		    bottom: 0;
 		    height: 1px;
-		    border: $normal-solid-color;
+		    background-color: #e6e6e6;
 		    content: '';
 		    -webkit-transform: scaleY(0.5);
 		    transform: scaleY(0.5);
@@ -78,7 +75,7 @@
 	    min-height: 50px;
 	    color: #666;
 	    line-height: 1.6;
-	    font-size: $small-font-size;
+	    font-size: 14px;
 	    display: -webkit-box;
 	    display: -ms-flexbox;
 	    display: flex;
@@ -96,8 +93,10 @@
 	.dialog-btns {
 
 		position: relative;
-
-		@include rowLayout;
+		display: flex;
+		flex-direction: row;
+    	justify-content: center;
+    	align-items: center;
 
 		&::before {
 
@@ -106,7 +105,7 @@
 		    right: 0;
 		    top: 0;
 		    height: 1px;
-		    border: $normal-solid-color;
+		    background-color: #e6e6e6;
 		    content: '';
 		    -webkit-transform: scaleY(0.5);
 		    transform: scaleY(0.5);
@@ -118,16 +117,14 @@
 	.dialog-btn {
 
 		-webkit-box-flex: 1;
-
 		    -ms-flex: 1;
-
 		        flex: 1;
 		display: block;
 		padding: 14px;
 		text-align: center;
-		font-size: $normal-font-size;
-		border-right: $normal-solid-color;
-		color: $normal-font-color;
+		font-size: 16px;
+		border-right: 1px solid #e6e6e6;
+		color: #333;
 
 		&:last-of-type {
 
@@ -137,7 +134,7 @@
 
 	}
 
-	.special { color: $special-font-color; }
+	.special { color: #ff552e; }
 
 }
 

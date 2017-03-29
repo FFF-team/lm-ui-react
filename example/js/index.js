@@ -6,6 +6,7 @@ import { IndexRedirect, Link, Route, Router, hashHistory } from 'react-router';
 import Navigation from './components/Navigation.js';
 import UserDialog from './components/UserDialog.js';
 import UserToast from './components/UserToast.js';
+import UseFrom from './components/UseFrom.js';
 import '../css/index.scss';
 
 let rootElement = document.getElementById('root');
@@ -21,6 +22,7 @@ ReactDOM.render((
 	        	<Route path="/Navigation" component={Navigation} />
 	        	<Route path="/UserDialog" component={UserDialog} />
 	        	<Route path="/UserToast" component={UserToast} />
+	        	<Route path="/UseFrom" component={UseFrom} />
 	        </Route>
 	        
 	    </Router>
