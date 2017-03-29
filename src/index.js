@@ -4,6 +4,7 @@ import './Style/lmui.scss';
 export ModelHOC from './ModelHOC';
 
 //弹窗(base Model)
+<<<<<<< HEAD
 export Alert from './Alert';
 
 //表单
@@ -20,5 +21,8 @@ export Input from './Input';
 
 //验证
 export ValidateValHOC from './ValidateValHOC';
+
+export Dialog from './Dialog/index.js';
+
 
 

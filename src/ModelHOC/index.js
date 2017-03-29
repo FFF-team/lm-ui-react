@@ -16,13 +16,13 @@ const ModelHOC = (WrappedComponent) =>
 
 			const { showState } = this.props;
 
-			if (!showState) { return <div></div> }
-
 			return (
 
-				<div className="lm-ui-model">
+				<div key="modelHOC" className={ showState ? "lm-ui-model" : "lm-ui-model hide"}>
 					
-					<WrappedComponent {...this.props} />
+					{
+					showState ? <WrappedComponent {...this.props} /> : null
+					}
 
 				</div>
 

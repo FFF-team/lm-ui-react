@@ -1,0 +1,143 @@
+@import '../Style/mixin.scss';
+@import '../Style/helper.scss';
+
+.lm-ui-dialog {
+	
+	width: 72%;
+	max-width: 270px;
+	border-radius: 4px;
+	background-color: $normal-bg-color;
+	/* @include animScale; */
+
+	.dialog-head {
+
+		text-align: center;
+	    padding: 28px 28px 10px;
+	    font-size: 16px;
+		font-size: $normal-font-size;
+		color: $normal-font-color;
+
+	}
+
+	.dialog-icon-close {
+		
+		&::before {
+			content: "";
+	    	position: absolute;
+	    	width: 17px;
+	    	height: 2px;
+	    	top: 19px;
+	    	left: 12px;
+	    	background-color: #e6e6e6;
+	    	-webkit-transform: rotateZ(45deg);
+	    	        transform: rotateZ(45deg);
+		};
+
+	    position: absolute;
+	    top: 3px;
+	    right: 0;
+	    width: 40px;
+	    height: 40px;
+
+	    &::after {
+	    	content: "";
+	    	position: absolute;
+	    	width: 17px;
+	    	height: 2px;
+	    	top: 19px;
+	    	left: 12px;
+	    	background-color: #e6e6e6;
+	    	-webkit-transform: rotateZ(-45deg);
+	    	        transform: rotateZ(-45deg);
+	    }
+	}
+
+	.head-confirm {
+		position: relative;
+	    text-align: left;
+	    padding: 14px;
+	    margin-bottom: 1px;
+
+	    &::after {
+	    	position: absolute;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
+		    height: 1px;
+		    background-color: #e6e6e6;
+		    content: '';
+		    -webkit-transform: scaleY(0.5);
+		    transform: scaleY(0.5);
+	    };
+	}
+
+	.dialog-content {
+
+		padding: 0 28px 15px;
+	    text-align: left;
+	    min-height: 50px;
+	    color: #666;
+	    line-height: 1.6;
+	    font-size: $small-font-size;
+	    display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: flex;
+	    -webkit-box-pack: center;
+	        -ms-flex-pack: center;
+	            justify-content: center;
+	    -webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	    -webkit-box-align: center;
+	    align-items: center;
+
+	}
+
+	.dialog-btns {
+
+		position: relative;
+
+		@include rowLayout;
+
+		&::before {
+
+			position: absolute;
+		    left: 0;
+		    right: 0;
+		    top: 0;
+		    height: 1px;
+		    background-color: #e6e6e6;
+		    content: '';
+		    -webkit-transform: scaleY(0.5);
+		    transform: scaleY(0.5);
+
+		};
+
+	}
+
+	.dialog-btn {
+
+		-webkit-box-flex: 1;
+
+		    -ms-flex: 1;
+
+		        flex: 1;
+		display: block;
+		padding: 14px;
+		text-align: center;
+		font-size: $normal-font-size;
+		border-right: $normal-solid-color;
+		color: $normal-font-color;
+
+		&:last-of-type {
+
+			border-right: 0;
+
+		}
+
+	}
+
+	.special { color: $special-font-color; }
+
+}
+
