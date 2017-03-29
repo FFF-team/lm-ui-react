@@ -8,4 +8,7 @@ export ModelHOC from './ModelHOC';
 export Dialog from './Dialog/index.js';
 
 
+export Toast from './Toast/index.js';
+
+
 

@@ -19,6 +19,7 @@ const propTypes = {
 	dialogType: React.PropTypes.string.isRequired,
 	showState: React.PropTypes.bool.isRequired,
 	headText: React.PropTypes.string,
+	opacity: React.PropTypes.number,
 	contentText: React.PropTypes.string,
 	btnLeftText: React.PropTypes.string,
 	btnRightText: React.PropTypes.string,
@@ -30,6 +31,7 @@ const propTypes = {
 
 const defaultProps = {
 	dialogType: "Confirm",
+	opacity: 5,
 	showState: false,
 	headText: '提示',
 	contentText: '提示内容',
@@ -59,6 +61,7 @@ class Dialog extends React.Component {
 
 		const { 
 				dialogType,
+				opacity,
 				showState,
 				headText,
 				contentText,

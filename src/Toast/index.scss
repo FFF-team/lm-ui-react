@@ -1,0 +1,70 @@
+@import '../Style/mixin.scss';
+@import '../Style/helper.scss';
+
+/* @-webkit-keyframes rotate-loading {
+    0% {
+        @include rotate(0deg);
+    }    
+    100% {
+        @include rotate(360deg);
+    }
+}
+@keyframes rotate-loading {
+    0% {
+        @include rotate(0deg);
+    }
+    100% {
+        @include rotate(360deg);
+    }
+} */
+
+.lm-ui-toast {
+
+    background: rgba(51, 51, 51, 0.95);
+    font-size: $normal-font-size;
+    padding: 20px 10px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 100px;
+
+    p {
+    	color: #FFF;
+    }
+
+}
+
+.toast-text-content {
+	border-radius: 4px;
+	width: auto;
+	padding: 10px;
+	p {
+		text-align: center;
+		min-width: 250px;
+		max-width: 75%;
+		margin: 0;
+	}
+}
+
+.lm-ui-toast-icon {
+	display: inline-block;
+	width: 33px;
+	height: 33px;
+	background-size: 33px 33px;
+	background-position: center;
+	background-repeat: no-repeat; 
+	margin-bottom: 12px;
+	&.icon-loading {
+		background-image: url(/src/Toast/icon-loading.png);
+		/* -webkit-animation: rotate-loading 1s steps(12,end) infinite;
+		animation: rotate-loading linear 1s steps(12,end) infinite; */
+	}
+	&.icon-success {
+		background-image: url(/src/Toast/icon-success.png);
+	}
+	&.icon-fail {
+		background-image: url(/src/Toast/icon-fail.png);
+	}
+	&.icon-network {
+		background-image: url(/src/Toast/icon-network.png);
+	}
+}
