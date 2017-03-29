@@ -27,4 +27,7 @@ export Tab from './Tabs/Tab'
 
 export TabSwitch from './Tabs/TabSwitch'
 
+export Toast from './Toast/index.js';
+
+
 
