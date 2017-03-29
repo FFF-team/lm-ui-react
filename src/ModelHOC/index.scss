@@ -4,6 +4,10 @@
 .lm-ui-model {
 
 	@include fixedModel;
-	@include animOpacity;
+	/* @include animOpacity; */
 
+}
+
+.hide {
+	display: none;
 }

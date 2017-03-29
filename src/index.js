@@ -5,6 +5,7 @@ import './Style/common.scss';
 export ModelHOC from './ModelHOC';
 
 //弹窗(base Model)
-export Alert from './Alert/index.js';
+export Dialog from './Dialog/index.js';
+
 
 
