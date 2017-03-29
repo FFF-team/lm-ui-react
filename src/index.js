@@ -3,10 +3,6 @@ import './Style/lmui.scss';
 //共用遮罩层
 export ModelHOC from './ModelHOC';
 
-//弹窗(base Model)
-<<<<<<< HEAD
-export Alert from './Alert';
-
 //表单
 export Form from './Form';
 
