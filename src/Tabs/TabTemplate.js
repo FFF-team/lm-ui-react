@@ -5,15 +5,11 @@ import React, {PropTypes} from 'react';
 
 const TabTemplate = ({children, selected}) => {
     let templateStyle = {
-        display: 'none'
+        display: selected ? 'block' : 'none'
     };
     
-    if(selected) {
-        templateStyle.display = 'block'
-    }
-    
     return (
-        <div style={ templateStyle }>
+        <div className="lm-ui-tab-content" style={ templateStyle }>
             { children }
         </div>
     )

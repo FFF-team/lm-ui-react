@@ -1,96 +1,58 @@
 import React from 'react';
-import TabTemplate from './TabTemplate';
-import './index.scss'
+import classnames from 'classnames';
+
+import { MAX_TAB } from './config';
+import TabsHOC from './TabsHOC'
+import './Tabs.scss'
 
 class Tabs extends React.Component {
     constructor(props) {
-        super(props)
-        
-        this.state = {
-            selectedIndex: this.props.selectedIndex
-        }
+        super(props);
     }
     
-    componentDidMount() {
-        let selectedIndex = this.props.selectedIndex;
-        if (this.props.withClick) {
-            let tabs = this.getTabs();
-            for(let i = 0, len = tabs.length; i < len; i++) {
-                if (i === selectedIndex) {
-                    this.handleClickAction(i, tabs[i]);
-                    return
-                }
-            }
-        }
-    }
-    
-    getTabs() {
-        let tabs = [];
-        // todo: 校验
-        return this.props.children
-    }
-    
-    handleClickAction(index, tab) {
-        this.setState({
-            selectedIndex: index
-        });
-        
-        tab.props.onClick ? tab.props.onClick(tab.props) : this.props.clickAction(tab.props);
-    }
-    
-    getSelected(tab, index) {
-        return index === this.state.selectedIndex
-    }
-    
-    // todo: 标签个数限制，文字限制。warn
     render() {
+        const {
+            tabs,
+            content,
+            style,
+            className
+        } = this.props;
+        const isMutiNav = tabs.length > MAX_TAB
+    
+        let cnBox = classnames({
+            'lm-ui-navbar-multi': isMutiNav
+        },'lm-ui-navbar-box');
         
-        const content = [];
-        const tabs = this.getTabs().map((tab, index) => {
-            content.push(
-                React.createElement(
-                    TabTemplate,
-                    {
-                        key: index,
-                        selected: this.getSelected(tab, index)
-                    },
-                    tab.props.children
-                ));
-            return React.cloneElement(
-                tab,
-                {
-                    index: index,
-                    key: index,
-                    selected: this.getSelected(tab, index),
-                    onClickAction: this.handleClickAction.bind(this)
-                }
-            )
-        });
+        let cnTabs = classnames({
+            'lm-ui-navbar-nowrap': isMutiNav,
+            'lm-ui-navbar-equal': !isMutiNav
+        }, 'lm-ui-navbar');
+    
         
         return (
-            <div className="lm-ui-navbar-wrap">
-                <ul className="lm-ui-navbar lm-ui-navbar-equal">
-                    { tabs }
-                </ul>
-                <div className="lm-ui-tab-content">
-                    { content }
+            <div className={ className }>
+                <div className={ cnBox }>
+                    <ul style={ style } className={ cnTabs }>
+                        { tabs }
+                    </ul>
                 </div>
+                { content }
             </div>
-        
         )
     }
 }
 
 Tabs.propTypes = {
     selectedIndex: React.PropTypes.number, // 当前选中的tab index
-    withClick: React.PropTypes.bool, // 初始选中是是否执行当前标签上的onClick
-    clickAction: React.PropTypes.func // 点击任意tab都会调用，如果某一tab上有onClick则不执行clickAction
+    changeAction: React.PropTypes.func, // tab改变后调用
+    name: React.PropTypes.any // 各个tab唯一name
 };
 
 Tabs.defaultProps = {
     selectedIndex: 0,
-    withClick: false,
-    clickAction: () => {}
+    changeAction: () => {}
 };
 
-export default Tabs
+export default TabsHOC({
+    addPropsToTab: {}
+})(Tabs)
