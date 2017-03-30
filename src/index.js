@@ -25,6 +25,8 @@ export Tabs from './Tabs/Tabs'
 
 export Tab from './Tabs/Tab'
 
+export TabsFooter from './Tabs/TabsFooter'
+
 export Toast from './Toast/index.js';
 
 // Icon

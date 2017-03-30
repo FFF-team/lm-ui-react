@@ -11,17 +11,21 @@ class Icon extends React.Component {
             ...other
         } = this.props;
         
-        if (type === 'font') { // todo: 默认字体icon
+        if (type === 'default') { // todo: 默认字体icon
             return (
-                <i className="lm-ui-icon lm-icon-test"/>
+                <i className={ other.className }/>
             )
         }
         
+        if (type === 'svg') {
+            // todo: svg icon
+        }
+        
         return (
-            <span { ...other }
+            <i { ...other }
                   style={ style }>
                 { children }
-            </span>
+            </i>
         )
     }
 }
@@ -32,7 +36,7 @@ Icon.PropTypes = {
 };
 
 Icon.defaultTypes = {
-    
+    type: 'default'
 };
 
 export default Icon
