@@ -1,11 +1,10 @@
 @import '../Style/mixin.scss';
-@import '../Style/helper.scss';
 
 
 /*通用样式*/
 .lm-ui-btn{
 	border-radius: 4px;
-	font-size: $normal-font-size;
+	font-size: 16px;
 	border-width: 1px;
 	border-style: solid;
 	padding: 12px 20px;
@@ -26,15 +25,15 @@
 
 /*尺寸样式*/
 .lm-ui-btn-small{
-	font-size:$small-font-size;
+	font-size:14px;
 	padding: 6px 10px;
 }
 .lm-ui-btn-middle{
-	font-size:$small-font-size;
+	font-size:14px;
 	padding: 8px 15px;
 }
 .lm-ui-btn-big{
-	font-size:$normal-font-size;
+	font-size:16px;
 	padding: 14px 20px;
 }
 .lm-ui-btn-long{

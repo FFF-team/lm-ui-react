@@ -1,5 +1,6 @@
 import webpack from 'webpack';
 import yargs from 'yargs';
+import path from 'path';
 
 export const options = yargs
   	.alias('p', 'optimize-minimize')
@@ -7,6 +8,10 @@ export const options = yargs
   	.argv;
 
 export const jsLoader = 'babel?cacheDirectory';
+
+let resolve = (dir) => {
+    return path.join(__dirname, '../', dir)
+}
 
 const baseConfig = {
 
@@ -33,6 +38,12 @@ const baseConfig = {
 
 		]
 
+	},
+	
+	resolve: {
+		alias: {
+			'src': resolve('src')
+		}
 	},
 
 	plugins: [

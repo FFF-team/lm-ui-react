@@ -1,5 +1,5 @@
 import React from 'react';
-import Alert from '../src/Alert';
+import Dialog from '../src/Dialog';
 import { shallow, mount } from 'enzyme';
 
 describe('Test Alert', () => {
@@ -8,10 +8,10 @@ describe('Test Alert', () => {
 		
 	  	const wrapper = mount(
 
-	    	<Alert />
+	    	<Dialog />
 
 	  	);
-	  	const p = wrapper.find('.lm-ui-alert');
+	  	const p = wrapper.find('.lm-ui-dialog');
 
 	  	expect(p.length===1);
 
@@ -21,16 +21,17 @@ describe('Test Alert', () => {
 		
 	  	const wrapper = mount(
 
-	    	<Alert 
+	    	<Dialog
+	    		dialogType={'Confirm'} 
 				showState={true}
 				headText={'test head'}
 				contentText={'提示内容提示内容提示内容提示内容提示内容提示内容'} 
-				btnCommonFun={() => {}}
+				btnCommonFun={() => { console.log("commonFun") }}
 				btnLeftCbFun={() => {console.log('left fun')}}
 				btnRightCbFun={() => {console.log('right fun')}}/>
 
 	  	);
-	  	const p = wrapper.find('.alert-head');
+	  	const p = wrapper.find('.dialog-head');
 
 	  	expect(p.text()).toBe('test head');
 

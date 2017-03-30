@@ -5,6 +5,7 @@ import ModelHOC from '../ModelHOC/index.js';
 /*
  * props:
  *  showState HOC
+ *  dialogType
  *	headText
  *	contentText
  *	btnLeftText
@@ -15,9 +16,10 @@ import ModelHOC from '../ModelHOC/index.js';
  */
 
 const propTypes = {
-
-	showState: React.PropTypes.bool,
+	dialogType: React.PropTypes.string.isRequired,
+	showState: React.PropTypes.bool.isRequired,
 	headText: React.PropTypes.string,
+	opacity: React.PropTypes.number,
 	contentText: React.PropTypes.string,
 	btnLeftText: React.PropTypes.string,
 	btnRightText: React.PropTypes.string,
@@ -28,7 +30,8 @@ const propTypes = {
 };
 
 const defaultProps = {
-
+	dialogType: "Confirm",
+	opacity: 5,
 	showState: false,
 	headText: '提示',
 	contentText: '提示内容',
@@ -40,7 +43,7 @@ const defaultProps = {
 
 };
 
-class Alert extends React.Component {
+class Dialog extends React.Component {
 
 	clickHandler (dir) {
 
@@ -50,13 +53,16 @@ class Alert extends React.Component {
 
 		btnCommonFun();
 
-		dir === 'left' ? btnLeftCbFun(): btnRightCbFun();
+		dir === 'left' ? btnLeftCbFun() : (dir === 'right' ? btnRightCbFun() : null);
 
 	}
 
 	render () {
 
-		const { showState,
+		const { 
+				dialogType,
+				opacity,
+				showState,
 				headText,
 				contentText,
 				btnLeftText,
@@ -64,24 +70,33 @@ class Alert extends React.Component {
 
 		return (
 
-			<div className="lm-ui-alert">
+			<div className="lm-ui-dialog">
 
-				<div className="alert-head">{headText}</div>
+				{ dialogType === "Confirm" ?
+				(<div className="dialog-head head-confirm">
+					<span dangerouslySetInnerHTML={{__html: headText}}></span>
+					<i className='dialog-icon-close' onClick={this.clickHandler.bind(this)}></i>
+				</div>) : 
+				(<div className="dialog-head" dangerouslySetInnerHTML={{__html: headText}}>
+				</div>)}
 
-				<div className="alert-content">{contentText}</div>
+				
 
-				<div className="alert-btns">
+				<div className="dialog-content" dangerouslySetInnerHTML={{__html: contentText}}></div>
 
+				<div className="dialog-btns">
+					{ dialogType === "Confirm" ? (
 					<a 
 						href="javascript:;" 
-						className="alert-btn"
+						className="dialog-btn"
 						onClick={this.clickHandler.bind(this, 'left')}>
 						{btnLeftText}
 					</a>
-
+					) : null }
+					
 					<a 
 						href="javascript:;" 
-						className="alert-btn special"
+						className="dialog-btn special"
 						onClick={this.clickHandler.bind(this, 'right')}>
 						{btnRightText}
 					</a>
@@ -96,7 +111,7 @@ class Alert extends React.Component {
 
 }
 
-Alert.propTypes = propTypes;
-Alert.defaultProps = defaultProps;
+Dialog.propTypes = propTypes;
+Dialog.defaultProps = defaultProps;
 
-export default ModelHOC(Alert);
+export default ModelHOC(Dialog);
