@@ -1,0 +1,13 @@
+@import "mixin";
+// test
+.lm-ui-icon {
+  display: inline-block;
+}
+
+.lm-icon-arrow {
+  $arrow-default-color: #787a7c;
+  $arrow-active-color: #ff552e;
+
+  &-top 		{  @include filterArrow(1, $arrow-default-color, 4px, 4px); }
+  &-bottom 	{  @include filterArrow(2, $arrow-default-color, 4px, 4px); }
+}

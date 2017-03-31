@@ -1,6 +1,6 @@
 import React from 'react'
 import { Tabs, Tab, Icon } from 'src/index'
-import TabsFooter from 'src/index'
+import { TabsFooter } from 'src/index'
 
 class UseTabFooter extends React.Component {
     
@@ -13,7 +13,7 @@ class UseTabFooter extends React.Component {
     }
     
     clickHome(tab) {
-        alert('to router ' + tab['data-route'])
+        alert('to router ' + tab.props['data-route'])
     }
     
     handleChange(name) {

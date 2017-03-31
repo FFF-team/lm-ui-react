@@ -1,17 +1,59 @@
 import React from 'react'
-import Sort from 'src/Sort'
+
+import './index.scss'
+import FilterBar from './FilterBar'
 
 class FilterPage extends React.Component {
-    
-    
-    handleClick(value) {
-        console.log(value)
+    constructor(props) {
+        super(props);
+        
+        let data = [{
+            id: 1,
+            value: 'item1'
+        }, {
+            id: 3,
+            value: 'item3'
+        }, {
+            id: 2,
+            value: 'item2'
+        }];
+        
+        this.state = {
+            data: data
+        }
     }
+    
+    changeList = (sortKey, sortBy) => {
+        console.log(sortKey + ',' + sortBy);
+    
+        this.setState({
+            data: [{
+                id: 1,
+                value: 'item1'
+            }, {
+                id: 2,
+                value: 'item3'
+            }, {
+                id: 3,
+                value: 'item2'
+            }]
+        });
+    }
+    
     
     render() {
         return (
             <div>
-                <Sort label="筛选" value={ [1, 2] } clickAction={ this.handleClick }/>
+                <FilterBar onFilterChange={ this.changeList }/>
+                <div>
+                    <ul>
+                        { this.state.data.map((item) => {
+                            return (
+                                <li key={ item.id }>{ item.id }、{ item.value }</li>
+                            )
+                        }) }
+                    </ul>
+                </div>
             </div>
         )
     }

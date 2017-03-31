@@ -1,0 +1,18 @@
+.lm-ui-sort {
+  position: relative;
+  .positive-sort {
+    .lm-icon-arrow-top {
+      border-bottom-color: red
+    }
+  }
+  .reverse-sort {
+    .lm-icon-arrow-bottom {
+      border-top-color: red;
+    }
+  }
+  .label {
+    display: inline-block;
+    padding: 15px 0;
+    color: #333;
+  }
+}

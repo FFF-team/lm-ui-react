@@ -29,7 +29,7 @@ ReactDOM.render((
 				<Route path="/UseFilter" component={UseFilter} />
 	        	<Route path="/UserDialog" component={UserDialog} />
 	        	<Route path="/UserToast" component={UserToast} />
-	        	<Route path="/UseFrom" component={UseTabFooter} />
+	        	<Route path="/UseFrom" component={UseFrom} />
 	        </Route>
 	        
 	    </Router>
