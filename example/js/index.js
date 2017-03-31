@@ -9,9 +9,14 @@ import Navigation from './components/Navigation.js';
 import UserDialog from './components/UserDialog.js';
 import UserToast from './components/UserToast.js';
 import UseFrom from './components/UseFrom.js';
+
 import UseTabSwitch from './components/UseTabSwitch';
 import UserButton from './components/UserButton.js';
 import UserList from './components/UserList.js';
+
+import UseTab from './components/UseTab';
+import UseTabFooter from './components/UseTabFooter';
+import UseFilter from './components/UseFilter/FilterPage'
 
 import '../css/index.scss';
 
@@ -27,12 +32,17 @@ ReactDOM.render((
 
 	        	<Route path="/Navigation" component={Navigation} />
 
+
 				<Route path="/UseTab" component={UseTabSwitch}/>
 	        	<Route path="/UserDialog" component={UserDialog} />
 	        	<Route path="/UserToast" component={UserToast} />
 	        	<Route path="/UseFrom" component={UseFrom} />
 	        	<Route path="/Button" component={UserButton} />
 	        	<Route path="/List" component={UserList} />
+
+
+				<Route path="/UseTabFooter" component={UseTabFooter} />
+				<Route path="/UseFilter" component={UseFilter} />
 
 	        </Route>
 	        
