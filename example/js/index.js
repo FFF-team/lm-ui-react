@@ -10,7 +10,8 @@ import UserDialog from './components/UserDialog.js';
 import UserToast from './components/UserToast.js';
 import UseFrom from './components/UseFrom.js';
 import UseTabSwitch from './components/UseTabSwitch';
-import Button from './components/button.js';
+import UserButton from './components/UserButton.js';
+import UserList from './components/UserList.js';
 
 import '../css/index.scss';
 
@@ -30,7 +31,8 @@ ReactDOM.render((
 	        	<Route path="/UserDialog" component={UserDialog} />
 	        	<Route path="/UserToast" component={UserToast} />
 	        	<Route path="/UseFrom" component={UseFrom} />
-	        	<Route path="/Button" component={Button} />
+	        	<Route path="/Button" component={UserButton} />
+	        	<Route path="/List" component={UserList} />
 
 	        </Route>
 	        
