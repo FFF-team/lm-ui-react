@@ -2,6 +2,7 @@ import React from 'react'
 
 import './index.scss'
 import FilterBar from './FilterBar'
+import { NList, ListItem } from 'src/index'
 
 class FilterPage extends React.Component {
     constructor(props) {
@@ -23,22 +24,60 @@ class FilterPage extends React.Component {
         }
     }
     
-    changeList = (sortKey, sortBy) => {
-        console.log(sortKey + ',' + sortBy);
+    showSortList() {
+        
+    }
+    
+    changeList = (key, sortBy) => {
+        console.log('开始筛选：' + key + ',' + sortBy);
+        let data;
+        
+        switch (key) {
+            case '单项排序key':
+                data = [{
+                    id: 1,
+                    value: 'item1'
+                }, {
+                    id: 3,
+                    value: 'item3'
+                }, {
+                    id: 2,
+                    value: 'item2'
+                }];
+                break;
+            case 'byTime':
+                data = [{
+                    id: 1,
+                    value: 'item1'
+                }, {
+                    id: 2,
+                    value: 'item2'
+                }, {
+                    id: 3,
+                    value: 'item3'
+                }];
+                break;
+            case 'showList':
+                break;
+            default:
+                data = [{
+                    id: 2,
+                    value: 'item2'
+                }, {
+                    id: 1,
+                    value: 'item1'
+                }, {
+                    id: 3,
+                    value: 'item3'
+                }];
+                break;
+                
+        }
     
         this.setState({
-            data: [{
-                id: 1,
-                value: 'item1'
-            }, {
-                id: 2,
-                value: 'item3'
-            }, {
-                id: 3,
-                value: 'item2'
-            }]
+            data: data
         });
-    }
+    };
     
     
     render() {
@@ -46,13 +85,14 @@ class FilterPage extends React.Component {
             <div>
                 <FilterBar onFilterChange={ this.changeList }/>
                 <div>
-                    <ul>
+                    <NList>
                         { this.state.data.map((item) => {
                             return (
-                                <li key={ item.id }>{ item.id }、{ item.value }</li>
+                                <ListItem key={ item.id }
+                                          primaryText={ `${item.id}、${item.value}` } />
                             )
                         }) }
-                    </ul>
+                    </NList>
                 </div>
             </div>
         )

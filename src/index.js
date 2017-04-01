@@ -21,12 +21,13 @@ export ValidateValHOC from './ValidateValHOC';
 export Dialog from './Dialog/index.js';
 
 // Tab
-export Tabs from './Tabs/Tabs'
+export { Tabs, TabsFooter, Tab } from './Tabs'
 
-export Tab from './Tabs/Tab'
+export { NList, ListItem } from './NormalList'
 
-export TabsFooter from './Tabs/TabsFooter'
+export { Sort, SortGroup } from './Sort'
 
+// Toast
 export Toast from './Toast/index.js';
 
 

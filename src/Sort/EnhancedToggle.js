@@ -24,6 +24,7 @@ class EnhancedToggle extends React.Component {
             onParentShouldUpdate,
             style,
             toggle,
+            disabled,
             ...others
         } = this.props;
         
@@ -43,7 +44,8 @@ class EnhancedToggle extends React.Component {
 EnhancedToggle.PropTypes = {
     style: React.PropTypes.object,
     onParentShouldUpdate: React.PropTypes.func,
-    toggle: React.PropTypes.bool
+    toggle: React.PropTypes.bool,
+    disabled: React.PropTypes.bool
 };
 
 EnhancedToggle.defaultProps = {

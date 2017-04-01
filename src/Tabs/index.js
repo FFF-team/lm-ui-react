@@ -8,4 +8,4 @@ export {
     TabsFooter
 }
 
-export default from './Tabs'
+// export default from './Tabs'

@@ -1,5 +1,20 @@
 .lm-ui-sort {
   position: relative;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: 14px;
+  em {
+    font-style: normal;
+  }
+  &-icon {
+    display: flex;
+    flex-direction: column;
+    height: 12px;
+    justify-content: space-around;
+    margin-left: 4px;
+  }
   .positive-sort {
     .lm-icon-arrow-top {
       border-bottom-color: red
@@ -13,6 +28,5 @@
   .label {
     display: inline-block;
     padding: 15px 0;
-    color: #333;
   }
 }

@@ -1,37 +1,92 @@
 import React from 'react'
 
-import Sort from 'src/Sort/Sort'
-import SortToggle from 'src/Sort/SortToggle'
+import { Sort, SortGroup } from 'src/index'
+import FilterList from  './FilterList'
 
 class FilterBar extends React.Component {
     constructor(props){
-        super(props)
+        super(props);
         
+        this.sort1By = 0;
+        
+        this.state = {
+            sort: '',
+            sort1: 'byTime',
+            sort2: '',
+            selectedValue: 0,
+            isShowList: false
+        }
     }
     
     
-    
-    handleClick = (sortKey, sortBy) => {
+    handleClick = (key, sortBy) => {
         // todo: do something on sort
-        this.props.onFilterChange && this.props.onFilterChange(sortKey, sortBy)
+        console.log(`handleClick sort: ${key} - ${sortBy}`);
+        this.props.onFilterChange(key, sortBy);
     }
     
-    handleClick1 = (sortKey, sortBy) => {
+    handleClick1 = (key, sortBy) => {
         // todo: do something on sort1
-        this.props.onFilterChange && this.props.onFilterChange(sortKey.key, sortBy)
+        console.log(`handleClick sort1: ${key} - ${sortBy}`);
+        this.switchList();
+        // this.props.onFilterChange(key, sortBy);
     }
     
-    handleClick2 = (sortKey, sortBy) => {
+    handleClick2 = (key, sortBy) => {
         // todo: do something on sort2
-        this.props.onFilterChange && this.props.onFilterChange(sortKey, sortBy)
+        console.log(`handleClick sort2: ${key} - ${sortBy}`);
+        this.props.onFilterChange(key, sortBy);
+    }
+    
+    
+    handleFilterListChange = (value) => {
+        console.log(value);
+    
+        this.props.onFilterChange(value, this.sort1By);
+        
+        this.setState({
+            sort1: value,
+            isShowList: false
+        })
+    };
+    
+    handleSelectChange = (event, value) => {
+        console.log('筛选条件切换:sort' + value);
+        
+        this.setState({
+            selectedValue: value
+        })
+    };
+    
+    switchList() {
+        this.setState({
+            isShowList: true
+        })
     }
     
     render() {
         return (
-            <div className="demo-filter-bar">
-                <Sort label="单项排序" sortKey={ ['单项排序key'] } clickAction={ this.handleClick }/>
-                <Sort label="按序号" sortKey={ [{key: '按序号a', sortBy: 0}] } clickAction={ this.handleClick1 }/>
-                <SortToggle label="双向排序" sortKey={ ['双向排序b', '双向排序c'] } clickAction={ this.handleClick2 }/>
+            <div>
+                <SortGroup className="demo-filter-bar"
+                           selectedValue={ this.state.selectedValue }
+                           onSelectedChange={ this.handleSelectChange }>
+                    <Sort value={ 0 }
+                          label="单项排序"
+                          sortInfo={ ['单项排序key'] }
+                          clickAction={ this.handleClick }/>
+                    <Sort value={ 1 }
+                          label={ this.state.sort1 }
+                          sortInfo={ [{key: this.state.sort1, sortBy: this.sort1By}] }
+                          clickAction={ this.handleClick1 }/>
+                    <Sort value={ 2 }
+                          label="双向排序"
+                          sortInfo={ ['双向排序b', '双向排序c'] }
+                          clickAction={ this.handleClick2 }/>
+                </SortGroup>
+                
+                <FilterList style={{ display:this.state.isShowList ? 'block' : 'none' }}
+                            className="demo-filter-bar-list"
+                            onChange={ this.handleFilterListChange }/>
             </div>
         )
     }
