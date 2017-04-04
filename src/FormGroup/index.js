@@ -4,15 +4,18 @@ import './index.scss';
 /*
  * props:
  *  groupId
- *  layout ()
+ *  layout obj
  */
 
 const propTypes = {
 
 	groupId: React.PropTypes.string,
 	layout: React.PropTypes.shape({
+
 		direction: React.PropTypes.string,
-		justifyContent: React.PropTypes.string
+		justifyContent: React.PropTypes.string,
+		alignItems: React.PropTypes.string
+		
 	})
 
 };
@@ -23,21 +26,56 @@ const defaultProps = {
 	layout: {
 
 		direction: 'row',
-		justifyContent: 'flex-start'
+		justifyContent: 'flex-start',
+		alignItems: 'center'
 
 	}
 
 }
 
+const childContextTypes = {
+
+	groupId: React.PropTypes.oneOfType([
+
+		React.PropTypes.string,
+		React.PropTypes.number
+
+	])
+
+};
+
 export default class FormGroup extends React.Component {
+
+	getChildContext () {
+
+		return {
+		
+			groupId: this.props.groupId	
+
+		};	
+
+    }
+
+    parseClass (direction, justifyContent, alignItems) {
+
+    	const preffix = 'lm-ui-layout';
+
+    	return `lm-ui-form-group 
+    	${preffix}-flex-direction-${direction} 
+    	${preffix}-justify-content-${justifyContent} 
+    	${preffix}-align-items-${alignItems}`
+
+    }
 
 	render () {
 
-		const { children } = this.props;
+		const { children, layout: {direction, justifyContent, alignItems} } = this.props;
+		const argArr = [direction, justifyContent, alignItems];
+		const clsName = this.parseClass(...argArr);
 
 		return (
 
-			<div className="lm-form-group lm-form-layout-row-start">
+			<div className={clsName}>
 
 				{ children }
 
@@ -51,3 +89,4 @@ export default class FormGroup extends React.Component {
 
 FormGroup.propTypes = propTypes;
 FormGroup.defaultProps = defaultProps;
+FormGroup.childContextTypes = childContextTypes;

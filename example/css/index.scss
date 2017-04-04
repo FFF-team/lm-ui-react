@@ -19,3 +19,49 @@
 
 }	
 
+.form-title {
+
+	font-size: 14px;
+    color: #666;
+    font-weight: bold;
+    padding: 10px 14px 0;
+    position: relative;
+    line-height: 20px;
+    background-color: #fff;
+
+    &::before {
+	    content: "";
+	    position: absolute;
+	    left: 0;
+	    width: 2px;
+	    height: 20px;
+	    background-color: #ff552e;
+	    margin-top: -1px;
+	}
+
+}
+
+.cell-imark {
+
+	width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    padding-right: 5px;
+
+}
+
+.lm-ui-img-label {
+
+	span {
+
+		vertical-align: middle;
+
+	}
+
+}
+
+.cards {
+
+	margin-bottom: 10px;
+
+}

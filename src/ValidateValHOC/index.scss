@@ -1,0 +1,38 @@
+.lm-ui-validate-wrap {
+
+	flex: 1;
+	position: relative;
+
+	.lm-ui-validate-text {
+
+		position: absolute;
+		left: -95px;
+    	right: 0;
+		border: 1px solid #fce5b8;
+		background-color: #fcf9ec;
+		font-size: 12px;
+		color: #ff8e33;
+		text-align: center;
+		line-height: 1;
+		padding: 7px 0;
+		bottom: -18px;
+		z-index: 20;
+		&::after {
+			content: "";
+			position: absolute;
+			width: 3px;
+			height: 3px;
+			border: 1px solid #fce5b8;
+			border-left: 0;
+			border-bottom: 0;
+			background-color: #fcf9ec;
+			right: 4px;
+			top: -3px;
+			-webkit-transform: rotate(-45deg);
+	    	transform: rotate(-45deg);
+
+		}
+
+	}
+
+}

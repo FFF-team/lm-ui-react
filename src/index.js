@@ -14,6 +14,22 @@ export Label from './Label';
 
 //Input
 export Input from './Input';
+//Switch
+export Switch from './Switch';
+//Select
+export Select from './Select';
+//RadioGroup
+export RadioGroup from './RadioGroup';
+//Radio
+export Radio from './Radio';
+//CheckboxGroup
+export CheckboxGroup from './CheckboxGroup';
+//Checkbox
+export Checkbox from './Checkbox';
+//CheckBtn
+export CheckBtn from './CheckBtn';
+//表单中特有的按钮
+export GetCodeBtn from './FormExclusiveBtn/GetCodeBtn';
 
 //验证
 export ValidateValHOC from './ValidateValHOC';
