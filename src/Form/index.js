@@ -3,7 +3,7 @@ import emitter from '../Events';
 
 /*
  * props:
- *	...
+ *	listenRequireMapFun实时监听&&反馈表单中需要验证项的信息
  */
 
 const propTypes = {};

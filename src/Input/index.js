@@ -3,6 +3,7 @@ import ValidateValHOC from '../ValidateValHOC';
 import { getOtherPorps, isEmptyObj } from './tools';
 import emitter from '../Events';
 import './index.scss';
+
 /*
  * props:
  *	type input || textarea
@@ -169,9 +170,9 @@ class Input extends React.Component {
 			if (value === '') return;
 			
 			if (validate.hookFun) {
-
+				//进行类型验证
 				let validateResult = validate.hookFun(value);
-				
+				//将验证信息发送出去--->Form接收
 				emitter.emit('errorMsg', {id: this.id}, validateResult)
 
 			}
@@ -255,6 +256,12 @@ class Input extends React.Component {
 		return (
 
 			<div className="lm-ui-input-wrap">
+
+				{
+
+					preffix && preffix
+
+				}
 
 				<div className="lm-ui-input-core">
 

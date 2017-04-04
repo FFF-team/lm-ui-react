@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.scss';
-//import * as _ from 'lodash';
+
 /*
  * props:
  *	text   选择项显示的文字

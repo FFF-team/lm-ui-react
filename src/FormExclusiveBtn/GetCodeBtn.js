@@ -1,7 +1,6 @@
 import React from 'react';
 import './GetCodeBtn.scss';
 
-
 /*
  * props:
  *	...
@@ -81,6 +80,12 @@ export default class GetCodeBtn extends React.Component {
 			}
 
 		}, 1000)
+
+	}
+
+	componentWillUnmount () {
+
+		clearInterval(this.timer);
 
 	}
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.scss';
+
 /*
  * props:
  *	groupId (string || number) - - link label and other
@@ -22,12 +23,15 @@ export default class Label extends React.Component {
 
 	render () {
 
-		const { children } = this.props;
+		const { children, ...arg } = this.props;
 		const { groupId } = this.context;
 
 		return (
 
-			<label htmlFor={groupId && groupId} className="lm-ui-label">
+			<label 
+				htmlFor={groupId && groupId} 
+				className="lm-ui-label"
+				{...arg}>
 
 				{children}
 

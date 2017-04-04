@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './index.scss';
+
 /*
  * 介绍：
  *  本组件拦截存在props.validateData的组件，
@@ -15,6 +16,7 @@ import './index.scss';
  *  props---> validateData ----> validate
  *        in     havent     out   isNull
  */
+ 
 const ValidateValHOC = (WrappedComponent) => 
 	
 	class extends React.Component {
