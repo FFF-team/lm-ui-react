@@ -1,14 +1,11 @@
 import Tabs from './Tabs'
 import Tab from './Tab'
-import TabSwitch from './TabSwitch'
-
-import './index.scss'
+import TabsFooter from './TabsFooter'
 
 export {
     Tabs,
     Tab,
-    TabSwitch
+    TabsFooter
 }
 
-
-export default from './Tabs'
+// export default from './Tabs'

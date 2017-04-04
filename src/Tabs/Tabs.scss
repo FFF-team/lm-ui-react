@@ -1,0 +1,57 @@
+@import "../Style/mixin";
+
+.lm-ui-navbar-box {
+  position: relative;
+  width: 100%;
+  overflow: auto;
+  @include hairline(single, #e6e6e6, 0)
+}
+.lm-ui-navbar {
+  background-color: #fff;
+  li {
+    text-align: center;
+    &:active {
+      background-color: #ededed;
+    }
+  }
+  a {
+    font-size: 14px;
+    color: #333;
+    padding: 13px 6px;
+    border-bottom: 2px solid transparent;
+    display: inline-block;
+    position: relative;
+    z-index: 20;
+  }
+  .active {
+    a {
+      color: #ff552e;
+      border-bottom-color: #ff552e;
+    }
+  }
+}
+.lm-ui-navbar-equal {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  li {
+    flex: 1;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+  }
+}
+.lm-ui-navbar-nowrap {
+  padding: 0 6px;
+  font-size: 0;
+  white-space: nowrap;
+  li {
+    display: inline-block;
+    padding: 0 8px;
+  }
+}
+.lm-ui-navbar-nowrap::-webkit-scrollbar {
+  display: none;
+}
+.lm-ui-navbar-box::-webkit-scrollbar {
+  display: none;
+}

@@ -192,3 +192,28 @@ $z-layers: (
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+/*
+ *	only support top-arrow || bottom-arrow
+ *	$direction == 1 	top-arr
+ *  $direction == other bottom-arr
+ * 	if you need left-arrow right-arrow
+ */
+@mixin filterArrow ($direction, $color, $xsize, $ysize) {
+
+  width: 0;
+  height: 0;
+  border-left: $ysize solid transparent;
+  border-right: $ysize solid transparent;
+
+  @if $direction == 1 {
+
+    border-bottom: $xsize solid $color;
+
+  } @else {
+
+    border-top: $xsize solid $color;
+
+  }
+
+}

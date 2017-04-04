@@ -1,0 +1,13 @@
+.demo-filter-bar {
+  display: flex;
+  .lm-ui-sort {
+    flex: 1;
+  }
+  &-list {
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    top: 0;
+    left: 0;
+  }
+}
