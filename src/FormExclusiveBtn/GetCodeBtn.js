@@ -2,8 +2,16 @@ import React from 'react';
 import './GetCodeBtn.scss';
 
 /*
- * props:
- *	...
+ * |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+ * | ---------- | ------ | ------ | --------- |
+ * | text | 按钮显示的文字 | string | '获取验证码' | 可选 |
+ * | countNum | 倒计时时间 | number | 60 | 可选 |
+ * | onClick | 点击时调用的函数 | func | () => {} | 可选 |
+ *
+ * <GetCodeBtn 
+ *     text={ '获取验证码'}
+ *     countNum={60}
+ *     onClick={() => {}} />
  */
 
 const propTypes = {

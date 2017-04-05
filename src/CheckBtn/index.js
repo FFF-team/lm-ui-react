@@ -1,10 +1,17 @@
 import React from 'react';
 import './index.scss';
 
-/*	
- * props:
- *	checked boolen
- *	checkedChildren&&unCheckedChildren temporarily not supported
+/*
+ * |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+ * | ---------- | ------ | ------ | --------- |
+ * | btnMap | 选择按钮的信息 | array[{ text: string or number, value: string or number }] | [...] | 必要 |
+ * | selectedValue | 被选中的值 | string or number or bool | 无 | 必要 |
+ * | onChange | 选择时，调用此函数 | func | ()=>{} | 必要 |
+ *
+ *<CheckBtn
+ *	btnMap={[{ text: '有', value: true }, { text: '无', value: false }]}
+ *	selectedValue={this.state.checkBtn}
+ *	onChange={(val) => {this.setState({ checkBtn: val })}} />
  */
 
 const propTypes = {

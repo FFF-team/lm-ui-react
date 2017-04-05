@@ -3,13 +3,20 @@ import './index.scss';
 
 /*
  * props:
- *	name
- *  selectedValue  isRequired
- *  onChange       isRequired
- *  children       isRequired
- * 功能特点:
- *  将onChange回调函数&name&selectedValue分发给下面的checkbox
- *  不用在每个checkbox上绑定函数，赋值name，判断是否选中，方便书写。
+ * |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+ * | ---------- | ------ | ------ | --------- |
+ * | name | Checkbox的name属性 | string | 无 | 必要 |
+ * | selectedValue | 选中的值 | array | [...] | 必要 |
+ * | onChange | 选择时，调用此函数 | fun | 无 | 必要 |
+ *
+ * <CheckboxGroup
+ * 	 name={'checkboxName'}
+ * 	 selectedValue={this.state.checkboxVal}
+ * 	 onChange={(val) => {console.log(`checkbox/${val}`); this.setState({ checkboxVal: val })}}>
+ * 	 <Checkbox text={'11'} value={1} />
+ * 	 <Checkbox text={'22'} value={2} />
+ * 	 <Checkbox text={'33'} value={3} />
+ * </CheckboxGroup>
  */
 
 const propTypes = {

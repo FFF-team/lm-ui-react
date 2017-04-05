@@ -3,8 +3,13 @@ import './index.scss';
 
 /*
  * props:
- *  groupId
- *  layout obj
+ * |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+ * | ---------- | ------ | ------ | --------- |
+ * | groupId | 赋予组内空间id | number or string | 无 | 可选 |
+ * | layout | 组内成员布局 | obj | 无 | 可选 |
+ *
+ * <FormGroup  groupId={'inputId'}>
+ * <FormGroup layout={{ direction: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
  */
 
 const propTypes = {

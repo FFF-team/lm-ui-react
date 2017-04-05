@@ -6,18 +6,28 @@ import './index.scss';
 
 /*
  * props:
- *	type input || textarea
- *  value 
- *  defaultText
- *  size
- *  disable
- *  preffix
- *  suffix
- *  change
- *  validateRule
- *	  validate
- *    validateFun
- *       
+ * |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+ * | ---------- | ------ | ------ | --------- |
+ * | type | input的类型 | 'input' or 'textarea' | 'input' | 必要 |
+ * | value | 输入的值 | all | 无 | 必要 |
+ * | defaultText | 默认placeholder | all | '' | 必要 |
+ * | onChange | 值更改时触发次函数 | fun | ()=>{} | 必要 |
+ * | maxLength | textarea中最大长度，超出文字标红 | number | 200 | 可选 |
+ * | validateData | 验证信息 | obj{ promptText: string, validateFun: fun }| 无 | 可选 |
+ * | cleanBtn | 右侧清除按钮则配置 | obj{ state: true, cleanFun: fun } | 无 | 可选 |
+ * | preffix | 输入框前缀 | node | 无 | 可选 |
+ * | suffix | 输入框后缀 | node | 无 | 可选 |
+ * | disabled | 是否不可操作 | bool | false | 可选 |
+ * | style | 增加样式 |  obj | 无 | 可选 |
+ *     
+ *  <Input
+ * 	type='input' 
+ * 	validateData={{ promptText: '请输入正确的姓名', validateFun: (value) => { return !!value && (value.trim() != '') && /^[\.·\u4e00-\u9fa5]{2,20}$/.test(value); } }}
+ * 	value={this.state.test5}
+ * 	cleanBtn={{ state: true, cleanFun: () => {this.setState({test5: ''})} }}
+ * 	defaultText={'aaa'}
+ *  suffix={<GetCodeBtn onClick={() => {}} countNum={60} />} />
+ * 	onChange={(e) => {this.setState({test5: e.target.value})}} />  
  */
 
 //识别每个input实例的唯一id。
@@ -27,7 +37,6 @@ const propTypes = {
 	type: React.PropTypes.string.isRequired,
 	value: React.PropTypes.any.isRequired,
 	defaultText: React.PropTypes.string,
-	size: React.PropTypes.object,
 	disable: React.PropTypes.bool,
 	preffix: React.PropTypes.node,
 	suffix: React.PropTypes.node,
@@ -46,15 +55,9 @@ const propTypes = {
 
 const defaultProps = {
 
-	type: null,
+	type: 'input',
 	value: null,
-	defaultText: 'please input',
-	size: {
-
-		cols: 30,
-		rows: 20
-
-	},
+	defaultText: '',
 	disable: false,
 	preffix: false,
 	suffix: false,
@@ -79,7 +82,6 @@ const contextTypes = {
 const propsMap = ['type', 
 				'value',
 				'defaultText',
-				'size',
 				'disable',
 				'preffix',
 				'suffix',

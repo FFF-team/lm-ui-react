@@ -3,8 +3,17 @@ import emitter from '../Events';
 
 /*
  * props:
- *	listenRequireMapFun实时监听&&反馈表单中需要验证项的信息
- */
+ * |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+ * | ---------- | ------ | ------ | --------- |
+ * | listenRequireMapFun | 监听内部条件验证选项的实时信息 | fun | 可选 |
+ * | style | 增加样式 |  obj | 无 | 可选 |
+ *
+ * <Form listenRequireMapFun={(mapData) => { console.log(mapData) }} >
+ * 	...
+ * </Form> 
+ */<Form listenRequireMapFun={(mapData) => { console.log(mapData) }} >
+...
+</Form>
 
 const propTypes = {};
 const defaultProps = {};

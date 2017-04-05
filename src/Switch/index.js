@@ -3,8 +3,18 @@ import './index.scss';
 
 /*	
  * props:
- *	checked boolen
- *	checkedChildren&&unCheckedChildren temporarily not supported
+ * |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+ * | ---------- | ------ | ------ | --------- |
+ * | checked | 选中状态 | bool | false | 必要 |
+ * | onChange | 选择时触发此函数 | fun | 必要 |
+ * | disabled | 是否不可操作 | bool | false | 可选 |
+ * | style | 增加样式 |  obj | 无 | 可选 |
+ *
+ * <Switch
+ * 	disabled={true}
+ * 	name={'name'}
+ * 	checked={this.state.checked} 
+ * 	onChange={() => { this.setState({checked: !this.state.checked}) }} />
  */
 
 const propTypes = {
