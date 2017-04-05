@@ -61,7 +61,7 @@ export default class Button extends React.Component {
 	render () {
 
 		const { children } = this.props;
-		// debugger
+
 		return (
 
 			<button  onClick={this.clickhandle.bind(this)} className={this.classnames} disabled={this.props.isDisabled ? true : false}>

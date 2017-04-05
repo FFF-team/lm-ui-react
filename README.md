@@ -51,6 +51,8 @@ npm run build
 * [Checkbox](#checkbox)
 * [CheckBtn](#checkbtn)
 * [GetCodeBtn](#getcodebtn表单中特殊按钮)
+* [Button](#Button)
+* [List](#List表单展示)
 ******
 ### Form
 * props
@@ -264,4 +266,53 @@ npm run build
       text={ '获取验证码'}
       countNum={60}
       onClick={() => {}} />
+```
+
+******
+### Button
+*props
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| size | 按钮大小 | string(small,middle,big,long) | small | 可选 |
+| type | 按钮类型 | string(primary,colorfulHollow,grayHollow) | primary | 可选 |
+| icon | 按钮内图标地址 | string | 空 | 可选 |
+| isDisabled | 是否禁用 | bool | false | 可选 |
+| onClick | 点击事件 |  func | ()=>{} | 可选 |
+
+```
+<Button
+		size='small'
+		type='primary'
+		onClick={(e)=>{this.callbackFun(e)}}
+>开关按钮</Button>
+```
+
+******
+### List(表单展示)
+*props
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| label | 表单标题 | string | small | 可选 |
+| value | 表单值 | string | 空 | 可选 |
+| icon | 表单标题前icon | string | 空 | 可选 |
+| activeNumber | 圆形提示 | number | 无 | 可选 |
+| onClick | 点击事件 |  func | ()=>{} | 可选 |
+| arrow | 是否有箭头 |  bool | false | 可选 |
+
+```
+<ListGroup>
+	<List
+		label={this.data.label}
+		value={this.data.value}
+		icon={this.data.icon}
+	></List>
+
+	<List 
+		label={this.data.label}
+		value={this.data.value}
+		activeNumber={this.data.activeNumber}
+		arrow={this.data.arrow}
+	></List>
+</ListGroup>
+
 ```
