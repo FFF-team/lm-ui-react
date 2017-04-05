@@ -56,9 +56,10 @@ npm run build
 * props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
-| ---------- | ------ | ------ | --------- |
+| ---------- | ------ | ------ | --------- | --------- |
 | listenRequireMapFun | 监听内部条件验证选项的实时信息 | fun | 无 | 可选 |
 | style | 增加样式 |  obj | 无 | 可选 |
+
 ```
 <Form listenRequireMapFun={(mapData) => { console.log(mapData) }} >
 ...
@@ -69,11 +70,12 @@ npm run build
 * props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
-| ---------- | ------ | ------ | --------- |
+| ---------- | ------ | ------ | --------- | --------- |
 | groupId | 赋予组内空间id | number or string | 无 | 可选 |
 | layout | 组内成员布局 | obj | 无 | 可选 |
 | style | 增加样式 |  obj | 无 | 可选 |
 | children | 子类 | node | 无 | 必要 |
+
 ```
 //PropTypes.string
 <FormGroup  groupId={'inputId'}>
@@ -87,7 +89,7 @@ npm run build
 * props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
-| ---------- | ------ | ------ | --------- |
+| ---------- | ------ | ------ | --------- | --------- |
 | children | 子类 | node | 无 | 必要 |
 | style | 增加样式 |  obj | 无 | 可选 |
 
@@ -101,7 +103,7 @@ npm run build
 * props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
-| ---------- | ------ | ------ | --------- |
+| ---------- | ------ | ------ | --------- | --------- |
 | type | input的类型 | 'input' or 'textarea' | 'input' | 必要 |
 | value | 输入的值 | all | 无 | 必要 |
 | defaultText | 默认placeholder | all | '' | 必要 |
@@ -129,11 +131,12 @@ npm run build
 * props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
-| ---------- | ------ | ------ | --------- |
+| ---------- | ------ | ------ | --------- | --------- |
 | checked | 选中状态 | bool | false | 必要 |
 | onChange | 选择时触发此函数 | fun | 必要 |
 | disabled | 是否不可操作 | bool | false | 可选 |
 | style | 增加样式 |  obj | 无 | 可选 |
+
 ```
 <Switch
 	disabled={true}
@@ -145,7 +148,7 @@ npm run build
 * props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
-| ---------- | ------ | ------ | --------- |
+| ---------- | ------ | ------ | --------- | --------- |
 | selectedValue | 选中的值 | string or number or bool | 无 | 必要 |
 | onChange | 选择时，调用此函数 | fun | ()=>{} | 必要 |
 | optionMap | option信息数组 | array[{ text: string or number, value: string or number }] | [...] | 必要 |
@@ -164,7 +167,7 @@ npm run build
 * props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
-| ---------- | ------ | ------ | --------- |
+| ---------- | ------ | ------ | --------- | --------- |
 | name | Radio的name属性 | string | 无 | 必要 |
 | selectedValue | 选中的值 | array | [...] | 必要 |
 | onChange | 选择时，调用此函数 | fun | 无 | 必要 |
@@ -175,11 +178,12 @@ npm run build
 * props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
-| ---------- | ------ | ------ | --------- |
+| ---------- | ------ | ------ | --------- | --------- |
 | text | 选择项显示的文字 | string or number | 无 | 必要 |
 | value | 选择项实际的值 | string or number or bool | 无 | 必要 |
 | disabled | 是否不可操作 | bool | false | 可选 |
 | style | 增加样式 |  obj | 无 | 可选 |
+
 ```
 <RadioGroup
 	name={'radioName'}
@@ -196,7 +200,7 @@ npm run build
 * props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
-| ---------- | ------ | ------ | --------- |
+| ---------- | ------ | ------ | --------- | --------- |
 | name | Checkbox的name属性 | string | 无 | 必要 |
 | selectedValue | 选中的值 | array | [...] | 必要 |
 | onChange | 选择时，调用此函数 | fun | 无 | 必要 |
@@ -207,11 +211,12 @@ npm run build
 * props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
-| ---------- | ------ | ------ | --------- |
+| ---------- | ------ | ------ | --------- | --------- |
 | text | 选择项显示的文字 | string or number | 无 | 必要 |
 | value | 选择项实际的值 | string or number or bool | 无 | 必要 |
 | disabled | 是否不可操作 | bool | false | 可选 |
 | style | 增加样式 |  obj | 无 | 可选 |
+
 ```
 <CheckboxGroup
 	name={'checkboxName'}
@@ -228,7 +233,7 @@ npm run build
 * props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
-| ---------- | ------ | ------ | --------- |
+| ---------- | ------ | ------ | --------- | --------- |
 | btnMap | 选择按钮的信息 | array[{ text: string or number, value: string or number }] | [...] | 必要 |
 | selectedValue | 被选中的值 | string or number or bool | 无 | 必要 |
 | onChange | 选择时，调用此函数 | func | ()=>{} | 必要 |
