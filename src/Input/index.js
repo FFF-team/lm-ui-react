@@ -1,6 +1,6 @@
 import React from 'react';
 import ValidateValHOC from '../ValidateValHOC';
-import { getOtherPorps, isEmptyObj } from './tools';
+import { isEmptyObj } from './tools';
 import emitter from '../Events';
 import './index.scss';
 
@@ -37,7 +37,6 @@ const propTypes = {
 	type: React.PropTypes.string.isRequired,
 	value: React.PropTypes.any.isRequired,
 	defaultText: React.PropTypes.string,
-	disable: React.PropTypes.bool,
 	preffix: React.PropTypes.node,
 	suffix: React.PropTypes.node,
 	onChange: React.PropTypes.func.isRequired,
@@ -58,7 +57,6 @@ const defaultProps = {
 	type: 'input',
 	value: null,
 	defaultText: '',
-	disable: false,
 	preffix: false,
 	suffix: false,
 	onChange: () => {},
@@ -82,7 +80,6 @@ const contextTypes = {
 const propsMap = ['type', 
 				'value',
 				'defaultText',
-				'disable',
 				'preffix',
 				'suffix',
 				'onChange',
@@ -242,19 +239,21 @@ class Input extends React.Component {
 
 	renderInput () {
 
-		const { value, 
+		const { type,
+				value, 
 				defaultText, 
-				disable, 
 				preffix, 
 				suffix, 
 				onChange,
 				validate,
-				cleanBtn } = this.props;
+				validateData,
+				cleanBtn,
+				maxLength,
+				...arg } = this.props;
 		const { groupId } = this.context;
 		const validateClass = this.getValidateName();
 		const closeIconClass = this.getCloseIcon();
-		const otherProps = getOtherPorps(this.props, propsMap);
-
+		
 		return (
 
 			<div className="lm-ui-input-wrap">
@@ -276,7 +275,8 @@ class Input extends React.Component {
 						onFocus={this.focusHandler}
 						onBlur={this.blurHandler}
 						placeholder={defaultText}
-						{...otherProps } />
+						maxLength={maxLength}
+						{...arg } />
 					
 					{ 
 						closeIconClass && <div 
@@ -301,13 +301,18 @@ class Input extends React.Component {
 
 	renderTextarea () {
 
-		const { value,
-				defaultText,
-				disable, 
+		const { type,
+				value, 
+				defaultText, 
+				preffix, 
+				suffix, 
 				onChange,
-				maxLength } = this.props;
+				validate,
+				validateData,
+				cleanBtn,
+				maxLength,
+				...arg } = this.props;
 	    const { groupId } = this.context;
-		const otherProps = getOtherPorps(this.props, propsMap);
 
 		return (
 
@@ -319,7 +324,9 @@ class Input extends React.Component {
 					value={value}
 					onChange={onChange} 
 					rows="4"
-					{...otherProps}>
+					maxLength={maxLength}
+					placeholder={defaultText}
+					{...arg}>
 				</textarea>
 				
 				<div className="lm-ui-textarea-counter">

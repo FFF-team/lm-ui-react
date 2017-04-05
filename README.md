@@ -133,7 +133,7 @@ npm run build
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
 | checked | 选中状态 | bool | false | 必要 |
-| onChange | 选择时触发此函数 | fun | 必要 |
+| onChange | 选择时，调用此函数 | fun | 必要 |
 | disabled | 是否不可操作 | bool | false | 可选 |
 | style | 增加样式 |  obj | 无 | 可选 |
 
