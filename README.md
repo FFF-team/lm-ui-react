@@ -51,8 +51,8 @@ npm run build
 * [Checkbox](#checkbox)
 * [CheckBtn](#checkbtn)
 * [GetCodeBtn](#getcodebtn表单中特殊按钮)
-* [Button](#Button)
-* [List](#List表单展示)
+* [Button](#button)
+* [List](#list表单展示)
 ******
 ### Form
 * props
@@ -271,6 +271,7 @@ npm run build
 ******
 ### Button
 *props
+
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
 | size | 按钮大小 | string(small,middle,big,long) | small | 可选 |
@@ -281,21 +282,22 @@ npm run build
 
 ```
 <Button
-		size='small'
-		type='primary'
-		onClick={(e)=>{this.callbackFun(e)}}
+	size='small'
+	type='primary'
+	onClick={(e)=>{this.callbackFun(e)}}
 >开关按钮</Button>
 ```
 
 ******
 ### List(表单展示)
 *props
+
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
-| label | 表单标题 | string | small | 可选 |
+| label | 表单标题 | string | 空 | 可选 |
 | value | 表单值 | string | 空 | 可选 |
 | icon | 表单标题前icon | string | 空 | 可选 |
-| activeNumber | 圆形提示 | number | 无 | 可选 |
+| activeNumber | 圆形提示数值 | number | 无 | 可选 |
 | onClick | 点击事件 |  func | ()=>{} | 可选 |
 | arrow | 是否有箭头 |  bool | false | 可选 |
 
