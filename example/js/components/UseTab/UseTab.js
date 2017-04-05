@@ -1,14 +1,16 @@
 import React from 'react';
 import { Tabs, Tab, TabSwitch } from 'src/index'
 import { Icon } from 'src/index'
+import Desc from './Desc'
 
-class UseTabSwitch extends React.Component {
+class UseTab extends React.Component {
     
     constructor(props) {
         super(props);
         
         this.state = {
-            curTab: '标签1'
+            curTab: '标签1',
+            value: 'tab1'
         }
     }
     
@@ -16,10 +18,12 @@ class UseTabSwitch extends React.Component {
         console.log('this is custom common click');
     }
     
-    changeAction2(name, tab) {
-        alert('tabs on change');
+    changeAction2(value, tab) {
+        console.log(value);
+        // alert('tabs on change');
         this.setState({
-            curTab: tab.props.label
+            curTab: tab.props.label,
+            value: value
         })
     }
     
@@ -28,15 +32,11 @@ class UseTabSwitch extends React.Component {
     }
     
     render() {
-        let initSelected = {
-            selectedIndex: 0,
-            // changeAction: this.changeAction.bind(this)
-        };
-        
         return (
             <div>
                 <div style={{height: '200px'}}>
-                    <Tabs { ...initSelected } className='test'>
+                    <Tabs selectedIndex={ 0 }
+                          className='test'>
                         <Tab label="标签1"
                              onClick={ this.clickTab.bind(this) }>
                             <div>this is tab1 content</div>
@@ -51,22 +51,26 @@ class UseTabSwitch extends React.Component {
                 </div>
                 
                 <div style={{marginTop: '20px', height: '200px'}}>
-                    <Tabs changeAction={this.changeAction2.bind(this)}>
-                        <Tab label="标签1"/>
-                        <Tab label="标签2" onClick={ this.clickTab }/>
-                        <Tab label="标签3"/>
-                        <Tab label="标签4"/>
-                        <Tab label="标签5"/>
-                        <Tab label="标签6"/>
-                        <Tab label="标签7"/>
+                    <Tabs changeAction={this.changeAction2.bind(this)}
+                          value={ this.state.value }>
+                        <Tab label="标签1" value="tab1"/>
+                        <Tab label="标签2" value="tab2" onClick={ this.clickTab }/>
+                        <Tab label="标签3" value="tab3"/>
+                        <Tab label="标签4" value="tab4"/>
+                        <Tab label="标签5" value="tab5"/>
+                        <Tab label="标签6" value="tab6"/>
+                        <Tab label="标签7" value="tab7"/>
                     </Tabs>
                     <div className="custom-cont">
                         { this.state.curTab }
                     </div>
                 </div>
+                
+                <Desc/>
+                
             </div>
         )
     }
 }
 
-export default UseTabSwitch
+export default UseTab

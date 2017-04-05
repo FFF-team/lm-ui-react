@@ -33,8 +33,4 @@ SortGroup.defaultProps = {
     selectedValue: 0,
 };
 
-export default SelectableFilterHOC({
-    selectedStyle: {
-        background: 'yellow'
-    }
-})(SortGroup)
+export default SortGroup

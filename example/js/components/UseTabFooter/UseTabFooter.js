@@ -1,6 +1,7 @@
 import React from 'react'
 import { Tabs, Tab, Icon } from 'src/index'
 import { TabsFooter } from 'src/index'
+import Desc from './Desc'
 
 class UseTabFooter extends React.Component {
     
@@ -8,7 +9,7 @@ class UseTabFooter extends React.Component {
         super(props);
         
         this.state = {
-            name: 'a'
+            value: 'a'
         }
     }
     
@@ -16,9 +17,9 @@ class UseTabFooter extends React.Component {
         alert('to router ' + tab.props['data-route'])
     }
     
-    handleChange(name) {
+    handleChange(value) {
         this.setState({
-            name: name
+            value: value
         })
     }
     
@@ -35,19 +36,21 @@ class UseTabFooter extends React.Component {
             <div>
                 <TabsFooter style={ tabStyle }
                             className='test'
-                            name={ this.state.name }>
+                            value={ this.state.value }>
                     <Tab label="list页面"
-                         name="a"
+                         value="a"
                          icon={ <Icon className="test">icon</Icon> }
                          data-route="/home"
                          onClick={ this.clickHome }/>
                     <Tab label="demo页面"
                          icon={ <Icon className="test">icon</Icon> }
-                         name="b"/>
+                         value="b"/>
                     <Tab label="当前页面"
                          icon={ <Icon className="test">icon</Icon> }
-                         name="c"/>
+                         value="c"/>
                 </TabsFooter>
+                
+                <Desc/>
             </div>
         )
     }

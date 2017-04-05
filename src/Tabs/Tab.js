@@ -9,7 +9,7 @@ class Tab extends React.Component {
     
     handleClick(event) {
         event.stopPropagation();
-        this.props.onClickAction && this.props.onClickAction(this.props.index, this.props.name, this)
+        this.props.onClickAction && this.props.onClickAction(this.props.index, this.props.value, this)
     }
     
     render() {

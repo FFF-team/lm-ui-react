@@ -6,7 +6,7 @@ export default function BuildDistributable() {
 
   	return exec(`webpack -e`)
     .then(() => Promise.all([
-      	exec(`webpack-dev-server --host 0.0.0.0 --colors -e `)
+      	exec(`webpack-dev-server --host 0.0.0.0  --port 8888 --colors -e `)
     ]))
     .then(() => console.log('Built: '.cyan + 'dist'.green))
 

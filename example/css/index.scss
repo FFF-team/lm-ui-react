@@ -94,3 +94,36 @@
 	margin-bottom: 10px;
 
 }
+
+.demo-desc {
+	background: #fff;
+	overflow: auto;
+	box-shadow: 0 0 10px rgba(0,0,0,.1);
+	margin: 10px;
+	table {
+		width: 800px;
+		text-align: left;
+		margin: 20px 10px;
+	}
+	caption {
+		text-align: left;
+		padding: 4px;
+		color: #5f9ea0
+	}
+	th, td {
+		padding: 4px;
+		border-bottom: solid 1px #efefef;
+		&:nth-child(1) {
+			width: 20%;
+		}
+		&:nth-child(2) {
+			width: 20%;
+		}
+		&:nth-child(3) {
+			width: 20%;
+		}
+		&:nth-child(4) {
+			width: 40%;
+		}
+	}
+}

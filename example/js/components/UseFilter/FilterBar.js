@@ -2,6 +2,13 @@ import React from 'react'
 
 import { Sort, SortGroup } from 'src/index'
 import FilterList from  './FilterList'
+import SelectableListHOC from 'src/SelectableListHOC'
+
+const SelectableSort = SelectableListHOC({
+    selectedStyle: {
+        background: 'yellow'
+    }
+})(SortGroup);
 
 class FilterBar extends React.Component {
     constructor(props){
@@ -71,7 +78,7 @@ class FilterBar extends React.Component {
     render() {
         return (
             <div>
-                <SortGroup className="demo-filter-bar"
+                <SelectableSort className="demo-filter-bar"
                            selectedValue={ this.state.selectedValue }
                            onSelectedChange={ this.handleSelectChange }>
                     <Sort value={ 0 }
@@ -87,7 +94,7 @@ class FilterBar extends React.Component {
                           label="双向排序"
                           sortInfo={ ['双向排序b', '双向排序c'] }
                           clickAction={ this.handleClick2 }/>
-                </SortGroup>
+                </SelectableSort>
                 
                 <FilterList style={{ display:this.state.isShowList ? 'block' : 'none' }}
                             className="demo-filter-bar-list"

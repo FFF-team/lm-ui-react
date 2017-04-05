@@ -10,11 +10,11 @@ const TabsHOC = ({
             constructor(props) {
                 super(props);
                 
-                const nameLink = this.getNameLink(this.props);
+                const valueLink = this.getValueLink(this.props);
                 const initialIndex = this.props.selectedIndex;
                 
                 this.state = {
-                    selectedIndex: nameLink.name !== undefined ?
+                    selectedIndex: valueLink.value !== undefined ?
                         this.getSelectedIndex(this.props) :
                         initialIndex < this.getTabCount() ?
                             initialIndex :
@@ -27,9 +27,9 @@ const TabsHOC = ({
             }
             
             componentWillReceiveProps(nextProps) {
-                let nameLink = this.getNameLink(nextProps);
+                let valueLink = this.getValueLink(nextProps);
                 
-                if (nameLink.name !== undefined) {
+                if (valueLink.value !== undefined) {
                     this.setState({
                         selectedIndex: this.getSelectedIndex(nextProps)
                     })
@@ -37,11 +37,11 @@ const TabsHOC = ({
             }
             
             getSelectedIndex(props) {
-                const nameLink = this.getNameLink(props);
+                const valueLink = this.getValueLink(props);
                 let selectedIndex = -1;
                 
                 this.getTabs().forEach((tab, index) => {
-                    if (nameLink.name === tab.props.name) {
+                    if (valueLink.value === tab.props.value) {
                         selectedIndex = index;
                     }
                 });
@@ -49,9 +49,9 @@ const TabsHOC = ({
                 return selectedIndex;
             }
             
-            getNameLink(props) {
+            getValueLink(props) {
                 return {
-                    name: props.name,
+                    value: props.value,
                     handleChange: props.changeAction || function () {
                     }
                 }
@@ -67,12 +67,12 @@ const TabsHOC = ({
                 return this.getTabs().length;
             }
             
-            handleClickAction(index, name, tab) {
-                const nameLink = this.getNameLink(this.props);
+            handleClickAction(index, value, tab) {
+                const valueLink = this.getValueLink(this.props);
                 
-                if ((nameLink.name && nameLink.name !== name) ||
+                if ((valueLink.value && valueLink.value !== value) ||
                     this.state.selectedIndex !== index) {
-                    nameLink.handleChange(name, tab);
+                    valueLink.handleChange(value, tab);
                 }
                 
                 this.setState({

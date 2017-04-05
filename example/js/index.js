@@ -11,8 +11,8 @@ import UseFrom from './components/UseFrom.js';
 import UserButton from './components/UserButton.js';
 import UserList from './components/UserList.js';
 
-import UseTab from './components/UseTab';
-import UseTabFooter from './components/UseTabFooter';
+import UseTab from './components/UseTab/UseTab';
+import UseTabFooter from './components/UseTabFooter/UseTabFooter';
 import UseFilter from './components/UseFilter/FilterPage'
 
 import '../css/index.scss';
