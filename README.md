@@ -234,6 +234,7 @@ npm run build
 | onChange | 选择时，调用此函数 | func | ()=>{} | 必要 |
 | disabled | 是否不可操作 | bool | false | 可选 |
 | style | 增加样式 |  obj | 无 | 可选 |
+
 ```
 <CheckBtn
 	btnMap={[{ text: '有', value: true }, { text: '无', value: false }]}
@@ -246,12 +247,13 @@ npm run build
 * props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
-| ---------- | ------ | ------ | --------- |
+| ---------- | ------ | ------ | --------- | --------- |
 | text | 按钮显示的文字 | string | '获取验证码' | 可选 |
 | countNum | 倒计时时间 | number | 60 | 可选 |
 | onClick | 点击时调用的函数 | func | () => {} | 可选 |
 | disabled | 是否不可操作 | bool | false | 可选 |
 | style | 增加样式 |  obj | 无 | 可选 |
+
 ```
 <GetCodeBtn 
       text={ '获取验证码'}
