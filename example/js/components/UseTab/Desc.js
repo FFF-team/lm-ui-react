@@ -65,6 +65,7 @@ const Desc = () => {
                 </tr>
                 </tbody>
             </table>
+            <p className="tip">其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上</p>
         </div>
     )
 };

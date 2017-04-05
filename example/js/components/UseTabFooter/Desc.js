@@ -2,7 +2,7 @@ import React from 'react'
 
 const Desc = () => {
     return (
-        <div className="demo-desc">
+        <div className="demo-desc" style={{marginBottom: '100px'}}>
             <table>
                 <caption>TabsFooter Properties</caption>
                 <thead>
@@ -65,6 +65,27 @@ const Desc = () => {
                 </tr>
                 </tbody>
             </table>
+            <table>
+                <caption>Icon Properties</caption>
+                <thead>
+                <tr>
+                    <th>name</th><th>type</th><th>default</th><th>description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>type</td>
+                    <td>string</td>
+                    <td>'default'</td>
+                    <td>
+                        <p>default:默认icon形式，可自定义添加class及children内容</p>
+                        <p>svg: // todo: 暂未实现</p>
+                        <p>font: // todo: 内置字体库，暂未实现</p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <p className="tip">其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上</p>
         </div>
     )
 };
