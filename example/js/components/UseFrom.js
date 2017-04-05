@@ -178,7 +178,8 @@ export default class UseAlert extends React.Component {
 								name={'a3'}
 								type='textarea'
 								maxLength={10}
-								rows={2}
+								rows={4}
+								defaultText={'aaa'}
 								value={this.state.test6}
 								onChange={(e) => {this.setState({test6: e.target.value})}} />
 						

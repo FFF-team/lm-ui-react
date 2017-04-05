@@ -11,9 +11,7 @@ import emitter from '../Events';
  * <Form listenRequireMapFun={(mapData) => { console.log(mapData) }} >
  * 	...
  * </Form> 
- */<Form listenRequireMapFun={(mapData) => { console.log(mapData) }} >
-...
-</Form>
+ */
 
 const propTypes = {};
 const defaultProps = {};
