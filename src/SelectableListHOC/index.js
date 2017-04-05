@@ -22,8 +22,7 @@ const SelectedTableList = ({
             return React.cloneElement(child, {
                 onSelectAction: (event) => {
                     this.handleClick(event, child);
-                    // todo: 添加child自己的touch事件，目前只实现parent on change
-                    // child.props.onClick && child.props.onClick(event, child)
+                    child.props.onSelectAction && child.props.onSelectAction(event, child)
                 },
                 style: mergedStyle
             })
