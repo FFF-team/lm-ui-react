@@ -296,7 +296,7 @@ npm run build
 | ---------- | ------ | ------ | --------- | --------- |
 | label | 表单标题 | string | 空 | 可选 |
 | value | 表单值 | string | 空 | 可选 |
-| icon | 表单标题前icon | string | 空 | 可选 |
+| icon | 表单标题前图标 | string | 空 | 可选 |
 | activeNumber | 圆形提示数值 | number | 无 | 可选 |
 | onClick | 点击事件 |  func | ()=>{} | 可选 |
 | arrow | 是否有箭头 |  bool | false | 可选 |
