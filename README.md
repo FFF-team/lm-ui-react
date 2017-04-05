@@ -39,18 +39,18 @@ npm run build
 ## DOC
 ---------
 ### 控件列表
-* [Form](#Form)
-* [FormGroup](#FormGroup)
-* [Label](#Label)
-* [Input](#Input)
-* [Switch](#Switch)
-* [Select](#Select)
-* [RadioGroup](#RadioGroup)
-* [Radio](#Radio)
-* [CheckboxGroup](#CheckboxGroup)
-* [Checkbox](#Checkbox)
-* [CheckBtn](#CheckBtn)
-* [GetCodeBtn](#GetCodeBtn)
+* [Form](#form)
+* [FormGroup](#formgroup)
+* [Label](#label)
+* [Input](#input)
+* [Switch](#switch)
+* [Select](#select)
+* [RadioGroup](#radiogroup)
+* [Radio](#radio)
+* [CheckboxGroup](#checkboxgroup)
+* [Checkbox](#checkbox)
+* [CheckBtn](#checkbtn)
+* [GetCodeBtn](#getcodebtn表单中特殊按钮)
 ******
 ### Form
 * props
