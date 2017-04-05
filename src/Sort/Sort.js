@@ -73,7 +73,7 @@ class Sort extends React.Component {
         }
         this.props.clickAction && this.props.clickAction(sortKey, sortBy)
         
-        this.props.onSelectAction && this.props.onSelectAction();
+        // this.props.onSelectAction && this.props.onSelectAction();
         
     }
     
@@ -109,7 +109,7 @@ class Sort extends React.Component {
         }, 'lm-ui-sort-icon');
         
         return (
-            <span className="lm-ui-sort" { ...other }>
+            <span className="lm-ui-sort" { ...other } onClick={ onSelectAction }>
                 <em className="label">{ label }</em>
                 <span className={ cn }>
                     { this.getSortByIcon() }

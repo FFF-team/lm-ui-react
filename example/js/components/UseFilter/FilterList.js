@@ -22,6 +22,11 @@ class FilterList extends React.Component {
         })
     };
     
+    selectAction2(event,item) {
+        // console.log(item)
+        alert('点击了filterList中的第二项')
+    }
+    
     render() {
         const {
             onChange,
@@ -33,7 +38,7 @@ class FilterList extends React.Component {
                           onSelectedChange={ this.handleChange }
                           { ...other }>
                 <ListItem value={ 'byTime' } primaryText="byTime"/>
-                <ListItem value={ 'byNo' } primaryText="byNo" />
+                <ListItem value={ 'byNo' } primaryText="byNo" onSelectAction={ this.selectAction2 }/>
                 <ListItem value={ 'byName' } primaryText="byName" />
             </SelectedList>
         )

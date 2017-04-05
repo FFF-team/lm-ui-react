@@ -64,6 +64,10 @@ class FilterBar extends React.Component {
         })
     }
     
+    selectAction1() {
+        console.log('select action 1')
+    }
+    
     render() {
         return (
             <div>
@@ -73,7 +77,8 @@ class FilterBar extends React.Component {
                     <Sort value={ 0 }
                           label="单项排序"
                           sortInfo={ ['单项排序key'] }
-                          clickAction={ this.handleClick }/>
+                          clickAction={ this.handleClick }
+                          onSelectAction={ this.selectAction1 }/>
                     <Sort value={ 1 }
                           label={ this.state.sort1 }
                           sortInfo={ [{key: this.state.sort1, sortBy: this.sort1By}] }
