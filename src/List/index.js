@@ -10,34 +10,36 @@ const propTypes = {
 
 	label:React.PropTypes.string,
 	value:React.PropTypes.string,
-	url:React.PropTypes.string,
 	icon:React.PropTypes.string,
 	activeNumber:React.PropTypes.number,
-	clickFun:React.PropTypes.func
+	onClick:React.PropTypes.func,
+	arrow:React.PropTypes.bool
 
 };
-const defaultProps = {};
+const defaultProps = {
+	onClick:() => {},
+	arrow:false
+};
 
 export default class List extends React.Component {
 
 	constructor (props) {
-		// debugger;
+		
 		super (props);
 
 	}
 	
-	goUrl(){
-		if(this.props.url){
-			location.href = this.props.url;
-		}
+	clickhandle(e){
+		// debugger;
+		this.props.onClick(e.target);
 	}
 
 	render () {
 
-		const { label,value,url,icon,activeNumber } = this.props;
+		const { label,value,arrow,icon,activeNumber } = this.props;
 
 		return (
-			<div className='lm-ui-list' onClick={this.goUrl.bind(this)}>
+			<div className='lm-ui-list' onClick={this.clickhandle.bind(this)}>
 				<div className='lm-ui-list-label'>
 					<img className={icon ? 'lm-ui-list-icon' : 'hide'} src={icon} />
 					{label}
@@ -46,7 +48,7 @@ export default class List extends React.Component {
 					{value}
 					<span className={activeNumber ? 'lm-ui-list-number':'hide'}>{activeNumber}</span>
 				</div>
-				<div className={url ? 'lm-ui-list-link' : 'lm-ui-list-unlink'}></div>
+				<div className={arrow ? 'lm-ui-list-link' : 'lm-ui-list-unlink'}></div>
 			</div>
 		)
 
