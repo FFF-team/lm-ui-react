@@ -18,7 +18,7 @@ class ListItem extends React.Component {
             ...other
         } = this.props;
     
-        const cn = classnames('lm-ui-sort-list-item', className);
+        const cn = classnames('lm-ui-n-list-item', className);
         
         return (
             <div { ...other } onClick={ onSelectAction } className={ cn }>

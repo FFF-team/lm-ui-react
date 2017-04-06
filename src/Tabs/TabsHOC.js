@@ -11,7 +11,7 @@ const TabsHOC = ({
                 super(props);
                 
                 const valueLink = this.getValueLink(this.props);
-                const initialIndex = this.props.selectedIndex;
+                const initialIndex = this.props.initSelectedIndex;
                 
                 this.state = {
                     selectedIndex: valueLink.value !== undefined ?
@@ -52,7 +52,7 @@ const TabsHOC = ({
             getValueLink(props) {
                 return {
                     value: props.value,
-                    handleChange: props.changeAction || function () {
+                    handleChange: props.onSelectedChange || function () {
                     }
                 }
             }

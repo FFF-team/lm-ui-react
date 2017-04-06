@@ -3,13 +3,3 @@
 .lm-ui-icon {
   // todo: icon
 }
-
-.lm-icon-test {
-  &:before {
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 10px;
-    background: $default-color;
-  }
-}

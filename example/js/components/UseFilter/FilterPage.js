@@ -3,7 +3,6 @@ import React from 'react'
 import './index.scss'
 import FilterBar from './FilterBar'
 import { NList, ListItem } from 'src/index'
-import Desc from './Desc'
 
 class FilterPage extends React.Component {
     constructor(props) {
@@ -95,7 +94,6 @@ class FilterPage extends React.Component {
                         }) }
                     </NList>
                 </div>
-                <Desc/>
             </div>
         )
     }

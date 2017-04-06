@@ -1,9 +1,6 @@
 import React from 'react'
 
-import { NList, ListItem } from 'src/index'
-import SelectableListHOC from 'src/SelectableListHOC'
-
-const SelectedList = SelectableListHOC({})(NList);
+import { ListItem, SelectableList } from 'src/index'
 
 class FilterList extends React.Component {
     constructor(props) {
@@ -14,7 +11,7 @@ class FilterList extends React.Component {
         }
     }
     
-    handleChange = (event, value) => {
+    handleChange = (value, item) => {
         this.props.onChange && this.props.onChange(value);
         
         this.setState({
@@ -22,7 +19,7 @@ class FilterList extends React.Component {
         })
     };
     
-    selectAction2(event,item) {
+    selectAction2(item) {
         // console.log(item)
         alert('点击了filterList中的第二项')
     }
@@ -34,13 +31,13 @@ class FilterList extends React.Component {
         } = this.props;
         
         return (
-            <SelectedList selectedValue={ this.state.selectedValue }
+            <SelectableList value={ this.state.selectedValue }
                           onSelectedChange={ this.handleChange }
                           { ...other }>
                 <ListItem value={ 'byTime' } primaryText="byTime"/>
                 <ListItem value={ 'byNo' } primaryText="byNo" onSelectAction={ this.selectAction2 }/>
                 <ListItem value={ 'byName' } primaryText="byName" />
-            </SelectedList>
+            </SelectableList>
         )
     }
 }

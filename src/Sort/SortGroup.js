@@ -1,5 +1,5 @@
 import React from 'react'
-import SelectableFilterHOC from '../SelectableListHOC'
+import SelectableListHOC from 'src/SelectableListHOC'
 
 class SortGroup extends React.Component {
     constructor(props) {
@@ -9,7 +9,7 @@ class SortGroup extends React.Component {
     render() {
         const {
             children,
-            selectedValue,
+            value,
             onSelectedChange,
             ...other
         } = this.props;
@@ -26,11 +26,15 @@ class SortGroup extends React.Component {
 }
 
 SortGroup.PropTypes = {
-    selectedValue: React.PropTypes.number,
+    value: React.PropTypes.number,
 };
 
 SortGroup.defaultProps = {
-    selectedValue: 0,
+    value: 0,
 };
 
-export default SortGroup
+export default SelectableListHOC({
+    selectedStyle: {
+        color: '#ff552e'
+    }
+})(SortGroup)

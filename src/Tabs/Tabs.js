@@ -43,14 +43,14 @@ class Tabs extends React.Component {
 }
 
 Tabs.propTypes = {
-    selectedIndex: React.PropTypes.number, // 当前选中的tab index
-    changeAction: React.PropTypes.func, // tab改变后调用
+    initSelectedIndex: React.PropTypes.number, // 当前选中的tab index
+    onSelectedChange: React.PropTypes.func, // tab改变后调用
     value: React.PropTypes.any // 各个tab唯一name
 };
 
 Tabs.defaultProps = {
-    selectedIndex: 0,
-    changeAction: () => {}
+    initSelectedIndex: 0,
+    onSelectedChange: () => {}
 };
 
 export default TabsHOC({

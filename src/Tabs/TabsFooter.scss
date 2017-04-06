@@ -29,6 +29,11 @@
     &.active {
       color: #ff552e;
     }
+    &.active-svg-icon {
+      svg {
+        fill: #ff552e !important;
+      }
+    }
     a {
       color: inherit;
     }

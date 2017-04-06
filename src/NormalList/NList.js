@@ -19,7 +19,7 @@ class NList extends React.Component {
             className,
             ...other } = this.props;
         
-        const cn = classnames('lm-ui-sort-list', className)
+        const cn = classnames('lm-ui-n-list', className)
         
         return (
             <div { ...other } className={ cn }>

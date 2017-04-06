@@ -53,6 +53,8 @@ npm run build
 * [GetCodeBtn](#getcodebtn表单中特殊按钮)
 * [Button](#button)
 * [List](#list表单展示)
+* [Icon](#Icon)
+* [SvgIcon](#SvgIcon)
 ******
 ### Form
 * props
@@ -270,7 +272,7 @@ npm run build
 
 ******
 ### Button
-*props
+* props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
@@ -290,7 +292,7 @@ npm run build
 
 ******
 ### List(表单展示)
-*props
+* props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
@@ -318,3 +320,150 @@ npm run build
 </ListGroup>
 
 ```
+******
+### Icon
+* desc
+
+  普通icon，可自定义添加属性className,style，或在<Icon>中添加任意inline或inline-block元素。
+
+  默认inline-block区域24px*24px
+
+* props
+
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| className | 增加样式 | string | 无 | 可选 |
+| style | 增加样式 |  obj | 无 | 可选 |
+
+*其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
+
+```
+<Icon className="demo-icon-test" style={{color: red}}>
+...
+</Icon>
+```
+******
+### SvgIcon
+* desc
+
+  svgIcon
+
+  默认svg区域大小：24px*24px
+
+* props
+
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| viewBox | 设定svg内图形展示范围。默认全部显示，并填充画布区域 | string | '0 0 24 24' | 可选 |
+| color | svg内图形填充色，对应style中的fill |  string | '#333' | 可选 |
+
+*其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
+
+```
+<SvgIcon className="test" color="#333" viewBox="0 0 24 24">
+    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+</SvgIcon>
+```
+******
+### Tab标签切换
+* Tabs props
+
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| value | 选中和当前value匹配的tab.当设置value且与相应的tab匹配，则initSelectedIndex无效 | string |  | 可选 |
+| onSelectedChange | tab选中状态改变时触发.参数(value, tab) |  func | () => {} | 可选 |
+| initSelectedIndex | 初始选中的tab index |  number | 0 | 可选 |
+
+*其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
+
+* Tab props
+
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| value | 用于标识唯一的tab，不能重复 | string |  | 可选 |
+| label | tab文字 |  string |  | 是 |
+| icon | icon图标 |  node |  | 可选 |
+| onClick | 当前选中的tab触发.参数(tab) |  func | () => {} | 可选 |
+
+
+```
+<Tabs value='a' initSelectedIndex={0}>
+    <Tab value='a'>
+        <p>content</p>
+    </Tab>
+    <Tab value='b'>
+        ...
+    </Tab value='c'>
+</Tabs>
+```
+******
+### TabFooter标签切换
+* props 与 Tabs props一致。同时也可嵌套<Tab>
+
+******
+### NormalList
+* NList props
+
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| children | <ListItem> | node |  | 可选 |
+
+* SelectableList props
+
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| value | 区分s的唯一值 | string |  | 可选 |
+| onSelectedChange | 改变选中项时触发.参数(value, item) | node |  | 可选 |
+
+* ListItem props
+
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| value | 选中和当前value匹配的tab | string |  | 可选 |
+| primaryText | 文字 |  string | 'sort' | 可选 |
+| onSelectAction | 适用于多个sort为一组sortGroup情况，点击当前sort后的行为.参数(item)| func | () => {} | 可选 |
+
+*其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
+
+```
+默认List
+<NList>
+    <ListItem/>
+    ...
+</NList>
+
+可选择的List
+<SelectableList value='a'>
+    <ListItem value='a' primaryText='item1'/>
+    <ListItem value='b' primaryText='item2'/>
+</SelectableList>
+```
+
+******
+### Sort排序
+* Sort props
+
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| value | 区分sort的唯一值 | string |  | 可选 |
+| label | 排序文字 |  string | 'sort' | 可选 |
+| sortInfo | 1.单项排序:['单项排序key'] 2.选择排序: [key: '', sortBy: 0].0为升序，1为降序. 3. 双向排序: ['双向排序key1', '双向排序key2'] | string |  | 可选 |
+| clickAction | 点击排序后的行为。参数：(key, sortBy) | func | () => {} | 可选 |
+| onSelectAction | 适用于多个sort为一组sortGroup情况. 点击当前sort后的行为.参数(item)| func | () => {} | 可选 |
+
+* SortGroup props
+
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| children | <Sort> | node |  | 是 |
+| value | 选中和当前value匹配的tab | string |  | 可选 |
+| onSelectedChange | 适用于多个sort为一组sortGroup情况. 改变选中项时触发.参数(value, item) | node |  | 可选 |
+
+*其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
+
+```
+<SortGroup className="test" color="#333" viewBox="0 0 24 24">
+    <Sort/>
+</SortGroup>
+```
+******

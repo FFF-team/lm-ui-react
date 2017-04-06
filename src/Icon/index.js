@@ -3,27 +3,26 @@ import React from 'react';
 import './index.scss'
 
 class Icon extends React.Component {
+    static lmuiName = 'Icon';
+    
     render() {
         const {
-            type,
             style,
             children,
+            className,
             ...other
         } = this.props;
-        
-        if (type === 'default') { // todo: 默认字体icon
-            return (
-                <i className={ other.className }/>
-            )
-        }
-        
-        if (type === 'svg') {
-            // todo: svg icon
-        }
+    
+        const mergedStyle = Object.assign({
+            display: 'inline-block',
+            color: '#333',
+            height: 24,
+            width: 24
+        }, style);
         
         return (
-            <i { ...other }
-                  style={ style }>
+            <i { ...other } className={ className ? ' lm-ui-icon ' + className : 'lm-ui-icon' }
+                  style={ mergedStyle }>
                 { children }
             </i>
         )
@@ -31,12 +30,10 @@ class Icon extends React.Component {
 }
 
 Icon.PropTypes = {
-    style: React.PropTypes.object,
-    type: React.PropTypes.string
+    style: React.PropTypes.object
 };
 
 Icon.defaultTypes = {
-    type: 'default'
 };
 
 export default Icon

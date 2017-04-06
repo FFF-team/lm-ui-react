@@ -39,7 +39,7 @@ export Dialog from './Dialog/index.js';
 // Tab
 export { Tabs, TabsFooter, Tab } from './Tabs'
 
-export { NList, ListItem } from './NormalList'
+export { NList, ListItem, SelectableList } from './NormalList'
 
 export { Sort, SortGroup } from './Sort'
 
@@ -53,5 +53,6 @@ export ListGroup from './ListGroup/index.js';
 
 // Icon
 export Icon from './Icon';
+export SvgIcon from './SvgIcon'
 
 

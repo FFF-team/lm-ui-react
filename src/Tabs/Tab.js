@@ -14,18 +14,28 @@ class Tab extends React.Component {
     
     render() {
         const {
+            index,
             selected,
+            onClickAction,
+            onClick,
             icon,
             label,
-            className
+            value,
+            className,
+            ...other
         } = this.props;
         
         const cn = classNames({
             'active': selected === true,
+            'active-svg-icon': icon && icon.type.lmuiName === 'SvgIcon' && selected === true
         }, className);
         
+        
         return (
-            <li className={ cn }  onClick={ this.handleClick.bind(this) }>
+            <li className={ cn }
+                onClick={ this.handleClick.bind(this) }
+                { ...other }
+            >
                 { React.isValidElement(icon) && icon }
                 <p><a>{ label }</a></p>
             </li>
@@ -35,11 +45,12 @@ class Tab extends React.Component {
 }
 
 Tab.propTypes = {
-    label: React.PropTypes.string
+    label: React.PropTypes.string,
+    icon: React.PropTypes.node
 };
 
 Tab.defaultProps = {
-    label: 'tabName'
+    label: 'tabName',
 };
 
 export default Tab

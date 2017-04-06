@@ -1,7 +1,6 @@
 import React from 'react';
 import { Tabs, Tab, TabSwitch } from 'src/index'
 import { Icon } from 'src/index'
-import Desc from './Desc'
 
 class UseTab extends React.Component {
     
@@ -35,7 +34,7 @@ class UseTab extends React.Component {
         return (
             <div>
                 <div style={{height: '200px'}}>
-                    <Tabs selectedIndex={ 0 }
+                    <Tabs initSelectedIndex={ 2 }
                           className='test'>
                         <Tab label="标签1"
                              onClick={ this.clickTab.bind(this) }>
@@ -51,7 +50,7 @@ class UseTab extends React.Component {
                 </div>
                 
                 <div style={{marginTop: '20px', height: '200px'}}>
-                    <Tabs changeAction={this.changeAction2.bind(this)}
+                    <Tabs onSelectedChange={this.changeAction2.bind(this)}
                           value={ this.state.value }>
                         <Tab label="标签1" value="tab1"/>
                         <Tab label="标签2" value="tab2" onClick={ this.clickTab }/>
@@ -65,9 +64,6 @@ class UseTab extends React.Component {
                         { this.state.curTab }
                     </div>
                 </div>
-                
-                <Desc/>
-                
             </div>
         )
     }

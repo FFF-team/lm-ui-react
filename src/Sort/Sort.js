@@ -79,9 +79,14 @@ class Sort extends React.Component {
     
     getSortByIcon() {
         let sortInfo = this.props.sortInfo;
+        let iconStyle = {
+            width: 0,
+            height: 0
+        };
+        
         let icons = [
-            <Icon className="lm-ui-icon lm-icon-arrow-top" key='0'/>,
-            <Icon className="lm-ui-icon lm-icon-arrow-bottom" key='1'/>
+            <Icon style={ iconStyle } className="lm-ui-icon lm-icon-arrow-top" key='0'/>,
+            <Icon style={ iconStyle } className="lm-ui-icon lm-icon-arrow-bottom" key='1'/>
         ];
     
         if (sortInfo.length === 2) { // todo: 双向切换
@@ -134,7 +139,7 @@ Sort.defaultProps = {
     value: React.PropTypes.number,
     label: '筛选',
     clickAction: () => {},
-    sortInfo: []
+    sortInfo: ['']
 };
 
 export default Sort

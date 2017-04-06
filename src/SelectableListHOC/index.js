@@ -8,7 +8,7 @@ const SelectedTableList = ({
             super(props);
             
             this.state = {
-                selectedValue: this.props.selectedValue
+                selectedValue: this.props.value
             }
         }
         
@@ -22,7 +22,7 @@ const SelectedTableList = ({
             return React.cloneElement(child, {
                 onSelectAction: (event) => {
                     this.handleClick(event, child);
-                    child.props.onSelectAction && child.props.onSelectAction(event, child)
+                    child.props.onSelectAction && child.props.onSelectAction(child)
                 },
                 style: mergedStyle
             })
@@ -30,14 +30,14 @@ const SelectedTableList = ({
         }
         
         isChildSelected(child, props) {
-            return this.props.selectedValue === child.props.value;
+            return this.props.value === child.props.value;
         }
         
         handleClick = (event, item) => {
             let value = item.props.value;
             
-            if (value !== this.props.selectedValue) {
-                this.props.onSelectedChange && this.props.onSelectedChange(event, value)
+            if (value !== this.props.value) {
+                this.props.onSelectedChange && this.props.onSelectedChange(value, item)
             }
         };
         

@@ -31,13 +31,13 @@ class TabsFooter extends React.Component {
 
 TabsFooter.propTypes = {
     selectedIndex: React.PropTypes.number, // 当前选中的tab index
-    changeAction: React.PropTypes.func, // tab改变后调用
+    onSelectedChange: React.PropTypes.func, // tab改变后调用
     name: React.PropTypes.any // 各个tab唯一name
 };
 
 TabsFooter.defaultProps = {
     selectedIndex: 0,
-    changeAction: () => {}
+    onSelectedChange: () => {}
 };
 
 
