@@ -55,6 +55,14 @@ npm run build
 * [List](#list表单展示)
 * [Icon](#icon)
 * [SvgIcon](#svgIcon)
+* [Tabs](#tab标签切换)
+* [Tab](#tab标签切换)
+* [TabsFooter](#tabsFooter标签切换)
+* [SortGroup](#sort排序)
+* [Sort](#sort排序)
+* [NList](#normalList)
+* [NListItem](#normalList)
+* [SelectableList](#normalList)
 ******
 ### Form
 * props
@@ -397,7 +405,7 @@ npm run build
 </Tabs>
 ```
 ******
-### TabFooter标签切换
+### TabsFooter标签切换
 * props 与 Tabs props一致。同时也可嵌套<Tab>
 
 ******
@@ -415,7 +423,7 @@ npm run build
 | value | 区分s的唯一值 | string |  | 可选 |
 | onSelectedChange | 改变选中项时触发.参数(value, item) | node |  | 可选 |
 
-* ListItem props
+* NListItem props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
@@ -428,14 +436,14 @@ npm run build
 ```
 默认List
 <NList>
-    <ListItem/>
+    <NListItem/>
     ...
 </NList>
 
 可选择的List
 <SelectableList value='a'>
-    <ListItem value='a' primaryText='item1'/>
-    <ListItem value='b' primaryText='item2'/>
+    <NListItem value='a' primaryText='item1'/>
+    <NListItem value='b' primaryText='item2'/>
 </SelectableList>
 ```
 

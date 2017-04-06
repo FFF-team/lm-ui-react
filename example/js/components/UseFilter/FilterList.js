@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ListItem, SelectableList } from 'src/index'
+import { NListItem, SelectableList } from 'src/index'
 
 class FilterList extends React.Component {
     constructor(props) {
@@ -34,9 +34,9 @@ class FilterList extends React.Component {
             <SelectableList value={ this.state.selectedValue }
                           onSelectedChange={ this.handleChange }
                           { ...other }>
-                <ListItem value={ 'byTime' } primaryText="byTime"/>
-                <ListItem value={ 'byNo' } primaryText="byNo" onSelectAction={ this.selectAction2 }/>
-                <ListItem value={ 'byName' } primaryText="byName" />
+                <NListItem value={ 'byTime' } primaryText="byTime"/>
+                <NListItem value={ 'byNo' } primaryText="byNo" onSelectAction={ this.selectAction2 }/>
+                <NListItem value={ 'byName' } primaryText="byName" />
             </SelectableList>
         )
     }

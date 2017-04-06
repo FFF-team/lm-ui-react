@@ -2,7 +2,7 @@ import React from 'react'
 
 import './index.scss'
 import FilterBar from './FilterBar'
-import { NList, ListItem } from 'src/index'
+import { NList, NListItem } from 'src/index'
 
 class FilterPage extends React.Component {
     constructor(props) {
@@ -88,7 +88,7 @@ class FilterPage extends React.Component {
                     <NList>
                         { this.state.data.map((item) => {
                             return (
-                                <ListItem key={ item.id }
+                                <NListItem key={ item.id }
                                           primaryText={ `${item.id}、${item.value}` } />
                             )
                         }) }
