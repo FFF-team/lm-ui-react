@@ -57,12 +57,12 @@ npm run build
 * [SvgIcon](#svgIcon)
 * [Tabs](#tab标签切换)
 * [Tab](#tab标签切换)
-* [TabsFooter](#tabsFooter标签切换)
+* [TabsFooter](#tabsfooter标签切换)
 * [SortGroup](#sort排序)
 * [Sort](#sort排序)
-* [NList](#normalList)
-* [NListItem](#normalList)
-* [SelectableList](#normalList)
+* [NList](#normallist)
+* [NListItem](#normallist)
+* [SelectableList](#normallist)
 ******
 ### Form
 * props
@@ -378,6 +378,7 @@ npm run build
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
+| children | 子元素 |  node |  | 可选 |
 | value | 选中和当前value匹配的tab.当设置value且与相应的tab匹配，则initSelectedIndex无效 | string |  | 可选 |
 | onSelectedChange | tab选中状态改变时触发.参数(value, tab) |  func | () => {} | 可选 |
 | initSelectedIndex | 初始选中的tab index |  number | 0 | 可选 |
@@ -406,7 +407,7 @@ npm run build
 ```
 ******
 ### TabsFooter标签切换
-* props 与 Tabs props一致。同时也可嵌套<Tab>
+* props 与 Tabs props一致
 
 ******
 ### NormalList
@@ -420,6 +421,7 @@ npm run build
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
+| children | 子元素 |  node |  | 可选 |
 | value | 区分s的唯一值 | string |  | 可选 |
 | onSelectedChange | 改变选中项时触发.参数(value, item) | node |  | 可选 |
 
