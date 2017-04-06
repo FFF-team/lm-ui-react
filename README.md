@@ -53,8 +53,8 @@ npm run build
 * [GetCodeBtn](#getcodebtn表单中特殊按钮)
 * [Button](#button)
 * [List](#list表单展示)
-* [Icon](#Icon)
-* [SvgIcon](#SvgIcon)
+* [Icon](#icon)
+* [SvgIcon](#svgIcon)
 ******
 ### Form
 * props
