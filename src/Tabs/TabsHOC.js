@@ -41,7 +41,7 @@ const TabsHOC = ({
                 const valueLink = this.getValueLink(props);
                 let selectedIndex = -1;
                 
-                this.getTabs().forEach((tab, index) => {
+                this.getTabs(props).forEach((tab, index) => {
                     if (valueLink.value === tab.props.value) {
                         selectedIndex = index;
                     }
@@ -58,10 +58,10 @@ const TabsHOC = ({
                 }
             }
             
-            getTabs() {
+            getTabs(props = this.props) {
                 let tabs = [];
                 // todo: 校验
-                return this.props.children ? this.props.children : []
+                return props.children ? props.children : []
             }
             
             getTabCount() {
