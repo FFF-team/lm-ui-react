@@ -1,5 +1,6 @@
 import React from 'react';
 import TabTemplate from './TabTemplate';
+import classnames from 'classnames';
 
 
 const TabsHOC = ({
@@ -88,8 +89,7 @@ const TabsHOC = ({
             
             // todo: 标签个数限制，文字限制。warn
             render() {
-                const {style, className} = this.props;
-                
+                let { className, ...otherTabProps } = addPropsToTab;
                 const content = [];
                 const tabs = this.getTabs().map((tab, index) => {
                     content.push(
@@ -110,15 +110,15 @@ const TabsHOC = ({
                             key: index,
                             selected: this.getSelected(tab, index),
                             onClickAction: this.handleClickAction.bind(this),
-                            ...addPropsToTab
+                            className: classnames(className, tab.props.className),
+                            ...otherTabProps
                         }
                     )
                 });
                 return (
                     <WrappedComponent tabs={ tabs }
                                       content={ content }
-                                      style={ style }
-                                      className={ className }/>
+                                      { ...this.props }/>
                 )
             }
         };

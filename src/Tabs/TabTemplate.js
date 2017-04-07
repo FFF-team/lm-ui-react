@@ -2,14 +2,15 @@
  * Created by khongyan on 2017/3/29.
  */
 import React, {PropTypes} from 'react';
+import classnames from 'classnames'
 
 const TabTemplate = ({children, selected}) => {
-    let templateStyle = {
-        display: selected ? 'block' : 'none'
-    };
+    let cn = classnames({
+        'hide': !selected
+    }, 'lm-ui-tab-content');
     
     return (
-        <div className="lm-ui-tab-content" style={ templateStyle }>
+        <div className={ cn }>
             { children }
         </div>
     )

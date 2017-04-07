@@ -18,10 +18,12 @@ class Tab extends React.Component {
             selected,
             onClickAction,
             onClick,
+            
             icon,
             label,
             value,
             className,
+            children,
             ...other
         } = this.props;
         

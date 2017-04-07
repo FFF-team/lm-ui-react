@@ -381,7 +381,7 @@ npm run build
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
-| children | 子元素 |  node |  | 可选 |
+| children | <Tab> |  node |  | 可选 |
 | value | 选中和当前value匹配的tab.当设置value且与相应的tab匹配，则initSelectedIndex无效 | string |  | 可选 |
 | onSelectedChange | tab选中状态改变时触发.参数(value, tab) |  func | () => {} | 可选 |
 | initSelectedIndex | 初始选中的tab index |  number | 0 | 可选 |
@@ -392,6 +392,7 @@ npm run build
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
+| children | 任意html元素 |  node |  | 可选 |
 | value | 用于标识唯一的tab，不能重复 | string |  | 可选 |
 | label | tab文字 |  string |  | 是 |
 | icon | icon图标 |  node |  | 可选 |
@@ -403,9 +404,9 @@ npm run build
     <Tab value='a'>
         <p>content</p>
     </Tab>
-    <Tab value='b'>
+    <Tab value='b'/>
         ...
-    </Tab value='c'>
+    <Tab value='c'/>
 </Tabs>
 ```
 ******

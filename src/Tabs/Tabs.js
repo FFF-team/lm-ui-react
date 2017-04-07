@@ -14,9 +14,14 @@ class Tabs extends React.Component {
         const {
             tabs,
             content,
-            style,
-            className
+            onSelectedChange,
+            initSelectedIndex,
+            value,
+            children,
+            ...other
         } = this.props;
+        
+        
         const isMutiNav = tabs.length > MAX_TAB
     
         let cnBox = classnames({
@@ -30,9 +35,9 @@ class Tabs extends React.Component {
     
         
         return (
-            <div className={ className }>
+            <div { ...other }>
                 <div className={ cnBox }>
-                    <ul style={ style } className={ cnTabs }>
+                    <ul className={ cnTabs }>
                         { tabs }
                     </ul>
                 </div>

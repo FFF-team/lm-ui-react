@@ -44,6 +44,7 @@ class UseTabFooter extends React.Component {
                          icon={ <Icon className="demo-icon-test">icon</Icon> }
                          data-route="/home"
                          onClick={ this.clickHome }
+                         className="test"
                     />
                     <Tab label="demo页面"
                          icon={

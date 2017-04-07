@@ -12,15 +12,18 @@ class TabsFooter extends React.Component {
         const {
             tabs,
             content,
-            style,
-            className
+            onSelectedChange,
+            initSelectedIndex,
+            value,
+            children,
+            ...other
         } = this.props;
         
         let cn = 'lm-ui-footer-nav';
         
         return (
-            <div className={ className }>
-                <ul style={ style } className={ cn }>
+            <div { ...other }>
+                <ul className={ cn }>
                     { tabs }
                 </ul>
                 { content }
@@ -30,13 +33,13 @@ class TabsFooter extends React.Component {
 }
 
 TabsFooter.propTypes = {
-    selectedIndex: React.PropTypes.number, // 当前选中的tab index
+    initSelectedIndex: React.PropTypes.number, // 当前选中的tab index
     onSelectedChange: React.PropTypes.func, // tab改变后调用
-    name: React.PropTypes.any // 各个tab唯一name
+    value: React.PropTypes.any // 各个tab唯一name
 };
 
 TabsFooter.defaultProps = {
-    selectedIndex: 0,
+    initSelectedIndex: 0,
     onSelectedChange: () => {}
 };
 
