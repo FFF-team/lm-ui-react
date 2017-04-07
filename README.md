@@ -340,14 +340,16 @@ npm run build
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
+| children | 任意inline或inline-block元素 | node | 无 | 可选 |
 | className | 增加样式 | string | 无 | 可选 |
 | style | 增加样式 |  obj | 无 | 可选 |
 
 *其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
 
 ```
-<Icon className="demo-icon-test" style={{color: red}}>
-...
+<Icon className="demo-icon-test" style={{color: 'red'}}>
+   <img />
+   ...
 </Icon>
 ```
 ******
@@ -362,7 +364,8 @@ npm run build
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
-| viewBox | 设定svg内图形展示范围。默认全部显示，并填充画布区域 | string | '0 0 24 24' | 可选 |
+| children | 任意有效的svg图形路径 | node | 无 | 可选 |
+| viewBox | 设定svg内图形展示范围 | string | '0 0 24 24' | 可选 |
 | color | svg内图形填充色，对应style中的fill |  string | '#333' | 可选 |
 
 *其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*

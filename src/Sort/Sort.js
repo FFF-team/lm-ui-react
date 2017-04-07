@@ -79,6 +79,7 @@ class Sort extends React.Component {
     
     getSortByIcon() {
         let sortInfo = this.props.sortInfo;
+        let propsIcon = this.props.icon;
         let iconStyle = {
             width: 0,
             height: 0
@@ -88,12 +89,12 @@ class Sort extends React.Component {
             <Icon style={ iconStyle } className="lm-ui-icon lm-icon-arrow-top" key='0'/>,
             <Icon style={ iconStyle } className="lm-ui-icon lm-icon-arrow-bottom" key='1'/>
         ];
-    
+        
         if (sortInfo.length === 2) { // todo: 双向切换
             return icons
         } else { // todo: 单项切换
             let sort = this.getSortBy(sortInfo);
-            return sort !== '' ? icons[sort] : null;
+            return sort !== '' ? icons[sort] : React.isValidElement(propsIcon) ? propsIcon : null;
         }
         
     }
@@ -105,6 +106,7 @@ class Sort extends React.Component {
             clickAction,
             onSelectAction,
             sortInfo,
+            icon,
             ...other
         } = this.props;
         
@@ -132,7 +134,8 @@ Sort.PropTypes = {
     value: React.PropTypes.number,
     label: React.PropTypes.string,
     sortInfo: React.PropTypes.array, // 0: 升序， 1： 降序
-    clickAction: React.PropTypes.func
+    clickAction: React.PropTypes.func,
+    icon: React.PropTypes.node
 };
 
 Sort.defaultProps = {
