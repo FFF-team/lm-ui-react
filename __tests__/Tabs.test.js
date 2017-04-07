@@ -1,6 +1,6 @@
 import React from 'react'
 import {shallow, mount, render} from 'enzyme';
-import Tabs from './Tabs';
+import { Tabs } from '../src/Tabs';
 
 describe('<Tabs />', () => {
     const Tab = () => ( <div /> );

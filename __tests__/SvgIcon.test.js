@@ -1,7 +1,7 @@
 import { shallow, mount, render } from 'enzyme';
 import React from 'react'
 import ReactDom from 'react-dom'
-import SvgIcon from './SvgIcon'
+import SvgIcon from '../src/SvgIcon'
 
 describe('<SvgIcon />', () => {
     const pathDom = <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>;
