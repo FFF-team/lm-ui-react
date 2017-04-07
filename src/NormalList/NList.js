@@ -29,4 +29,13 @@ class NList extends React.Component {
     }
 }
 
+NList.propTypes = {
+    onSelectedChange: React.PropTypes.func,
+    value: React.PropTypes.string
+};
+
+NList.defaultProps = {
+    onSelectedChange: () => {}
+};
+
 export default NList

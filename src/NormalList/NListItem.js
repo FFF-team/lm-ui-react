@@ -31,7 +31,8 @@ class ListItem extends React.Component {
 ListItem.propTypes = {
     primaryText: React.PropTypes.string,
     onSelectAction: React.PropTypes.func,
-    className: React.PropTypes.string
+    className: React.PropTypes.string,
+    value: React.PropTypes.string
 };
 
 ListItem.defaultProps = {

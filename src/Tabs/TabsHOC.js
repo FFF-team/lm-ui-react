@@ -80,7 +80,7 @@ const TabsHOC = ({
                     selectedIndex: index
                 });
                 
-                tab.props.onClick && tab.props.onClick(tab);
+                tab.props.onSelectAction && tab.props.onSelectAction(tab);
             }
             
             getSelected(tab, index) {
@@ -109,7 +109,7 @@ const TabsHOC = ({
                             index: index,
                             key: index,
                             selected: this.getSelected(tab, index),
-                            onClickAction: this.handleClickAction.bind(this),
+                            onClick: this.handleClickAction.bind(this),
                             className: classnames(className, tab.props.className),
                             ...otherTabProps
                         }

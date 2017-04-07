@@ -383,7 +383,7 @@ npm run build
 | ---------- | ------ | ------ | --------- | --------- |
 | children | <Tab> |  node |  | 可选 |
 | value | 选中和当前value匹配的tab.当设置value且与相应的tab匹配，则initSelectedIndex无效 | string |  | 可选 |
-| onSelectedChange | tab选中状态改变时触发.参数(value, tab) |  func | () => {} | 可选 |
+| onSelectedChange | 选中项改变时触发.参数(value, tab) |  func | () => {} | 可选 |
 | initSelectedIndex | 初始选中的tab index |  number | 0 | 可选 |
 
 *其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
@@ -396,7 +396,7 @@ npm run build
 | value | 用于标识唯一的tab，不能重复 | string |  | 可选 |
 | label | tab文字 |  string |  | 是 |
 | icon | icon图标 |  node |  | 可选 |
-| onClick | 当前选中的tab触发.参数(tab) |  func | () => {} | 可选 |
+| onSelectAction | 当前选中某项触发.参数(tab) |  func | () => {} | 可选 |
 
 
 ```
@@ -427,7 +427,7 @@ npm run build
 | ---------- | ------ | ------ | --------- | --------- |
 | children | 子元素 |  node |  | 可选 |
 | value | 区分s的唯一值 | string |  | 可选 |
-| onSelectedChange | 改变选中项时触发.参数(value, item) | node |  | 可选 |
+| onSelectedChange | 选中项改变时触发.参数(value, item) | node |  | 可选 |
 
 * NListItem props
 
@@ -435,7 +435,7 @@ npm run build
 | ---------- | ------ | ------ | --------- | --------- |
 | value | 选中和当前value匹配的tab | string |  | 可选 |
 | primaryText | 文字 |  string | 'sort' | 可选 |
-| onSelectAction | 适用于多个sort为一组sortGroup情况，点击当前sort后的行为.参数(item)| func | () => {} | 可选 |
+| onSelectAction | 适用于多个sort为一组sortGroup情况，当前选中某项触发.参数(item)| func | () => {} | 可选 |
 
 *其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
 
@@ -463,7 +463,7 @@ npm run build
 | label | 排序文字 |  string | 'sort' | 可选 |
 | sortInfo | 1.单项排序:['单项排序key'] 2.选择排序: [key: '', sortBy: 0].0为升序，1为降序. 3. 双向排序: ['双向排序key1', '双向排序key2'] | string |  | 可选 |
 | clickAction | 点击排序后的行为。参数：(key, sortBy) | func | () => {} | 可选 |
-| onSelectAction | 适用于多个sort为一组sortGroup情况. 点击当前sort后的行为.参数(item)| func | () => {} | 可选 |
+| onSelectAction | 适用于多个sort为一组sortGroup情况. 当前选中某项触发.参数(item)| func | () => {} | 可选 |
 
 * SortGroup props
 
@@ -471,7 +471,7 @@ npm run build
 | ---------- | ------ | ------ | --------- | --------- |
 | children | <Sort> | node |  | 是 |
 | value | 选中和当前value匹配的tab | string |  | 可选 |
-| onSelectedChange | 适用于多个sort为一组sortGroup情况. 改变选中项时触发.参数(value, item) | node |  | 可选 |
+| onSelectedChange | 适用于多个sort为一组sortGroup情况. 选中项改变时触发.参数(value, item) | node |  | 可选 |
 
 *其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
 

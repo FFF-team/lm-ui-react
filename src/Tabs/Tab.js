@@ -9,15 +9,15 @@ class Tab extends React.Component {
     
     handleClick(event) {
         event.stopPropagation();
-        this.props.onClickAction && this.props.onClickAction(this.props.index, this.props.value, this)
+        this.props.onClick && this.props.onClick(this.props.index, this.props.value, this)
     }
     
     render() {
         const {
             index,
             selected,
-            onClickAction,
             onClick,
+            onSelectAction,
             
             icon,
             label,
@@ -48,7 +48,9 @@ class Tab extends React.Component {
 
 Tab.propTypes = {
     label: React.PropTypes.string,
-    icon: React.PropTypes.node
+    icon: React.PropTypes.node,
+    onSelectAction: () => {},
+    value: React.PropTypes.string
 };
 
 Tab.defaultProps = {

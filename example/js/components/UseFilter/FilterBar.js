@@ -13,7 +13,7 @@ class FilterBar extends React.Component {
             sort: '',
             sort1: 'byTime',
             sort2: '',
-            selectedValue: 0,
+            selectedValue: '0',
             isShowList: false
         }
     }
@@ -75,23 +75,23 @@ class FilterBar extends React.Component {
                            value={ this.state.selectedValue }
                            onSelectedChange={ this.handleSelectChange }
                 >
-                    <Sort value={ 0 }
+                    <Sort value='0'
                           label="单项排序"
                           sortInfo={ ['单项排序key'] }
                           clickAction={ this.handleClick }
                           onSelectAction={ this.selectAction1 }
                     />
-                    <Sort value={ 1 }
+                    <Sort value='1'
                           label={ this.state.sort1 }
                           sortInfo={ [{key: this.state.sort1, sortBy: this.sort1By}] }
                           clickAction={ this.handleClick1 }
                     />
-                    <Sort value={ 2 }
+                    <Sort value='2'
                           label="双向排序"
                           sortInfo={ ['双向排序b', '双向排序c'] }
                           clickAction={ this.handleClick2 }
                     />
-                    <Sort value={ 3 }
+                    <Sort value='3'
                           label="筛选"
                           icon={
                               <SvgIcon viewBox="0 0 1024 1024">

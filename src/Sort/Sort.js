@@ -131,7 +131,7 @@ class Sort extends React.Component {
 }
 
 Sort.PropTypes = {
-    value: React.PropTypes.number,
+    value: React.PropTypes.string,
     label: React.PropTypes.string,
     sortInfo: React.PropTypes.array, // 0: 升序， 1： 降序
     clickAction: React.PropTypes.func,
@@ -139,7 +139,6 @@ Sort.PropTypes = {
 };
 
 Sort.defaultProps = {
-    value: React.PropTypes.number,
     label: '筛选',
     clickAction: () => {},
     sortInfo: ['']

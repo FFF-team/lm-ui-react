@@ -43,7 +43,7 @@ class UseTabFooter extends React.Component {
                          value="a"
                          icon={ <Icon className="demo-icon-test">icon</Icon> }
                          data-route="/home"
-                         onClick={ this.clickHome }
+                         onSelectAction={ this.clickHome }
                          className="test"
                     />
                     <Tab label="demo页面"

@@ -37,7 +37,7 @@ class UseTab extends React.Component {
                     <Tabs initSelectedIndex={ 2 }
                           className='test'>
                         <Tab label="标签1"
-                             onClick={ this.clickTab.bind(this) }>
+                             onSelectAction={ this.clickTab.bind(this) }>
                             <div>this is tab1 content</div>
                         </Tab>
                         <Tab label="标签2">
@@ -53,7 +53,7 @@ class UseTab extends React.Component {
                     <Tabs onSelectedChange={this.changeAction2.bind(this)}
                           value={ this.state.value }>
                         <Tab label="标签1" value="tab1"/>
-                        <Tab label="标签2" value="tab2" onClick={ this.clickTab }/>
+                        <Tab label="标签2" value="tab2" onSelectAction={ this.clickTab }/>
                         <Tab label="标签3" value="tab3"/>
                         <Tab label="标签4" value="tab4"/>
                         <Tab label="标签5" value="tab5"/>

@@ -26,11 +26,10 @@ class SortGroup extends React.Component {
 }
 
 SortGroup.PropTypes = {
-    value: React.PropTypes.number,
+    value: React.PropTypes.string,
 };
 
 SortGroup.defaultProps = {
-    value: 0,
 };
 
 export default SelectableListHOC({
