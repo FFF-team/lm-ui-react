@@ -3,7 +3,6 @@
 
 /*通用样式*/
 .lm-ui-btn{
-	border-radius: 4px;
 	font-size: 16px;
 	border-width: 1px;
 	border-style: solid;
@@ -16,6 +15,9 @@
 		height: 16px;
 		vertical-align: middle;
 	}
+}
+.lm-ui-btn-radius{
+    border-radius: 4px;
 }
 .lm-ui-btn[disabled] {
   background-color: #E6E6E6;

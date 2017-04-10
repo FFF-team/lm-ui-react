@@ -288,12 +288,13 @@ npm run build
 | type | 按钮类型 | string(primary,colorfulHollow,grayHollow) | primary | 可选 |
 | icon | 按钮内图标地址 | string | 空 | 可选 |
 | isDisabled | 是否禁用 | bool | false | 可选 |
+| isRadius | 是否有圆角 | bool | true | 可选 |
 | onClick | 点击事件 |  func | ()=>{} | 可选 |
 
 ```
 <Button
 	size='small'
-	type='primary'
+	btnType='primary'
 	onClick={(e)=>{this.callbackFun(e)}}
 >开关按钮</Button>
 ```
