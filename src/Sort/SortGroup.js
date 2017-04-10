@@ -1,5 +1,5 @@
 import React from 'react'
-import SelectableListHOC from 'src/SelectableListHOC'
+import SelectableListHOC from '../SelectableListHOC'
 
 class SortGroup extends React.Component {
     constructor(props) {

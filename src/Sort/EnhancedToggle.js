@@ -6,12 +6,11 @@ class EnhancedToggle extends React.Component {
     }
     
     handleChange = (event) => {
-        let checkStatus = this.refs.checkbox.checked;
-        
         if (this.props.toggle === false) {
-            checkStatus = true
+            this.refs.checkbox.checked = true;
         }
-        
+    
+        let checkStatus = this.refs.checkbox.checked;
         
         if (this.props.onParentShouldUpdate) {
             this.props.onParentShouldUpdate(checkStatus)
