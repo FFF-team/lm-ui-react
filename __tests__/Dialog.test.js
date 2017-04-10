@@ -4,7 +4,7 @@ import { shallow, mount } from 'enzyme';
 
 describe('Test Alert', () => {
 
-	test('exist alert component', () => {
+	it('exist alert component', () => {
 		
 	  	const wrapper = mount(
 
@@ -17,7 +17,7 @@ describe('Test Alert', () => {
 
 	});
 
-	test('head text', () => {
+	it('head text', () => {
 		
 	  	const wrapper = mount(
 

@@ -47,7 +47,7 @@ export default class Switch extends React.Component {
 
 		const { checked, onChange, ...arg } = this.props;
 		const { groupId } = this.context;
-
+		
 		return (
 
 			<input 

@@ -169,8 +169,7 @@ npm run build
 
 ```
 <Select
-    disabled={true}
-	value={this.state.selectVal}
+	selectedValue={this.state.selectVal}
 	onChange={(e) => {this.setState({selectVal: e.target.value})}}
 	optionMap={[{text:1, value:1}, {text:2, value:2}, {text:3, value:4}]} />
 ```

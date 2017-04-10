@@ -3,10 +3,10 @@ import './index.scss';
 import ModelHOC from '../ModelHOC/index.js';
 
 /*
-toastType: Hint Loading Success Fail Netless
-opacity 0-10
-showState true|false
-message 
+ * toastType: Hint Loading Success Fail Netless
+ * opacity 0-10
+ * showState true|false
+ * message 
  */
 
 const propTypes = {

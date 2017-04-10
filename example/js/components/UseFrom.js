@@ -10,7 +10,9 @@ import { Form,
 		CheckboxGroup,
 		Checkbox,
 		CheckBtn,
-		GetCodeBtn } from 'src/index';
+		GetCodeBtn} from 'src/index';
+import { Toast } from 'src/index';
+import Button from 'src/Button/index.js';
 
 export default class UseAlert extends React.Component {
 
@@ -27,19 +29,59 @@ export default class UseAlert extends React.Component {
 			test6: '',
 			test7: '',
 			test8: '',
+			test9: '',
+			test10: '',
 			checked: true,
 			checked1: false,
 			selectVal: '',
 			radioVal: 1,
 			radioVal1: 1,
 			checkboxVal: [1,2],
-			checkBtn: true
+			checkBtn: true,
+			btnIsDisabled: true,
+			mapData: [],
+			showState: false,
+			promptText: ''
 
 		}
 
 	}
 
+	formHandler () {
+		//保证 blur中的数据先更新---->在触发一下逻辑，setTimeout是成本最低的实现方式。
+		setTimeout(() => {
+
+			console.log('btn hitted!!!')
+			let { mapData } = this.state;
+			let canSubmit = true;
+			let promptText = null;
+			for (let obj of mapData) {
+
+				if (obj && !obj.state) {
+
+					promptText = obj.msg;
+					canSubmit = false;
+					break;
+
+				}
+
+			}
+
+			if (!canSubmit) {
+
+				this.setState({showState: true, promptText: promptText})
+				return
+
+			}
+
+		}, 0)
+
+	}
+
 	render () {
+		//需要必填的选项，如果不满足条件那么提交按钮disable
+		let {test5, test9, test10} = this.state;
+		let btnIsDisabled = (test5 && test9 && test10) ? false: true;
 
 		return (
 
@@ -47,7 +89,7 @@ export default class UseAlert extends React.Component {
 
 				<div className="topBanner">{this.props.location.query.name ? this.props.location.query.name: 'title'}</div>
 
-				<Form listenRequireMapFun={(mapData) => { console.log(mapData) }} >
+				<Form listenRequireMapFun={(mapData) => { this.setState({mapData: mapData}) }} >
 
 					<div className="cards">
 				
@@ -81,6 +123,7 @@ export default class UseAlert extends React.Component {
 								type='input'
 								value={this.state.test2}
 								defaultText={'aaa'}
+								cleanBtn={{ state: true, cleanFun: () => {this.setState({test2: ''})} }}
 								onChange={(e) => {this.setState({test2: e.target.value})}} />
 						
 						</FormGroup>
@@ -145,24 +188,39 @@ export default class UseAlert extends React.Component {
 
 					<div className="cards">
 				
-						<div className="form-title">表单校验</div>
+						<div className="form-title">特殊输入框</div>
 				
-						<FormGroup  groupId={'inputId'}>
+						<FormGroup>
 						
 							<Label>
-					
+						
 								<span>姓名</span>
 						
 							</Label>
 						
-							<Input
-								name={'a2'}
-								type='input' 
-								validateData={{ promptText: '请输入正确的姓名', validateFun: (value) => { return !!value && (value.trim() != '') && /^[\.·\u4e00-\u9fa5]{2,20}$/.test(value); } }}
-								value={this.state.test5}
-								cleanBtn={{ state: true, cleanFun: () => {this.setState({test5: ''})} }}
+							<Input 
+								type='input'
+								value={this.state.test7}
 								defaultText={'aaa'}
-								onChange={(e) => {this.setState({test5: e.target.value})}} />
+								onChange={(e) => {this.setState({test7: e.target.value})}} />
+						
+						</FormGroup>
+				
+						<FormGroup>
+						
+							<Label>
+						
+								<span>姓名</span>
+						
+							</Label>
+						
+							<Input 
+								type='input'
+								cleanBtn={{ state: true, cleanFun: () => {this.setState({test8: ''})} }}
+								value={this.state.test8}
+								defaultText={'aaa'}
+								onChange={(e) => {this.setState({test8: e.target.value})}}
+								suffix={<GetCodeBtn onClick={() => {}} countNum={60} />} />
 						
 						</FormGroup>
 				
@@ -240,9 +298,9 @@ export default class UseAlert extends React.Component {
 							</Label>
 						
 							<Select
-								value={this.state.selectVal}
+								selectedValue={this.state.selectVal}
 								onChange={(e) => {this.setState({selectVal: e.target.value})}}
-								optionMap={[{text:1, value:1}, {text:2, value:2}, {text:3, value:4}]} />
+								optionMap={[{text:1, value:1}, {text:2, value:2}, {text:3, value:3}]} />
 						
 						</FormGroup>
 				
@@ -308,46 +366,88 @@ export default class UseAlert extends React.Component {
 
 					<div className="cards">
 				
-						<div className="form-title">特殊输入框</div>
+						<div className="form-title">表单校验</div>
 				
-						<FormGroup>
+						<FormGroup  groupId={'inputId'}>
 						
 							<Label>
-						
+					
 								<span>姓名</span>
 						
 							</Label>
 						
-							<Input 
-								type='input'
-								value={this.state.test7}
+							<Input
+								name={'a2'}
+								type='input' 
+								validateData={{ promptText: '请输入正确的姓名1', validateFun: (value) => { return !!value && (value.trim() != '') && /^[\.·\u4e00-\u9fa5]{2,20}$/.test(value); } }}
+								value={this.state.test5}
+								cleanBtn={{ state: true, cleanFun: () => {this.setState({test5: ''})} }}
 								defaultText={'aaa'}
-								onChange={(e) => {this.setState({test7: e.target.value})}} />
+								onChange={(e) => {this.setState({test5: e.target.value})}} />
 						
 						</FormGroup>
-				
-						<FormGroup>
+
+						<FormGroup  groupId={'inputId'}>
 						
 							<Label>
-						
+					
 								<span>姓名</span>
 						
 							</Label>
 						
-							<Input 
-								type='input'
-								validateData={{ promptText: '请输入正确的姓名', validateFun: (value) => { return !!value && (value.trim() != '') && /^[\.·\u4e00-\u9fa5]{2,20}$/.test(value); } }}
-								cleanBtn={{ state: true, cleanFun: () => {this.setState({test8: ''})} }}
-								value={this.state.test8}
+							<Input
+								name={'a2'}
+								type='input' 
+								validateData={{ promptText: '请输入正确的姓名2', validateFun: (value) => { return !!value && (value.trim() != '') && /^[\.·\u4e00-\u9fa5]{2,20}$/.test(value); } }}
+								value={this.state.test9}
+								cleanBtn={{ state: true, cleanFun: () => {this.setState({test9: ''})} }}
 								defaultText={'aaa'}
-								onChange={(e) => {this.setState({test8: e.target.value})}}
-								suffix={<GetCodeBtn onClick={() => {}} countNum={60} />} />
+								onChange={(e) => {this.setState({test9: e.target.value})}} />
+						
+						</FormGroup>
+
+						<FormGroup  groupId={'inputId'}>
+						
+							<Label>
+					
+								<span>姓名</span>
+						
+							</Label>
+						
+							<Input
+								name={'a2'}
+								type='input' 
+								validateData={{ promptText: '请输入正确的姓名3', validateFun: (value) => { return !!value && (value.trim() != '') && /^[\.·\u4e00-\u9fa5]{2,20}$/.test(value); } }}
+								value={this.state.test10}
+								cleanBtn={{ state: true, cleanFun: () => {this.setState({test10: ''})} }}
+								defaultText={'aaa'}
+								onChange={(e) => {this.setState({test10: e.target.value})}} />
 						
 						</FormGroup>
 				
 					</div>
+
+					<div className="cards" style={{padding:"14px"}}>
+
+						<Button
+							size='long'
+							type='primary'
+							isDisabled={btnIsDisabled}
+							onClick={this.formHandler.bind(this)}
+						>开关按钮</Button>
+
+						<a href="javascript:;"></a>
+
+					</div>
 				
 				</Form>
+
+				<Toast
+					showState={this.state.showState}
+					toastType={'Hint'}
+					opacity={0}
+					timeControl={{ time: 2000, cbFun: () => {this.setState({showState: false})}}}
+					message={this.state.promptText} />
 
 			</div>
 
