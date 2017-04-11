@@ -39,6 +39,7 @@ npm run build
 ## DOC
 ---------
 ### 控件列表
+* [Dialog](Dialog)
 * [Form](#form)
 * [FormGroup](#formgroup)
 * [Label](#label)
@@ -63,6 +64,55 @@ npm run build
 * [NList](#normallist)
 * [NListItem](#normallist)
 * [SelectableList](#normallist)
+
+******
+### Dialog
+* props
+
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| showState | 展示状态 | bool | false | 必要 |
+| dialogType | 展示形式 | string | Confirm(或Alert) | 必要 |
+| headText | 提示头文字 | string | '提示' | 可选 |
+| contentText | 提示内容文字 | string | '提示内容' | 可选 |
+| opacity | 背景蒙层透明度 | number | 5 | 可选 |
+| btnLeftText | 左按钮文案 | string | '取消' | 可选 |
+| btnRightText | 右按钮文案 | string | '确定' | 可选 |
+| btnLeftCbFun | 左按钮点击时触发的函数 | fun | ()=>{} | 可选 |
+| btnRightCbFun | 右按钮点击时触发的函数 | fun | ()=>{} | 可选 |
+| btnCommonFun | 按钮点击触发的共用函数 | fun | ()=>{} | 可选 |
+
+```
+<Dialog 
+	dialogType={'Confirm'}
+	showState={true}
+	headText={'test head'}
+	contentText={'提示内容提示内容提示内容'} 
+	btnCommonFun={() => {this.setState({dialogState: false})}}
+	btnLeftCbFun={() => {console.log('left fun')}}
+	btnRightCbFun={() => {console.log('right fun')}}/>
+```
+******
+### Toast
+* props
+
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| toastType | toast类型 | string | Hint(Loading Success Fail Netless) | 必要 |
+| showState | 展示状态 | bool | false | 必要 |
+| opacity | 背景蒙层透明度 | number | 5 | 可选 |
+| message | 显示文案 | string | '提示' | 可选 |
+| timeControl | 配置展示时间 | obj | 无 | 可选 |
+
+```
+<Toast
+	showState={this.state.showState}
+	toastType={'Hint'}
+	opacity={0}
+	timeControl={{ time: 2000, cbFun: () => {this.setState({showState: false})}}}
+	message={'提示文字'} />
+```
+
 ******
 ### Form
 * props
