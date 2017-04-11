@@ -25,8 +25,8 @@ class SvgIcon extends React.Component {
             display: 'inline-block',
             color: '#333',
             fill: color,
-            height: 24,
-            width: 24,
+            height: 20,
+            width: 20,
             userSelect: 'none',
         }, style);
         

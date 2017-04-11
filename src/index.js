@@ -37,7 +37,7 @@ export ValidateValHOC from './ValidateValHOC';
 export Dialog from './Dialog/index.js';
 
 // Tab
-export { Tabs, TabsFooter, Tab } from './Tabs'
+export { Tabs, TabsFooter, Tab, TabsRoute } from './Tabs'
 
 export { NList, NListItem, SelectableList } from './NormalList'
 

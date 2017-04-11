@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dialog } from '../../../src/index.js';
+import { Dialog } from 'src/index.js';
 
 export default class UserDialog extends React.Component {
 
@@ -21,7 +21,7 @@ export default class UserDialog extends React.Component {
 
 		return (
 
-			<div>
+			<div style={{ backgroundColor: '#fff' }}>
 
 				<div>
 

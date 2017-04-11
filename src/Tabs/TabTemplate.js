@@ -7,7 +7,7 @@ import classnames from 'classnames'
 const TabTemplate = ({children, selected}) => {
     let cn = classnames({
         'hide': !selected
-    }, 'lm-ui-tab-content');
+    }, 'lm-ui-navbar-content');
     
     return (
         <div className={ cn }>

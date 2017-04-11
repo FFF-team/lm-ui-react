@@ -243,6 +243,7 @@ npm run build
 | ---------- | ------ | ------ | --------- | --------- |
 | text | 选择项显示的文字 | string or number | 无 | 必要 |
 | value | 选择项实际的值 | string or number or bool | 无 | 必要 |
+| preffix | 前缀 | node | 无 | 可选 |
 | disabled | 是否不可操作 | bool | false | 可选 |
 | style | 增加样式 |  obj | 无 | 可选 |
 
@@ -276,6 +277,7 @@ npm run build
 | ---------- | ------ | ------ | --------- | --------- |
 | text | 选择项显示的文字 | string or number | 无 | 必要 |
 | value | 选择项实际的值 | string or number or bool | 无 | 必要 |
+| preffix | 前缀 | node | 无 | 可选 |
 | disabled | 是否不可操作 | bool | false | 可选 |
 | style | 增加样式 |  obj | 无 | 可选 |
 
@@ -385,7 +387,7 @@ npm run build
 
   普通icon，可自定义添加属性className,style，或在<Icon>中添加任意inline或inline-block元素。
 
-  默认inline-block区域24px*24px
+  默认inline-block区域20px*20px
 
 * props
 
@@ -409,20 +411,20 @@ npm run build
 
   svgIcon
 
-  默认svg区域大小：24px*24px
+  默认svg区域大小：20px*20px
 
 * props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
 | children | 任意有效的svg图形路径 | node | 无 | 可选 |
-| viewBox | 设定svg内图形展示范围 | string | '0 0 24 24' | 可选 |
+| viewBox | 设定svg内图形展示范围 | string | '0 0 20 20' | 可选 |
 | color | svg内图形填充色，对应style中的fill |  string | '#333' | 可选 |
 
 *其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
 
 ```
-<SvgIcon className="test" color="#333" viewBox="0 0 24 24">
+<SvgIcon className="test" color="#333" viewBox="0 0 20 20">
     <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
 </SvgIcon>
 ```
@@ -527,7 +529,7 @@ npm run build
 *其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
 
 ```
-<SortGroup className="test" color="#333" viewBox="0 0 24 24">
+<SortGroup className="test">
     <Sort/>
 </SortGroup>
 ```

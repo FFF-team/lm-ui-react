@@ -1,5 +1,5 @@
 import React from 'react';
-import { Toast } from '../../../src/index.js';
+import { Toast } from 'src/index.js';
 
 export default class UserToast extends React.Component {
 
@@ -7,11 +7,7 @@ export default class UserToast extends React.Component {
 
 	    super(props)
 
-	    this.callBack = this.callBack.bind(this);
-
 	    this.state = {
-
-	    	showState: false,
 
 	    	toastType: "Hint",
 
@@ -21,20 +17,11 @@ export default class UserToast extends React.Component {
 	
 	}
 
-	callBack() {
-
-		let _this = this;
-		setTimeout(function() {
-			_this.setState({showState: !_this.state.showState});
-		}, 3000);
-
-	}
-
 	render () {
 
 		return (
 
-			<div>
+			<div style={{ backgroundColor: '#fff' }}>
 
 				<div>
 
@@ -46,7 +33,7 @@ export default class UserToast extends React.Component {
 
 							<a href="javascript:;" 
 							 	className="list-item"
-								onClick={()=>{this.setState({showState: !this.state.showState, toastType: "Hint"}); this.callBack()}}>
+								onClick={()=>{this.setState({showState: !this.state.showState, toastType: "Hint"})}}>
 								Hint测试
 							</a>
 
@@ -56,7 +43,7 @@ export default class UserToast extends React.Component {
 
 							<a href="javascript:;" 
 							 	className="list-item"
-								onClick={()=>{this.setState({showState: !this.state.showState, toastType: "Loading"}); this.callBack()}}>
+								onClick={()=>{this.setState({showState: !this.state.showState, toastType: "Loading"})}}>
 								Loading测试
 							</a>
 
@@ -66,7 +53,7 @@ export default class UserToast extends React.Component {
 
 							<a href="javascript:;" 
 							 	className="list-item"
-								onClick={()=>{this.setState({showState: !this.state.showState, toastType: "Success"}); this.callBack()}}>
+								onClick={()=>{this.setState({showState: !this.state.showState, toastType: "Success"})}}>
 								Success测试
 							</a>
 
@@ -76,7 +63,7 @@ export default class UserToast extends React.Component {
 
 							<a href="javascript:;" 
 							 	className="list-item"
-								onClick={()=>{this.setState({showState: !this.state.showState, toastType: "Fail"}); this.callBack()}}>
+								onClick={()=>{this.setState({showState: !this.state.showState, toastType: "Fail"})}}>
 								Fail测试
 							</a>
 
@@ -85,7 +72,7 @@ export default class UserToast extends React.Component {
 
 							<a href="javascript:;" 
 							 	className="list-item"
-								onClick={()=>{this.setState({showState: !this.state.showState, toastType: "Netless"}); this.callBack()}}>
+								onClick={()=>{this.setState({showState: !this.state.showState, toastType: "Netless"})}}>
 								Netless测试
 							</a>
 
@@ -98,6 +85,7 @@ export default class UserToast extends React.Component {
 				<Toast 
 					showState={this.state.showState}
 					toastType={this.state.toastType}
+					timeControl={{ time: 2000, cbFun: () => {this.setState({showState: false})}}}
 					opacity={this.state.opacity}
 					message={'test head'} />
 

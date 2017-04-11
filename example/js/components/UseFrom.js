@@ -82,6 +82,17 @@ export default class UseAlert extends React.Component {
 		//需要必填的选项，如果不满足条件那么提交按钮disable
 		let {test5, test9, test10} = this.state;
 		let btnIsDisabled = (test5 && test9 && test10) ? false: true;
+		const checkboxPreffix = <div className="checkbox-preffix">
+
+			<div className="test-img"></div>
+			<div className="test-text-wrap">
+
+				<p>选项可添加前缀</p>
+				<p>还可自定义图片+文字组合</p>
+
+			</div>
+
+		</div>
 
 		return (
 
@@ -90,6 +101,8 @@ export default class UseAlert extends React.Component {
 				<div className="topBanner">{this.props.location.query.name ? this.props.location.query.name: 'title'}</div>
 
 				<Form listenRequireMapFun={(mapData) => { this.setState({mapData: mapData}) }} >
+					
+					<p className="lm-ui-top-tips">这是顶部的提示</p>
 
 					<div className="cards">
 				
@@ -316,7 +329,7 @@ export default class UseAlert extends React.Component {
 							onChange={(val) => {console.log(`radioName/${val}`); this.setState({ radioVal: val }) }}
 							>
 
-							<Radio text={'11'} value={1} />
+							<Radio text={''} value={1} preffix={checkboxPreffix} />
 							<Radio text={'22'} value={2} />
 							<Radio text={'33'} value={3} />
 
@@ -334,7 +347,7 @@ export default class UseAlert extends React.Component {
 							onChange={(val) => {console.log(`checkbox/${val}`); this.setState({ checkboxVal: val })}}
 							>
 
-							<Checkbox text={'11'} value={1} />
+							<Checkbox text={''} value={1} preffix={checkboxPreffix} />
 							<Checkbox text={'22'} value={2} />
 							<Checkbox text={'33'} value={3} />
 
