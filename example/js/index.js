@@ -3,13 +3,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { IndexRedirect, Link, Route, Router, hashHistory } from 'react-router';
 
-import Navigation from './components/Navigation.js';
-import UserDialog from './components/UserDialog.js';
-import UserToast from './components/UserToast.js';
-import UseFrom from './components/UseFrom.js';
+import Navigation from './components/Navigation';
+import UserDialog from './components/UserDialog';
+import UserToast from './components/UserToast';
+import UseFrom from './components/UseFrom';
 
-import UserButton from './components/UserButton.js';
-import UserList from './components/UserList.js';
+import UserButton from './components/UserButton';
+import UserList from './components/UserList';
 
 import UseTab from './components/UseTab/UseTab';
 import UseTabFooter from './components/UseTabFooter/UseTabFooter';

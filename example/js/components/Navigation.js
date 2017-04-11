@@ -7,7 +7,7 @@ export default class Navigation extends React.Component {
 
 		return (
 
-			<div>
+			<div style={{ backgroundColor: '#fff' }}>
 
 				<div className="topBanner">lm-ui-react 导航页</div>
 
@@ -22,16 +22,13 @@ export default class Navigation extends React.Component {
 					
 					<li><Link to={{ pathname: '/UseFrom', query: { name: '表单' } }} className="list-item" >表单</Link></li>
 
+					<li><Link to={{ pathname: '/UseTab', query: { name: '选项卡' } }} className="list-item">选项卡</Link></li>
 
-					<li><Link to='/UserDialog' className="list-item">弹出框</Link></li>
-
-					<li><Link to='/UseTab' className="list-item">选项卡</Link></li>
-
-					<li><Link to='/List' className="list-item">表单列表</Link></li>
+					<li><Link to={{ pathname: '/List', query: { name: '表单列表' } }} className="list-item">表单列表</Link></li>
 					
-					<li><Link to='/UseTabFooter' className="list-item">导航</Link></li>
+					<li><Link to={{ pathname: '/UseTabFooter', query: { name: '导航' } }} className="list-item">导航</Link></li>
 					
-					<li><Link to='/UseFilter' className="list-item">筛选</Link></li>
+					<li><Link to={{ pathname: '/UseFilter', query: { name: '筛选' } }} className="list-item">筛选</Link></li>
 				</ul>
 
 			</div>
