@@ -29,7 +29,7 @@ class FilterPage extends React.Component {
     }
     
     changeList = (key, sortBy) => {
-        console.log('开始筛选：' + key + ',' + sortBy);
+        console.log(`===开始筛选：key->${key}, sortBy->${sortBy}===`);
         let data;
         
         switch (key) {
