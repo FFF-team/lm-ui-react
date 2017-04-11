@@ -39,7 +39,7 @@ class MultiFilter extends React.Component {
         
         
         this.state = {
-            checkboxVal: []
+            checkboxVal: this.props.checkboxVal
         }
     }
     
@@ -83,6 +83,7 @@ class MultiFilter extends React.Component {
         
         const {
             onChange,
+            checkboxVal,
             ...other
         } = this.props;
         
