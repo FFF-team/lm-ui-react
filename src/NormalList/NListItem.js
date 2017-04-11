@@ -16,6 +16,7 @@ class ListItem extends React.Component {
             secondaryText,
             onSelectAction,
             className,
+            value,
             ...other
         } = this.props;
     

@@ -11,6 +11,7 @@ class SortGroup extends React.Component {
             children,
             value,
             onSelectedChange,
+            activeClassName,
             ...other
         } = this.props;
         
