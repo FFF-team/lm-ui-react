@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { NListItem, SelectableList } from 'src/index'
+import {NListItem, SelectableList} from 'src/index'
 
 class FilterList extends React.Component {
     constructor(props) {
@@ -12,7 +12,7 @@ class FilterList extends React.Component {
     }
     
     handleChange = (value, item) => {
-        this.props.onChange && this.props.onChange(value);
+        this.props.onChange && this.props.onChange(value, item);
         
         this.setState({
             selectedValue: value
@@ -20,8 +20,7 @@ class FilterList extends React.Component {
     };
     
     selectAction2(item) {
-        // console.log(item)
-        alert('点击了filterList中的第二项')
+        console.log('点击了filterList中的第二项')
     }
     
     render() {
@@ -32,11 +31,18 @@ class FilterList extends React.Component {
         
         return (
             <SelectableList value={ this.state.selectedValue }
-                          onSelectedChange={ this.handleChange }
-                          { ...other }>
-                <NListItem value={ 'byTime' } primaryText="byTime"/>
-                <NListItem value={ 'byNo' } primaryText="byNo" onSelectAction={ this.selectAction2 }/>
-                <NListItem value={ 'byName' } primaryText="byName" />
+                            onSelectedChange={ this.handleChange }
+                            { ...other }>
+                <NListItem value={ 'byTime' }
+                           primaryText="按时间"
+                />
+                <NListItem value={ 'byNo' }
+                           primaryText="按序号"
+                           onSelectAction={ this.selectAction2 }
+                />
+                <NListItem value={ 'byName' }
+                           primaryText="按名称"
+                />
             </SelectableList>
         )
     }

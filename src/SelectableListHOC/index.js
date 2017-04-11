@@ -1,7 +1,9 @@
 import React from 'react'
+import classnames from 'classnames'
 
 const SelectedTableList = ({
-    selectedStyle = {color: 'red'}
+    selectedStyle = {color: '#ff552e'},
+    selectedClassName = ''
 }) => (WrappedComponent) =>
     class extends React.Component {
         constructor(props) {
@@ -14,9 +16,11 @@ const SelectedTableList = ({
         
         extendChildren(child, selectedStyle) {
             
-            let mergedStyle = {}; // todo: merge style width old
+            let mergedStyle = Object.assign({}, child.props.style);
+            let mergedClassName = child.props.className;
             if (this.isChildSelected(child)) {
-                mergedStyle = selectedStyle
+                mergedStyle = Object.assign({}, mergedStyle, selectedStyle);
+                mergedClassName = classnames(mergedClassName, selectedClassName)
             }
             
             return React.cloneElement(child, {
@@ -24,7 +28,8 @@ const SelectedTableList = ({
                     this.handleClick(event, child);
                     child.props.onSelectAction && child.props.onSelectAction(child)
                 },
-                style: mergedStyle
+                style: mergedStyle,
+                className: mergedClassName
             })
             
         }

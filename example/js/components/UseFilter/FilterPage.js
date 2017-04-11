@@ -86,10 +86,12 @@ class FilterPage extends React.Component {
                 <FilterBar onFilterChange={ this.changeList }/>
                 <div>
                     <NList>
-                        { this.state.data.map((item) => {
+                        { this.state.data.map((item, index) => {
                             return (
                                 <NListItem key={ item.id }
-                                          primaryText={ `${item.id}、${item.value}` } />
+                                           secondaryText={ `2017-01-0${index}` }
+                                           primaryText={ `${item.id}、${item.value}` }
+                                />
                             )
                         }) }
                     </NList>

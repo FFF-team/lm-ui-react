@@ -13,16 +13,22 @@ class ListItem extends React.Component {
     render() {
         const {
             primaryText,
+            secondaryText,
             onSelectAction,
             className,
             ...other
         } = this.props;
     
-        const cn = classnames('lm-ui-n-list-item', className);
+        const cn = classnames('lm-ui-cell', className);
         
         return (
             <div { ...other } onClick={ onSelectAction } className={ cn }>
-                { primaryText }
+                <div className="lm-ui-cell-bd">
+                    { primaryText }
+                </div>
+                <div className="lm-ui-cell-ft">
+                    { secondaryText }
+                </div>
             </div>
         )
     }
@@ -30,6 +36,7 @@ class ListItem extends React.Component {
 
 ListItem.propTypes = {
     primaryText: React.PropTypes.string,
+    secondaryText: React.PropTypes.string,
     onSelectAction: React.PropTypes.func,
     className: React.PropTypes.string,
     value: React.PropTypes.string
@@ -37,6 +44,7 @@ ListItem.propTypes = {
 
 ListItem.defaultProps = {
     primaryText: 'list-item',
+    secondaryText: '',
     onSelectAction: () => {},
     className: ''
 };

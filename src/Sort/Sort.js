@@ -107,18 +107,21 @@ class Sort extends React.Component {
             onSelectAction,
             sortInfo,
             icon,
+            className,
             ...other
         } = this.props;
         
-        const cn = classnames({
+        const cnSort = classnames('lm-ui-sort', className);
+        
+        const cnIcon = classnames({
             'positive-sort': this.state.sortBy === 0,
             'reverse-sort': this.state.sortBy === 1
         }, 'lm-ui-sort-icon');
         
         return (
-            <span className="lm-ui-sort" { ...other } onClick={ onSelectAction }>
+            <span className={ cnSort } { ...other } onClick={ onSelectAction }>
                 <em className="label">{ label }</em>
-                <span className={ cn }>
+                <span className={ cnIcon }>
                     { this.getSortByIcon() }
                 </span>
                 <EnhancedToggle style={ this.toggleStyle }
