@@ -55,11 +55,16 @@
 .btn-content{
 	font-size:16px;
 
+	> div{
+		margin-top: 20px;
+		text-align: center;
+	}
+	.box{
+		display: -webkit-box;
+		div{
+			-webkit-box-flex: 1;
+		}
 
-	.btn-subTitle{
-		padding:20px 0px 20px 10px;
-		color: #333;
-		
 	}
 	button{
 		margin-left:20px;
