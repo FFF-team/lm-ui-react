@@ -244,6 +244,8 @@ npm run build
 | text | 选择项显示的文字 | string or number | 无 | 必要 |
 | value | 选择项实际的值 | string or number or bool | 无 | 必要 |
 | preffix | 前缀 | node | 无 | 可选 |
+| mode | 展现模式 | string | form(button) | 必要 |
+| uniqueId | 唯一id | string or number | 无 | 可选（如果mode==='button'则必要） | 
 | disabled | 是否不可操作 | bool | false | 可选 |
 | style | 增加样式 |  obj | 无 | 可选 |
 
@@ -256,6 +258,8 @@ npm run build
 	<Radio text={'11'} value={1} />
 	<Radio text={'22'} value={2} />
 	<Radio text={'33'} value={3} />
+
+	<Radio mode={'button'} uniqueId={111} text={'44'} value={4}  />
 </RadioGroup>
 ```
 ******
@@ -278,6 +282,8 @@ npm run build
 | text | 选择项显示的文字 | string or number | 无 | 必要 |
 | value | 选择项实际的值 | string or number or bool | 无 | 必要 |
 | preffix | 前缀 | node | 无 | 可选 |
+| mode | 展现模式 | string | form(button) | 必要 |
+| uniqueId | 唯一id | string or number | 无 | 可选（如果mode==='button'则必要） | 
 | disabled | 是否不可操作 | bool | false | 可选 |
 | style | 增加样式 |  obj | 无 | 可选 |
 
@@ -289,6 +295,9 @@ npm run build
 	<Checkbox text={'11'} value={1} />
 	<Checkbox text={'22'} value={2} />
 	<Checkbox text={'33'} value={3} />
+	
+	<Checkbox mode={'button'} uniqueId={111} text={'22'} value={2} />
+
 </CheckboxGroup>
 ```
 ******

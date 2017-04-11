@@ -82,3 +82,30 @@
 	}
 
 }
+//mode === 'botton'
+.lm-ui-radio-wrap-btn {
+
+	.lm-ui-radio { display: none; }
+	.lm-ui-radio-btn-face { display: block; }
+	
+	input:checked + .lm-ui-radio-btn {
+
+		border-color: #ff552e;
+    	color: #ff552e;
+    	background-color: #fff8f7;
+
+	}
+
+	.lm-ui-radio-btn {
+
+		display: inline-block;
+	    font-size: 12px;
+	    border: 1px solid #e6e6e6;
+	    padding: 10px;
+	    min-width: 75px;
+	    color: #333;
+	    text-align: center;
+
+	}
+
+}

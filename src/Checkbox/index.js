@@ -26,11 +26,22 @@ const propTypes = {
 
     ]),
     preffix: React.PropTypes.node,
-	suffix: React.PropTypes.node
+	suffix: React.PropTypes.node,
+	mode: React.PropTypes.string,
+	uniqueId: React.PropTypes.oneOfType([
+
+      React.PropTypes.string,
+      React.PropTypes.number
+
+    ])
 
 };
 
-const defaultProps = {};
+const defaultProps = {
+
+	mode: 'form' //form || button
+
+};
 
 const contextTypes = {
 
@@ -64,7 +75,7 @@ export default class Checkbox extends React.Component {
 
 	render () {
 
-		const { text, value, preffix, suffix, ...arg } = this.props;
+		const { text, value, preffix, suffix, mode, uniqueId, ...arg } = this.props;
 		const { name, selectedValue, onChange } = this.context.checkboxGroup;  
 		const optional = {};
 
@@ -76,25 +87,58 @@ export default class Checkbox extends React.Component {
 
 		optional.onChange = this.clickHandler.bind(this);
 
-		return (
+		switch (mode) {
 
-			<div className="lm-ui-checkbox-wrap">
+			case 'form':
 
-				<input 
-					name={name&&name}
-					type="checkbox" 
-					className="lm-ui-checkbox"
-					{...optional}
-					{...arg}/>
+				return (
 
-				{ suffix && suffix }
-				<span className="lm-ui-icon-check"></span>
-				<div className="lm-ui-checkbox-label">{text}</div>	
-				{ preffix && preffix }
+					<div className="lm-ui-checkbox-wrap">
 
-			</div>
+						<input 
+							name={name&&name}
+							type="checkbox" 
+							className="lm-ui-checkbox"
+							{...optional}
+							{...arg}/>
 
-		)
+						{ suffix && suffix }
+						<span className="lm-ui-icon-check"></span>
+						<div className="lm-ui-checkbox-label">{text}</div>	
+						{ preffix && preffix }
+
+					</div>
+
+				)
+
+				break;
+
+			case 'button':
+
+				return (
+
+					<div className="lm-ui-checkbox-wrap-btn">
+
+						<input 
+							id={uniqueId}
+							name={name&&name}
+							type="checkbox" 
+							className="lm-ui-checkbox"
+							{...optional}/>
+
+						<label htmlFor={uniqueId} className="lm-ui-checkbox-btn" {...arg}>
+
+							{ text }
+
+						</label>
+
+					</div>
+
+				)
+
+				break;
+
+		}
 
 	}
 

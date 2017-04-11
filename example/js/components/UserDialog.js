@@ -1,5 +1,6 @@
 import React from 'react';
 import { Dialog } from 'src/index.js';
+import TopBanner from './TopBanner';
 
 export default class UserDialog extends React.Component {
 
@@ -25,8 +26,8 @@ export default class UserDialog extends React.Component {
 
 				<div>
 
-					<div className="topBanner">{this.props.location.query.name ? this.props.location.query.name: 'title'}</div>
-
+					<TopBanner name={this.props.location.query.name} />
+					
 					<ul>
 
 						<li>

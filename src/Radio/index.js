@@ -26,11 +26,22 @@ const propTypes = {
 
     ]),
     preffix: React.PropTypes.node,
-	suffix: React.PropTypes.node
+	suffix: React.PropTypes.node,
+	mode: React.PropTypes.string,
+	uniqueId: React.PropTypes.oneOfType([
+
+      React.PropTypes.string,
+      React.PropTypes.number
+
+    ])
 
 };
 
-const defaultProps = {};
+const defaultProps = {
+
+	mode: 'form' //form || button
+
+};
 
 const contextTypes = {
 
@@ -42,7 +53,7 @@ export default class Radio extends React.Component {
 
 	render () {
 
-		const { text, value, preffix, suffix, ...arg } = this.props;
+		const { text, value, preffix, suffix, mode, uniqueId, ...arg } = this.props;
 		const { name, selectedValue, onChange } = this.context.radioGroup;  
 		const optional = {};
 
@@ -54,25 +65,58 @@ export default class Radio extends React.Component {
 
 		optional.onChange = onChange.bind(null, value);
 
-		return (
+		switch (mode) {
 
-			<div className="lm-ui-radio-wrap">
+			case 'form':
 
-				<input 
-					name={name&&name}
-					type="radio" 
-					className="lm-ui-radio"
-					{...optional}
-					{...arg}/>
+				return (
 
-				{ suffix && suffix }
-				<span className="lm-ui-icon-check"></span>
-				<div className="lm-ui-radio-label">{text}</div>
-				{ preffix && preffix }
-				
-			</div>
+					<div className="lm-ui-radio-wrap">
 
-		)
+						<input 
+							name={name&&name}
+							type="radio" 
+							className="lm-ui-radio"
+							{...optional}
+							{...arg}/>
+
+						{ suffix && suffix }
+						<span className="lm-ui-icon-check"></span>
+						<div className="lm-ui-radio-label">{text}</div>
+						{ preffix && preffix }
+						
+					</div>
+
+				)
+
+				break;
+
+			case 'button':
+
+				return (
+
+					<div className="lm-ui-radio-wrap-btn">
+
+						<input 
+							id={uniqueId}
+							name={name&&name}
+							type="radio" 
+							className="lm-ui-radio"
+							{...optional}/>
+
+						<label htmlFor={uniqueId} className="lm-ui-radio-btn" {...arg}>
+
+							{ text }
+
+						</label>
+
+					</div>
+
+				)
+
+				break;
+
+		}
 
 	}
 

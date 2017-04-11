@@ -13,6 +13,7 @@ import { Form,
 		GetCodeBtn} from 'src/index';
 import { Toast } from 'src/index';
 import Button from 'src/Button/index.js';
+import TopBanner from './TopBanner';
 
 export default class UseAlert extends React.Component {
 
@@ -98,8 +99,8 @@ export default class UseAlert extends React.Component {
 
 			<div>
 
-				<div className="topBanner">{this.props.location.query.name ? this.props.location.query.name: 'title'}</div>
-
+				<TopBanner name={this.props.location.query.name} />
+				
 				<Form listenRequireMapFun={(mapData) => { this.setState({mapData: mapData}) }} >
 					
 					<p className="lm-ui-top-tips">这是顶部的提示</p>

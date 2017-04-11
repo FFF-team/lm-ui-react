@@ -87,3 +87,34 @@
 	height: 100%;
 
 }
+//mode === 'botton'
+.lm-ui-checkbox-wrap-btn {
+
+	.lm-ui-checkbox { display: none; }
+	.lm-ui-checkbox-btn-face { display: block; }
+	
+	input:checked + .lm-ui-checkbox-btn {
+
+		border-color: #ff552e;
+    	color: #ff552e;
+    	background-color: #fff8f7;
+
+	}
+
+	.lm-ui-checkbox-btn {
+
+		display: inline-block;
+	    font-size: 12px;
+	    border: 1px solid #e6e6e6;
+	    padding: 10px;
+	    min-width: 75px;
+	    color: #333;
+	    text-align: center;
+
+	}
+
+}
+
+
+
+

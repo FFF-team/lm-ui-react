@@ -1,6 +1,7 @@
 import React from 'react';
 import { List }  from 'src/index.js';
-import { ListGroup } from 'src/index.js'
+import { ListGroup } from 'src/index.js';
+import TopBanner from './TopBanner';
 
 export default class UserList extends React.Component {
 
@@ -23,6 +24,9 @@ export default class UserList extends React.Component {
 
 		return (
 			<div>
+
+				<TopBanner name={this.props.location.query.name} />
+
 				<List 
 					label={this.data.label}
 					value={this.data.value}
