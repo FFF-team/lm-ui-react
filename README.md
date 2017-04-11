@@ -39,7 +39,8 @@ npm run build
 ## DOC
 ---------
 ### 控件列表
-* [Dialog](Dialog)
+* [Dialog](#Dialog)
+* [Toast](#Toast)
 * [Form](#form)
 * [FormGroup](#formgroup)
 * [Label](#label)
