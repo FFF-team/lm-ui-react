@@ -24,7 +24,9 @@ const propTypes = {
       React.PropTypes.number,
       React.PropTypes.bool
 
-    ])
+    ]),
+    preffix: React.PropTypes.node,
+	suffix: React.PropTypes.node
 
 };
 
@@ -40,7 +42,7 @@ export default class Radio extends React.Component {
 
 	render () {
 
-		const { text, value, ...arg } = this.props;
+		const { text, value, preffix, suffix, ...arg } = this.props;
 		const { name, selectedValue, onChange } = this.context.radioGroup;  
 		const optional = {};
 
@@ -63,9 +65,11 @@ export default class Radio extends React.Component {
 					{...optional}
 					{...arg}/>
 
+				{ suffix && suffix }
 				<span className="lm-ui-icon-check"></span>
 				<div className="lm-ui-radio-label">{text}</div>
-
+				{ preffix && preffix }
+				
 			</div>
 
 		)
