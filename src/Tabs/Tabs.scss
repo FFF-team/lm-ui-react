@@ -1,14 +1,10 @@
 @import "../Style/mixin";
 
-.lm-ui-navbar-box {
-  position: relative;
-  width: 100%;
-  overflow: auto;
-  @include hairline(single, #e6e6e6, 0)
-}
 .lm-ui-navbar {
+  // common
   background-color: #fff;
   li {
+    position: relative;
     text-align: center;
     &:active {
       background-color: #ededed;
@@ -29,29 +25,59 @@
       border-bottom-color: #ff552e;
     }
   }
-}
-.lm-ui-navbar-equal {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  li {
-    flex: 1;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
+
+  // normal navbar
+  &-box {
+    position: relative;
+    width: 100%;
+    overflow: auto;
+    background: #fff;
+    @include hairline(single, #e6e6e6, 0);
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
-}
-.lm-ui-navbar-nowrap {
-  padding: 0 6px;
-  font-size: 0;
-  white-space: nowrap;
-  li {
-    display: inline-block;
-    padding: 0 8px;
+
+  // multi navbar
+  &-multi {
+    .lm-ui-navbar li:after {
+      position: absolute;
+      left: -6px;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background-color: #e6e6e6;
+      content: '';
+      transform: scaleY(0.5);
+    }
   }
-}
-.lm-ui-navbar-nowrap::-webkit-scrollbar {
-  display: none;
-}
-.lm-ui-navbar-box::-webkit-scrollbar {
-  display: none;
+
+  // tabs <= 4 even
+  &-equal {
+    display: flex;
+    li {
+      flex: 1;
+    }
+  }
+
+  // tabs > 4
+  &-nowrap {
+    padding: 0 6px;
+    font-size: 0;
+    white-space: nowrap;
+    li {
+      display: inline-block;
+      padding: 0 8px;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  // content
+  &-content {
+    background: #fff;
+  }
 }

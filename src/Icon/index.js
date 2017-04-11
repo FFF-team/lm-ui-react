@@ -16,8 +16,8 @@ class Icon extends React.Component {
         const mergedStyle = Object.assign({
             display: 'inline-block',
             color: '#333',
-            height: 24,
-            width: 24
+            height: 20,
+            width: 20
         }, style);
         
         return (

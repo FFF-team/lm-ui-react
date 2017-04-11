@@ -1,6 +1,7 @@
 import React from 'react';
 import { Tabs, Tab, TabSwitch } from 'src/index'
 import { Icon } from 'src/index'
+import './index.scss'
 
 class UseTab extends React.Component {
     
@@ -27,7 +28,7 @@ class UseTab extends React.Component {
     }
     
     clickTab(tab) {
-        alert(`点击了tab中的${tab.props.label}`);
+        // alert(`点击了tab中的${tab.props.label}`);
     }
     
     render() {
@@ -38,13 +39,13 @@ class UseTab extends React.Component {
                           className='test'>
                         <Tab label="标签1"
                              onSelectAction={ this.clickTab.bind(this) }>
-                            <div>this is tab1 content</div>
+                            <div className="demo-tab-content">this is tab1 content</div>
                         </Tab>
                         <Tab label="标签2">
-                            <div>this is tab2 content</div>
+                            <div className="demo-tab-content">this is tab2 content</div>
                         </Tab>
                         <Tab label="标签3">
-                            <div>this is tab3 content</div>
+                            <div className="demo-tab-content">this is tab3 content</div>
                         </Tab>
                     </Tabs>
                 </div>
@@ -60,7 +61,7 @@ class UseTab extends React.Component {
                         <Tab label="标签6" value="tab6"/>
                         <Tab label="标签7" value="tab7"/>
                     </Tabs>
-                    <div className="custom-cont">
+                    <div className="lm-ui-navbar-content demo-tab-content">
                         { this.state.curTab }
                     </div>
                 </div>

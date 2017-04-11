@@ -29,7 +29,9 @@ export default class Navigation extends React.Component {
 
 					<li><Link to='/List' className="list-item">表单列表</Link></li>
 					
-					<li><Link to='/UseTabFooter' className="list-item">导航</Link></li>
+					{/*<li><Link to='/UseTabFooter' className="list-item">导航</Link></li>*/}
+					
+					<li><Link to='/UseTabsRoute' className="list-item">标签栏</Link></li>
 					
 					<li><Link to='/UseFilter' className="list-item">筛选</Link></li>
 				</ul>

@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { IndexRedirect, Link, Route, Router, hashHistory } from 'react-router';
+import { IndexRedirect, Link, Route, Router, hashHistory, IndexRoute } from 'react-router';
 
 import Navigation from './components/Navigation.js';
 import UserDialog from './components/UserDialog.js';
@@ -14,8 +14,10 @@ import UserList from './components/UserList.js';
 import UseTab from './components/UseTab/UseTab';
 import UseTabFooter from './components/UseTabFooter/UseTabFooter';
 import UseFilter from './components/UseFilter/FilterPage'
+import UseTabsRoute from './components/UseTabFooter/UseTabsRoute'
 
 import '../css/index.scss';
+import Radio from "../../src/Radio/index";
 
 let rootElement = document.getElementById('root');
 
@@ -38,8 +40,14 @@ ReactDOM.render((
 	        	<Route path="/Button" component={UserButton} />
 	        	<Route path="/List" component={UserList} />
 
-
 				<Route path="/UseTabFooter" component={UseTabFooter} />
+
+				<Route path="/UseTabsRoute" component={UseTabsRoute} >
+					<IndexRedirect to="tab1" />
+					<Route path="tab1" component={UseTab}/>
+					<Route path="tab2" component={UseFilter} />
+					<Route path="tab3" component={UserButton} />
+				</Route>
 				<Route path="/UseFilter" component={UseFilter} />
 
 	        </Route>
