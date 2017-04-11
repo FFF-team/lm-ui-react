@@ -7,7 +7,7 @@ class FilterList extends React.Component {
         super(props);
         
         this.state = {
-            selectedValue: 'byTime'
+            selectedValue: this.props.value
         }
     }
     
@@ -26,6 +26,8 @@ class FilterList extends React.Component {
     render() {
         const {
             onChange,
+            value,
+            showState,
             ...other
         } = this.props;
         

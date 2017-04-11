@@ -14,8 +14,9 @@ class NList extends React.Component {
     render() {
         const {
             children,
-            selectedValue,
+            value,
             onSelectedChange,
+            activeClassName,
             className,
             ...other } = this.props;
         

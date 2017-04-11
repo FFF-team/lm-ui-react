@@ -8,25 +8,31 @@ const SelectedTableList = ({
     class extends React.Component {
         constructor(props) {
             super(props);
-            
+        }
+    
+        componentDidMount() {
             this.state = {
                 selectedValue: this.props.value
             }
         }
+    
+        componentWillReceiveProps(newProps) {
+        
+        }
         
         extendChildren(child, selectedStyle) {
-            
+            let activeClassName = this.props.activeClassName;
             let mergedStyle = Object.assign({}, child.props.style);
             let mergedClassName = child.props.className;
             if (this.isChildSelected(child)) {
                 mergedStyle = Object.assign({}, mergedStyle, selectedStyle);
-                mergedClassName = classnames(mergedClassName, selectedClassName)
+                mergedClassName = activeClassName ? activeClassName : classnames(mergedClassName, selectedClassName)
             }
             
             return React.cloneElement(child, {
                 onSelectAction: (event) => {
+                    child.props.onSelectAction && child.props.onSelectAction(child);
                     this.handleClick(event, child);
-                    child.props.onSelectAction && child.props.onSelectAction(child)
                 },
                 style: mergedStyle,
                 className: mergedClassName

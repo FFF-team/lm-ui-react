@@ -1,7 +1,9 @@
 import React from 'react'
 
-import { Sort, SortGroup, SvgIcon } from 'src/index'
+import { Sort, SortGroup, SvgIcon, ModelHOC } from 'src/index'
 import FilterList from  './FilterList'
+
+const ModelList = ModelHOC(FilterList);
 
 class FilterBar extends React.Component {
     constructor(props){
@@ -11,8 +13,8 @@ class FilterBar extends React.Component {
         
         this.state = {
             sort: '',
-            sort1: 'byTime',
-            sort1Label: '按时间',
+            sort1: '',
+            sort1Label: '单条件',
             sort2: '',
             selectedValue: '0',
             isShowList: false
@@ -76,6 +78,7 @@ class FilterBar extends React.Component {
                 <SortGroup className="demo-filter-bar"
                            value={ this.state.selectedValue }
                            onSelectedChange={ this.handleSelectChange }
+                           activeClassName="demo-sort-active"
                 >
                     <Sort value='0'
                           label="按序号"
@@ -103,7 +106,8 @@ class FilterBar extends React.Component {
                     />
                 </SortGroup>
                 
-                <FilterList style={{ display:this.state.isShowList ? 'block' : 'none' }}
+                <ModelList  value={ this.state.sort1 }
+                            showState={this.state.isShowList}
                             className="demo-filter-bar-list"
                             onChange={ this.handleFilterListChange }/>
             </div>

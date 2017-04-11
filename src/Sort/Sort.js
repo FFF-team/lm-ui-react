@@ -102,6 +102,7 @@ class Sort extends React.Component {
     render() {
         
         const {
+            value,
             label,
             clickAction,
             onSelectAction,

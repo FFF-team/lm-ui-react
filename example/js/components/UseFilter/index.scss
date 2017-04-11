@@ -11,4 +11,16 @@
     top: 0;
     left: 0;
   }
+  .demo-sort-active {
+    .positive-sort {
+      .lm-icon-arrow-top {
+        border-bottom-color: red
+      }
+    }
+    .reverse-sort {
+      .lm-icon-arrow-bottom {
+        border-top-color: red;
+      }
+    }
+  }
 }
