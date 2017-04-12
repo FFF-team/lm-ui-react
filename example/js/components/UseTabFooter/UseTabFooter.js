@@ -1,6 +1,5 @@
 import React from 'react'
-import {Tabs, Tab, Icon, SvgIcon} from 'src/index'
-import {TabsFooter} from 'src/index'
+import {TabsFooter, Tab, Icon, SvgIcon} from 'src/index'
 import './index.scss'
 
 class UseTabFooter extends React.Component {

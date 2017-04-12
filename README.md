@@ -64,7 +64,7 @@ npm run build
 * [Sort](#sort排序)
 * [NList](#normallist)
 * [NListItem](#normallist)
-* [SelectableList](#normallist)
+* [SelectableListHOC](#selectablelisthoc)
 
 ******
 ### Dialog
@@ -396,15 +396,13 @@ npm run build
 
   普通icon，可自定义添加属性className,style，或在<Icon>中添加任意inline或inline-block元素。
 
-  默认inline-block区域20px*20px
+  默认inline-block区域大小：20px*20px
 
 * props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
 | children | 任意inline或inline-block元素 | node | 无 | 可选 |
-| className | 增加样式 | string | 无 | 可选 |
-| style | 增加样式 |  obj | 无 | 可选 |
 
 *其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
 
@@ -454,7 +452,7 @@ npm run build
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
-| children | 任意html元素 |  node |  | 可选 |
+| children | 任意html元素，即当前tab下的内容 |  node |  | 可选 |
 | value | 用于标识唯一的tab，不能重复 | string |  | 可选 |
 | label | tab文字 |  string |  | 是 |
 | icon | icon图标 |  node |  | 可选 |
@@ -482,37 +480,25 @@ npm run build
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
 | children | <ListItem> | node |  | 可选 |
-
-* SelectableList props
-
-|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
-| ---------- | ------ | ------ | --------- | --------- |
-| children | 子元素 |  node |  | 可选 |
-| value | 区分s的唯一值 | string |  | 可选 |
-| onSelectedChange | 选中项改变时触发.参数(value, item) | node |  | 可选 |
+| value | 适用于增加SelectableListHOC后。选中和当前value匹配的item | string |  | 必选 |
 
 * NListItem props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
-| value | 选中和当前value匹配的tab | string |  | 可选 |
-| primaryText | 文字 |  string | 'sort' | 可选 |
-| onSelectAction | 适用于多个sort为一组sortGroup情况，当前选中某项触发.参数(item)| func | () => {} | 可选 |
+| primaryText | 文字 |  string | 'list-item' | 可选 |
+| secondaryText | 右侧文字 |  string | '' | 可选 |
+| value | 适用于增加SelectableListHOC后。区分不同item唯一值 | string |  | 必选 |
+| onSelectAction | 适用于增加SelectableListHOC后。当前选中某项触发.参数(item)| func | () => {} | 可选 |
 
 *其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
 
 ```
-默认List
 <NList>
-    <NListItem/>
+    <NListItem primaryText="内容" secondaryText="其他内容"/>
     ...
 </NList>
 
-可选择的List
-<SelectableList value='a'>
-    <NListItem value='a' primaryText='item1'/>
-    <NListItem value='b' primaryText='item2'/>
-</SelectableList>
 ```
 
 ******
@@ -533,13 +519,45 @@ npm run build
 | ---------- | ------ | ------ | --------- | --------- |
 | children | <Sort> | node |  | 是 |
 | value | 选中和当前value匹配的tab | string |  | 可选 |
-| onSelectedChange | 适用于多个sort为一组sortGroup情况. 选中项改变时触发.参数(value, item) | node |  | 可选 |
+| onSelectedChange | 适用于多个sort为一组sortGroup情况. 选中项改变时触发.参数(value, item) | func | () => {} | 可选 |
 
 *其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
 
 ```
-<SortGroup className="test">
-    <Sort/>
+单个sort：
+<Sort label="筛选"
+      sortInfo={ ['sortkey1', 'sortkey2] }
+      clickAction={ (key, sortBy) => {} }
+/>
+
+多个sort为一组：
+<SortGroup value="b" className="test">
+    <Sort value="a"/>
+    <Sort value="b"/>
 </SortGroup>
+```
+******
+### SelectableListHOC
+* desc
+
+  给列表提供可选择的功能
+
+* params
+
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| config | 自定义选中项样式，可添加selectedClassName或selectedStyle, | obj | {selectedClassName: '', selectedStyle: {color: '#ff552e'}} | 可选 |
+| component | 任意react组件 | node |  | 可选 |
+
+
+```
+const SelectableList = SelectableListHOC({
+      selectedClassName: 'active'
+  })(WrappedComponent);
+
+<SelectableList value='a'onSelectedChange={ (value, item) => {} }>
+   <Item value="a" onSelectAction={ (item) => {} } />
+   <Item value="a" />
+</SelectableList>
 ```
 ******

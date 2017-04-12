@@ -13,10 +13,10 @@ class NList extends React.Component {
     
     render() {
         const {
+            value, // SelectableListHOC
+            onSelectedChange, // SelectableListHOC
+            
             children,
-            value,
-            onSelectedChange,
-            activeClassName,
             className,
             ...other } = this.props;
         

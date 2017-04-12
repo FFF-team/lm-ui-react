@@ -1,6 +1,10 @@
 import React from 'react'
 
-import {NListItem, SelectableList} from 'src/index'
+import {NListItem, NList, SelectableListHOC} from 'src/index'
+
+const SelectableList = SelectableListHOC({
+    selectedClassName: 'lm-ui-active'
+})(NList);
 
 class FilterList extends React.Component {
     constructor(props) {

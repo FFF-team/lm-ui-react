@@ -21,7 +21,7 @@
       transform: scaleY(0.5);
     }
 
-    &.active:after {
+    &.lm-ui-active:after {
       content: "";
       position: absolute;
       width: 10px;

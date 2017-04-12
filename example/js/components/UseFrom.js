@@ -10,9 +10,9 @@ import { Form,
 		CheckboxGroup,
 		Checkbox,
 		CheckBtn,
-		GetCodeBtn} from 'src/index';
+		GetCodeBtn,
+        Button} from 'src/index';
 import { Toast } from 'src/index';
-import Button from 'src/Button/index.js';
 import TopBanner from './TopBanner';
 
 export default class UseAlert extends React.Component {

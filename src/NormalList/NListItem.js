@@ -12,11 +12,12 @@ class ListItem extends React.Component {
     
     render() {
         const {
+            onSelectAction, // SelectableListHOC
+            value, // SelectableListHOC
+            
             primaryText,
             secondaryText,
-            onSelectAction,
             className,
-            value,
             ...other
         } = this.props;
     

@@ -96,7 +96,6 @@ class FilterBar extends React.Component {
                 <SortGroup className="demo-filter-bar"
                            value={ this.state.selectedValue }
                            onSelectedChange={ this.handleSelectChange }
-                           activeClassName="demo-sort-active"
                 >
                     <Sort value='0'
                           label="按序号"

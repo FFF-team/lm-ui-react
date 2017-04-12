@@ -1,7 +1,6 @@
 import React from 'react'
 
-import Button from 'src/Button/index.js';
-import {CheckboxGroup, Checkbox} from 'src/index'
+import {CheckboxGroup, Checkbox, Button} from 'src/index'
 import TopBanner from '../TopBanner';
 
 class MultiFilter extends React.Component {

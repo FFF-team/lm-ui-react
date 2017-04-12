@@ -1,6 +1,5 @@
 import React from 'react';
-import { Tabs, Tab, TabSwitch } from 'src/index'
-import { Icon } from 'src/index'
+import { Tabs, Tab, Icon } from 'src/index'
 import './index.scss'
 import TopBanner from '../TopBanner';
 

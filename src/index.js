@@ -37,10 +37,15 @@ export ValidateValHOC from './ValidateValHOC';
 export Dialog from './Dialog/index.js';
 
 // Tab
-export { Tabs, TabsFooter, Tab, TabsRoute } from './Tabs'
+export { Tabs, TabsFooter, Tab } from './Tabs'
 
-export { NList, NListItem, SelectableList } from './NormalList'
+// NormalList
+export { NList, NListItem } from './NormalList'
 
+// SelectableList
+export SelectableListHOC from './SelectableListHOC'
+
+// Sort
 export { Sort, SortGroup } from './Sort'
 
 // Toast
@@ -54,5 +59,8 @@ export ListGroup from './ListGroup/index.js';
 // Icon
 export Icon from './Icon';
 export SvgIcon from './SvgIcon'
+
+// Button
+export Button from './Button'
 
 
