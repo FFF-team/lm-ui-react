@@ -2,6 +2,7 @@ import React from 'react'
 
 import Button from 'src/Button/index.js';
 import {CheckboxGroup, Checkbox} from 'src/index'
+import TopBanner from '../TopBanner';
 
 class MultiFilter extends React.Component {
     
@@ -64,11 +65,16 @@ class MultiFilter extends React.Component {
                         onChange={(val) => {
                             this.setState({checkboxVal: val})
                         }}
+                        style={{ flexDirection: 'row' }}
                     >
                         { list.items.map((item, index) => (
                             <dd key={ index }>
                                 <a className="lft-item">
-                                    <Checkbox text={ item.label } value={ item.key }/>
+                                    <Checkbox mode="button"
+                                              uniqueId={ item.key }
+                                              text={ item.label }
+                                              value={ item.key }
+                                    />
                                 </a>
                             </dd>)
                         ) }
@@ -89,7 +95,7 @@ class MultiFilter extends React.Component {
         
         return (
             <div className="demo-multi-filter" { ...other }>
-                <div className="topBanner">筛选页面</div>
+                <TopBanner backBtn={ false } name="筛选" />
                 <div className="filter-multi-term">
                     { this.renderItems() }
                 </div>

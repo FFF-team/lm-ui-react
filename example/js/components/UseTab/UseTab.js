@@ -2,6 +2,7 @@ import React from 'react';
 import { Tabs, Tab, TabSwitch } from 'src/index'
 import { Icon } from 'src/index'
 import './index.scss'
+import TopBanner from '../TopBanner';
 
 class UseTab extends React.Component {
     
@@ -34,6 +35,7 @@ class UseTab extends React.Component {
     render() {
         return (
             <div>
+                <TopBanner name={this.props.location.query.name} />
                 <div style={{height: '200px'}}>
                     <Tabs initSelectedIndex={ 2 }
                           className='test'>

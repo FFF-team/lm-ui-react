@@ -3,6 +3,7 @@ import React from 'react'
 import './index.scss'
 import FilterBar from './FilterBar'
 import { NList, NListItem } from 'src/index'
+import TopBanner from '../TopBanner';
 
 class FilterPage extends React.Component {
     constructor(props) {
@@ -83,6 +84,7 @@ class FilterPage extends React.Component {
     render() {
         return (
             <div>
+                <TopBanner name={this.props.location.query.name} />
                 <FilterBar onFilterChange={ this.changeList }/>
                 <div>
                     <NList>

@@ -43,7 +43,7 @@
     position: relative;
     padding: 0 14px 10px;
     font-size: 0;
-    &:after {
+    &:before {
       position: absolute;
       left: 0;
       right: 0;
@@ -52,6 +52,9 @@
       background-color: #e6e6e6;
       content: '';
       transform: scaleY(0.5);
+    }
+    &:last-child:before {
+      display: none;
     }
     dt {
       font-size: 14px;
@@ -63,9 +66,7 @@
     .lft-item {
       display: inline-block;
       font-size: 12px;
-      border: 1px solid #e6e6e6;
       margin: 0 10px 10px 0;
-      padding: 10px;
       min-width: 75px;
       color: #333;
       text-align: center;
