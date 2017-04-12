@@ -458,6 +458,8 @@ npm run build
 | icon | icon图标 |  node |  | 可选 |
 | onSelectAction | 当前选中某项触发.参数(tab) |  func | () => {} | 可选 |
 
+*其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
+
 
 ```
 <Tabs value='a' initSelectedIndex={0}>
@@ -481,6 +483,7 @@ npm run build
 | ---------- | ------ | ------ | --------- | --------- |
 | children | <ListItem> | node |  | 可选 |
 | value | 适用于增加SelectableListHOC后。选中和当前value匹配的item | string |  | 必选 |
+| onSelectedChange | 适用于增加SelectableListHOC后。选中项改变时触发.参数(value, item)| func | () => {} | 可选 |
 
 * NListItem props
 
@@ -503,6 +506,15 @@ npm run build
 
 ******
 ### Sort排序
+
+* SortGroup props
+
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| children | <Sort> | node |  | 是 |
+| value | 选中和当前value匹配的tab | string |  | 可选 |
+| onSelectedChange | 适用于多个sort为一组sortGroup情况. 选中项改变时触发.参数(value, item) | func | () => {} | 可选 |
+
 * Sort props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
@@ -512,14 +524,6 @@ npm run build
 | sortInfo | 1.单项排序:['单项排序key'] 2.选择排序: [key: '', sortBy: 0].0为升序，1为降序. 3. 双向排序: ['双向排序key1', '双向排序key2'] | string |  | 可选 |
 | clickAction | 点击排序后的行为。参数：(key, sortBy) | func | () => {} | 可选 |
 | onSelectAction | 适用于多个sort为一组sortGroup情况. 当前选中某项触发.参数(item)| func | () => {} | 可选 |
-
-* SortGroup props
-
-|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
-| ---------- | ------ | ------ | --------- | --------- |
-| children | <Sort> | node |  | 是 |
-| value | 选中和当前value匹配的tab | string |  | 可选 |
-| onSelectedChange | 适用于多个sort为一组sortGroup情况. 选中项改变时触发.参数(value, item) | func | () => {} | 可选 |
 
 *其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
 
@@ -547,7 +551,7 @@ npm run build
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
 | config | 自定义选中项样式，可添加selectedClassName或selectedStyle, | obj | {selectedClassName: '', selectedStyle: {color: '#ff552e'}} | 可选 |
-| component | 任意react组件 | node |  | 可选 |
+| component | 任意react组件 | node |  | 必选 |
 
 
 ```
