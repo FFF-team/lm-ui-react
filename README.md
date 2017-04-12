@@ -56,7 +56,7 @@ npm run build
 * [Button](#button)
 * [List](#list表单展示)
 * [Icon](#icon)
-* [SvgIcon](#svgIcon)
+* [SvgIcon](#svgicon)
 * [Tabs](#tab标签切换)
 * [Tab](#tab标签切换)
 * [TabsFooter](#tabsfooter标签切换)
