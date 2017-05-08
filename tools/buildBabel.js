@@ -9,6 +9,18 @@ function buildContent(content, filename, destination, babelOptions = {}) {
   outputFileSync(destination, result.code, {encoding: 'utf8'});
 }
 
+function buildCssContent(content, filename, destination, babelOptions = {}) {
+  // babelOptions.filename = filename;
+  // const result = transform(content, babelOptions);
+  outputFileSync(destination, content, {encoding: 'utf8'});
+}
+
+function buildPngContent(content, filename, destination, babelOptions = {}) {
+  // babelOptions.filename = filename;
+  // const result = transform(content, babelOptions);
+  // outputFileSync(destination, content, {encoding: 'image'});
+}
+
 function buildFile(filename, destination, babelOptions = {}) {
   const content = fs.readFileSync(filename, {encoding: 'utf8'});
   // We only have .js files that we need to build
@@ -17,6 +29,19 @@ function buildFile(filename, destination, babelOptions = {}) {
     // console.log('%s => %s', filename, outputPath);
     buildContent(content, filename, outputPath, babelOptions);
   }
+  if (path.extname(filename) === '.scss') {
+
+    const outputPath = path.join(destination, path.basename(filename));
+    buildCssContent(content, filename, outputPath, babelOptions);
+
+  }
+  if (path.extname(filename) === '.png') {
+
+    const outputPath = path.join(destination, path.basename(filename));
+    buildPngContent(content, filename, outputPath, babelOptions);
+
+  }
+
 }
 
 export default function buildBabel(folderPath, destination, babelOptions = {}, firstFolder = true) {

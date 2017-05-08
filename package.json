@@ -1,6 +1,6 @@
 {
   "name": "lm-ui-react",
-  "version": "1.0.0",
+  "version": "0.2.1",
   "description": "loan mobile UI with react",
   "main": "lib/index.js",
   "scripts": {
@@ -19,6 +19,10 @@
   ],
   "author": "FFF-team",
   "license": "ISC",
+  "peerDependencies": {
+    "react": ">=15.0.0",
+    "react-dom": ">=15.0.0"
+  },
   "bugs": {
     "url": "https://github.com/FFF-team/lm-ui-react/issues"
   },

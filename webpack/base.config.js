@@ -34,7 +34,8 @@ const baseConfig = {
 			{ 
 				test: /\.scss$/, 
 				loader: "style!css!autoprefixer-loader!sass" 
-			}
+			},
+			{ test: /\.png$/, loader: "url?limit=8192&name=img/[name].[ext]" }
 
 		]
 
@@ -42,7 +43,8 @@ const baseConfig = {
 	
 	resolve: {
 		alias: {
-			'src': resolve('src')
+			'src': resolve('src'),
+			'lib': resolve('lib')
 		}
 	},
 

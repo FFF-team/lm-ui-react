@@ -26,14 +26,11 @@ export default {
 
   		path: options.example ? '/': './dist',
         //path: './dist',
-  		filename: options.optimizeMinimize ? '[name].min.js' : '[name].js',
-  		library: 'LmUiReact',
-  		libraryTarget: 'umd'
+  		filename: options.optimizeMinimize ? '[name].min.js' : '[name].js'
 
   	},
 
     // externals: [
-
     //     {
     //         react: {
     //             root: 'React',
@@ -42,16 +39,14 @@ export default {
     //             amd: 'react',
     //         },
     //     },
-
     //     {
-
     //         'react-dom': {
     //             root: 'ReactDOM',
     //             commonjs2: 'react-dom',
     //             commonjs: 'react-dom',
     //             amd: 'react-dom',
-    //         }
+    //          },
     //     }
-    // ],
+    // ]
 
 }

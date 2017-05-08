@@ -56,17 +56,17 @@
 	background-repeat: no-repeat; 
 	margin-bottom: 12px;
 	&.icon-loading {
-		background-image: url(/src/Toast/icon-loading.png);
+		background-image: url(./icon-loading.png);
 		-webkit-animation: rotate-loading 1s steps(12,end) infinite;
 		animation: rotate-loading linear 1s steps(12,end) infinite;
 	}
 	&.icon-success {
-		background-image: url(/src/Toast/icon-success.png);
+		background-image: url(./icon-success.png);
 	}
 	&.icon-fail {
-		background-image: url(/src/Toast/icon-fail.png);
+		background-image: url(./icon-fail.png);
 	}
 	&.icon-network {
-		background-image: url(/src/Toast/icon-network.png);
+		background-image: url(./icon-network.png);
 	}
 }
