@@ -48,8 +48,8 @@ export default class GetCodeBtn extends React.Component {
 
 	clickHandler () {
 		
-		this.countDown()
-		this.props.onClick()
+		this.countDown();
+		this.state.canUse ?  this.props.onClick() : ''
 
 	}
 
