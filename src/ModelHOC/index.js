@@ -76,9 +76,14 @@ const ModelHOC = (WrappedComponent) =>
 			// let { showState } = this.state;
 
 			let HOCclass = showState ? "lm-ui-model" : "lm-ui-model hide";
+            
+            
+            // alert(Number.isInteger)
 
-			HOCclass = Number.isInteger(opacity) ? HOCclass + " " + opacitys[opacity] : HOCclass;
-
+			// HOCclass = Number.isInteger(opacity) ? HOCclass + " " + opacitys[opacity] : HOCclass;
+            
+            HOCclass = opacity%1 === 0 ? HOCclass + " " + opacitys[opacity] : HOCclass;
+            
 			return (
 
 				<div key="modelHOC" className={ HOCclass }>
