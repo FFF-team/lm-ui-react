@@ -1,6 +1,6 @@
 {
   "name": "lm-ui-react",
-  "version": "0.2.1",
+  "version": "0.2.5",
   "description": "loan mobile UI with react",
   "main": "lib/index.js",
   "scripts": {
@@ -72,10 +72,10 @@
     "classnames": "^2.2.5",
     "events": "^1.1.1",
     "history": "^3.3.0",
-    "react": "^15.4.2",
+    "react": "~15.4.2",
     "react-addons-css-transition-group": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-router": "^3.0.2"
+    "react-dom": "~15.4.2",
+    "react-router": "~3.0.2"
   },
   "jest": {
     "moduleFileExtensions": [
