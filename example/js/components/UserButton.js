@@ -1,6 +1,6 @@
 import React from 'react';
 import cs from 'classnames';
-import { Button } from 'lib/index';
+import { Button } from 'src/index';
 import TopBanner from './TopBanner';
 
 export default class UserButton extends React.Component {
