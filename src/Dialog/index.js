@@ -18,9 +18,9 @@ import ModelHOC from '../ModelHOC/index.js';
 const propTypes = {
 	dialogType: React.PropTypes.string.isRequired,
 	showState: React.PropTypes.bool.isRequired,
-	headText: React.PropTypes.string,
 	opacity: React.PropTypes.number,
-	contentText: React.PropTypes.string,
+    headText: React.PropTypes.node,
+	contentText: React.PropTypes.node,
 	btnLeftText: React.PropTypes.string,
 	btnRightText: React.PropTypes.string,
 	btnCommonFun: React.PropTypes.func,
@@ -33,8 +33,8 @@ const defaultProps = {
 	dialogType: "Confirm",
 	opacity: 5,
 	showState: false,
-	headText: '提示',
-	contentText: '提示内容',
+    headText: 'head',
+	contentText: '提示标题',
 	btnLeftText: '取消',
 	btnRightText: '确定',
 	btnCommonFun: () => {},
@@ -63,7 +63,7 @@ class Dialog extends React.Component {
 				dialogType,
 				opacity,
 				showState,
-				headText,
+                headText,
 				contentText,
 				btnLeftText,
 				btnRightText } = this.props;
@@ -71,18 +71,16 @@ class Dialog extends React.Component {
 		return (
 
 			<div className="lm-ui-dialog">
-
-				{ dialogType === "Confirm" ?
-				(<div className="dialog-head head-confirm">
-					<span dangerouslySetInnerHTML={{__html: headText}}></span>
-					<i className='dialog-icon-close' onClick={this.clickHandler.bind(this)}></i>
-				</div>) : 
-				(<div className="dialog-head" dangerouslySetInnerHTML={{__html: headText}}>
-				</div>)}
+				
+				<div className="dialog-head">
+					{ headText }
+				</div>
 
 				
 
-				<div className="dialog-content" dangerouslySetInnerHTML={{__html: contentText}}></div>
+				<div className="dialog-content">
+					{ contentText }
+				</div>
 
 				<div className="dialog-btns">
 					{ dialogType === "Confirm" ? (

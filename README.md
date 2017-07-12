@@ -65,6 +65,7 @@ npm run build
 * [NList](#normallist)
 * [NListItem](#normallist)
 * [SelectableListHOC](#selectablelisthoc)
+* [ActionSheet](#actionSheet功能列表弹层)
 
 ******
 ### Dialog
@@ -493,8 +494,10 @@ npm run build
 | secondaryText | 右侧文字 |  string | '' | 可选 |
 | value | 适用于增加SelectableListHOC后。区分不同item唯一值 | string |  | 必选 |
 | onSelectAction | 适用于增加SelectableListHOC后。当前选中某项触发.参数(item)| func | () => {} | 可选 |
+| children | node |  node | null | 可选 |
 
 *其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
+*当NListItem设置children，则primaryText, secondaryText失效*
 
 ```
 <NList>
@@ -563,5 +566,50 @@ const SelectableList = SelectableListHOC({
    <Item value="a" onSelectAction={ (item) => {} } />
    <Item value="a" />
 </SelectableList>
+```
+******
+### ActionSheet
+* desc
+
+  功能操作弹层
+
+* params
+
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| showState | 状态, | bool | false | 必选 |
+| label | 操作说明 | node | 操作的说明或提示 | 必选 |
+| tip | 其他文字说明 | node |  | 可选 |
+| onActionChange | 选中触发 | function | () => {} | 必选 |
+| list | 操作列表1 | array | [] | 必选 |
+| bottom | 操作列表2 | array | [] | 必选 |
+
+
+```
+const handleActionChange = (item) => {
+    // {label: 'xx', key: 'xxx'}
+};
+
+<ActionSheet
+	showState={ true }
+	list={ [
+           			{
+           				label: '确定',
+           				key: 'ok',
+           			},
+           			{
+           				label: '其他操作',
+           				key: 'other',
+           			}
+           		]
+           }
+	bottom={ [{
+             			label: '取消',
+             			key: 'cancel'
+             		}]
+             }
+	onActionChange={ handleActionChange }
+	className="choose-type-modal"
+/>
 ```
 ******

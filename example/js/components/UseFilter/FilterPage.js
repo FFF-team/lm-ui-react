@@ -91,9 +91,14 @@ class FilterPage extends React.Component {
                         { this.state.data.map((item, index) => {
                             return (
                                 <NListItem key={ item.id }
-                                           secondaryText={ `2017-01-0${index}` }
-                                           primaryText={ `${item.id}、${item.value}` }
-                                />
+                                           // secondaryText={ `2017-01-0${index}` }
+                                           // primaryText={ `${item.id}、${item.value}` }
+                                >
+                                    <p>
+                                        <span>{ `${item.id}、${item.value}` }</span>
+                                        <span style={{float: 'right'}}>{ `2017-01-0${index}` }</span>
+                                    </p>
+                                </NListItem>
                             )
                         }) }
                     </NList>

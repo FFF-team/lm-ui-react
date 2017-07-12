@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dialog } from 'src/index.js';
 import TopBanner from './TopBanner';
+import { ActionSheet } from 'src'
 
 export default class UserDialog extends React.Component {
 
@@ -13,10 +14,36 @@ export default class UserDialog extends React.Component {
 	    	dialogState: false,
 
 	    	dialogType: "Alert",
+			
+			actionState: false
 
 	    }
 	
 	}
+	
+	data = {
+		actionList: [
+			{
+				label: '确定',
+				key: 'ok',
+			},
+			{
+				label: '其他操作',
+				key: 'other',
+			}
+		],
+		actionBottom: [{
+			label: '取消',
+			key: 'cancel'
+		}]
+	};
+    
+    handleActionChange = (item) => {
+    	console.log(item)
+	   this.setState({
+		   actionState: false
+	   })
+    }
 
 	render () {
 
@@ -49,6 +76,16 @@ export default class UserDialog extends React.Component {
 							</a>
 
 						</li>
+						
+						<li>
+							
+							<a href="javascript:;"
+							   className="list-item"
+							   onClick={()=>{this.setState({actionState: !this.state.actionState})}}>
+								功能操作
+							</a>
+							
+						</li>
 
 					</ul>
 
@@ -57,11 +94,19 @@ export default class UserDialog extends React.Component {
 				<Dialog 
 					dialogType={this.state.dialogType}
 					showState={this.state.dialogState}
-					headText={'test head'}
-					contentText={'提示内容提示内容提示内容'} 
+					headText={'提示标题'}
+					contentText={'内容'}
 					btnCommonFun={() => {this.setState({dialogState: false})}}
 					btnLeftCbFun={() => {console.log('left fun')}}
 					btnRightCbFun={() => {console.log('right fun')}}/>
+				
+				<ActionSheet
+					showState={ this.state.actionState }
+					list={ this.data.actionList }
+					bottom={ this.data.actionBottom }
+					onActionChange={ this.handleActionChange }
+					className="choose-type-modal"
+				/>
 
 			</div>
 
