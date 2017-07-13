@@ -34,6 +34,7 @@ export default class Button extends React.Component {
 		const { children,size, btnType , isRadius , isDisabled , onClick , icon ,...arg } = this.props;
 
 		let classnames = 'lm-ui-btn ';
+
 		switch(btnType){
 			case 'primary':
 				classnames += 'lm-ui-btn-primary ';
@@ -49,7 +50,10 @@ export default class Button extends React.Component {
 		if(isRadius){
 			classnames += 'lm-ui-btn-radius ';
 		}
-		
+
+		if(isDisabled){
+			classnames += 'lm-ui-btn-disable ';
+		}
 
 		switch(size){
 			case 'small':
@@ -68,10 +72,13 @@ export default class Button extends React.Component {
 
 		return (
 
-			<button  onClick={this.clickhandle.bind(this)} className={classnames} disabled={isDisabled ? true : false} {...arg} >
+			<a href="javascript:;" 
+				onClick={isDisabled ? undefined : this.clickhandle.bind(this)}
+				className={classnames} 
+				{...arg} >
 				<img src={icon} className={icon ? 'lm-ui-btn-icon' : 'hide'} />
 				{ children }
-			</button>
+			</a>
 
 		)
 
