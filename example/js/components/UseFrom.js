@@ -450,8 +450,6 @@ export default class UseAlert extends React.Component {
 							onClick={this.formHandler.bind(this)}
 						>开关按钮</Button>
 
-						<a href="javascript:;"></a>
-
 					</div>
 				
 				</Form>
