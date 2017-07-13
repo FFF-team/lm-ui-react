@@ -13,8 +13,12 @@ import UserList from './components/UserList';
 
 import UseTab from './components/UseTab/UseTab';
 import UseTabFooter from './components/UseTabFooter/UseTabFooter';
-import UseFilter from './components/UseFilter/FilterPage'
-import UseTabsRoute from './components/UseTabFooter/UseTabsRoute'
+import UseFilter from './components/UseFilter/FilterPage';
+import UseTabsRoute from './components/UseTabFooter/UseTabsRoute';
+//create by Mxr
+import UseDatePicker from './components/UseDatePicker';
+import UseCarousel from './components/UseCarousel';
+import UseSlider from './components/UseSlider';
 
 import '../css/index.scss';
 import Radio from "../../src/Radio/index";
@@ -49,6 +53,10 @@ ReactDOM.render((
 					<Route path="tab3" component={UserButton} />
 				</Route>
 				<Route path="/UseFilter" component={UseFilter} />
+
+				<Route path="/UseDatePicker" component={UseDatePicker}></Route>
+				<Route path="/UseCarousel" component={UseCarousel}></Route>
+				<Route path="/UseSlider" component={UseSlider}></Route>
 
 	        </Route>
 	        

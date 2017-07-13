@@ -46,5 +46,12 @@ export Icon from './Icon';
 export SvgIcon from './SvgIcon';
 // Button
 export Button from './Button';
-
+//DatePicker
+export DatePicker from './DatePicker';
+//Carousel
+export Carousel from './Carousel';
+//Slider
+export Slider from './Slider';
+//API
+export API from './API';
 

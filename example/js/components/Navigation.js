@@ -31,6 +31,13 @@ export default class Navigation extends React.Component {
 					<li><Link to={{ pathname: '/UseTabsRoute', query: { name: '标签栏' } }} className="list-item">标签栏</Link></li>
 					
 					<li><Link to={{ pathname: '/UseFilter', query: { name: '筛选' } }} className="list-item">筛选</Link></li>
+
+					<li><Link to={{ pathname: '/UseDatePicker', query: { name: '日期选择' } }} className="list-item grey">日期选择</Link></li>
+
+					<li><Link to={{ pathname: '/UseCarousel', query: { name: '走马灯' } }} className="list-item">走马灯</Link></li>
+
+					<li><Link to={{ pathname: '/UseSlider', query: { name: '横向滑动' } }} className="list-item">横向滑动</Link></li>
+				
 				</ul>
 
 			</div>
