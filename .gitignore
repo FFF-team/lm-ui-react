@@ -3,7 +3,6 @@
 npm-debug.log*
 node_modules
 !tools/amd/
-lib/
 !tools/lib/
 es/
 !tools/es/

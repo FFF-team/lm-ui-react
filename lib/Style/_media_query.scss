@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+/* media query */
+html {
+  font-size: 50px;
+}
+
+/*小屏手机默认字体设为12px, 防止10px显示太小*/
+@media screen and (max-width: 360px) {
+  body {
+    font-size: 0.24rem;
+  }
+} 
+
+@media screen and (min-width: 360px) {
+  html {
+    font-size: 60px;
+  }
+  body {
+    font-size: 0.2rem;
+  }
+}
+@media screen and (min-width: 480px) {
+  html {
+    font-size: 75px;
+  }
+}
+@media screen and (min-width: 640px) {
+  html {
+    font-size: 100px;
+  }
+}
+@media screen and (min-width: 800px) {
+  html {
+    font-size: 125px;
+  }
+}

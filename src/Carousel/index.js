@@ -4,7 +4,7 @@
 import React, { PropTypes } from 'react';
 import createReactClass from 'create-react-class';
 import tweenState from 'react-tween-state';
-import { API } from 'src/index';
+import { API } from '../API';
 import './index.scss';
 
 const Carousel = createReactClass({
