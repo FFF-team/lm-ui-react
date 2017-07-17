@@ -18,21 +18,33 @@ class ListItem extends React.Component {
             primaryText,
             secondaryText,
             className,
+            children,
             ...other
         } = this.props;
-    
+        
         const cn = classnames('lm-ui-cell', className);
         
-        return (
-            <div { ...other } onClick={ onSelectAction } className={ cn }>
-                <div className="lm-ui-cell-bd">
-                    { primaryText }
+        if (children) {
+            return (
+                <div { ...other } onClick={ onSelectAction } className={ cn }>
+                    <div className="lm-ui-cell-bd">
+                        { children }
+                    </div>
                 </div>
-                <div className="lm-ui-cell-ft">
-                    { secondaryText }
+            )
+        } else {
+            return (
+                <div { ...other } onClick={ onSelectAction } className={ cn }>
+                    <div className="lm-ui-cell-bd">
+                        { primaryText }
+                    </div>
+                    <div className="lm-ui-cell-ft">
+                        { secondaryText }
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        }
+        
     }
 }
 
@@ -41,14 +53,16 @@ ListItem.propTypes = {
     secondaryText: React.PropTypes.string,
     onSelectAction: React.PropTypes.func,
     className: React.PropTypes.string,
-    value: React.PropTypes.string
+    value: React.PropTypes.string,
+    children: React.PropTypes.node
 };
 
 ListItem.defaultProps = {
     primaryText: 'list-item',
     secondaryText: '',
     onSelectAction: () => {},
-    className: ''
+    className: '',
+    children: null
 };
 
 export default ListItem
