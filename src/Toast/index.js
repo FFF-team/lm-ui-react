@@ -47,19 +47,19 @@ class Toast extends React.Component {
 			
 		} else if(toastType === "Loading") {
 
-			resultDom = <div className="lm-ui-toast"><i className='lm-ui-toast-icon icon-loading'></i><p>加载中</p></div>
+			resultDom = <div className="lm-ui-toast"><i className='lm-ui-toast-icon icon-loading'></i><p>{message || `加载中`}</p></div>
 
 		} else if(toastType === "Success") {
 
-			resultDom = <div className="lm-ui-toast"><i className='lm-ui-toast-icon icon-success'></i><p>提交成功</p></div>
+			resultDom = <div className="lm-ui-toast"><i className='lm-ui-toast-icon icon-success'></i><p>{message || `提交成功`}</p></div>
 
 		} else if(toastType === "Fail") {
 
-			resultDom = <div className="lm-ui-toast"><i className='lm-ui-toast-icon icon-fail'></i><p>加载中</p></div>
+			resultDom = <div className="lm-ui-toast"><i className='lm-ui-toast-icon icon-fail'></i><p>{message || `加载中`}</p></div>
 
 		} else if(toastType === "Netless") {
 
-			resultDom = <div className="lm-ui-toast"><i className='lm-ui-toast-icon icon-network'></i><p>加载中</p></div>
+			resultDom = <div className="lm-ui-toast"><i className='lm-ui-toast-icon icon-network'></i><p>{message || `加载中`}</p></div>
 
 		}
 

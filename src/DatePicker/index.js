@@ -23,11 +23,65 @@ const defaultProps = {
 
 export default class DatePicker extends React.Component {
 
+	constructor(props) {
+
+        super(props);
+        this.state = {
+
+        	age: 0
+
+        }
+
+    }
+
+    componentWillMount () {
+
+    	//this.setState({ age:1 })
+    	// this.setState({ age: this.state.age + 1 })
+    	// debugger
+    	// this.setState({ age: this.state.age + 1 })
+
+    }
+
+    componentDidMount () {
+
+    	// this.setState({ age: this.state.age + 1 })
+    	// this.setState({ age: this.state.age + 1 })
+    	// setTimeout(() => {
+
+	    // 	this.setState({ age: this.state.age + 1 })
+	    // 	this.setState({ age: this.state.age + 1 })
+
+    	// }) 
+
+        document.addEventListener('click', () => {
+            console.log('document');
+        });
+
+    }
+
+    clickHandler () {
+
+    	// this.setState({ age: this.state.age + 1 })
+    	// debugger
+    	// this.setState({ age: this.state.age + 1 })
+        console.log('合成')
+
+    }
+
+    componentWillReceiveProps () {
+
+
+
+    }
+
 	render () {
+
+		console.log(`render--${this.state.age}`)
 
 		return (
 
-			<div>{'hello world im DatePicker'}</div>
+			<div onClick={this.clickHandler.bind(this)}>{this.state.age}</div>
 
 		)
 
