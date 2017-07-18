@@ -33,7 +33,7 @@ const defaultProps = {
 	dialogType: "Confirm",
 	opacity: 5,
 	showState: false,
-    headText: 'head',
+    headText: '提示',
 	contentText: '提示标题',
 	btnLeftText: '取消',
 	btnRightText: '确定',

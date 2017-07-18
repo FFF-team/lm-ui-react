@@ -28,7 +28,7 @@ class OperateList extends React.Component {
         } = this.props;
         
         return (
-            <div className={ className ? className + ' m-modal-operate-list' : 'm-modal-operate-list' }>
+            <div className={ className ? className + ' lm-ui-action-sheet' : 'lm-ui-action-sheet' }>
                 <ul className="type-wrap">
                     <li className="title g-color-grey">
                         { label }
