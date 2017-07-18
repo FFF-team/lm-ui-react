@@ -67,6 +67,7 @@ npm run build
 * [SelectableListHOC](#selectablelisthoc)
 * [ActionSheet](#actionSheet功能列表弹层)
 * [Carousel](#carousel)
+* [Slider](#slider)
 
 ******
 ### Dialog
@@ -644,7 +645,7 @@ const handleActionChange = (item) => {
 
 </Carousel>
 ```
-### Carousel
+### Slider
 * desc
 
   slider 横向滚动
