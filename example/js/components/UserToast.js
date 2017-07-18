@@ -87,8 +87,7 @@ export default class UserToast extends React.Component {
 					showState={this.state.showState}
 					toastType={this.state.toastType}
 					timeControl={{ time: 2000, cbFun: () => {this.setState({showState: false})}}}
-					opacity={this.state.opacity}
-					message={'test head'} />
+					opacity={this.state.opacity}/>
 
 			</div>
 

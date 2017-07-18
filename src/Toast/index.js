@@ -56,7 +56,7 @@ class Toast extends React.Component {
 
 		} else if(toastType === "Fail") {
 
-			resultDom = <div className="lm-ui-toast"><i className='lm-ui-toast-icon icon-fail'></i><p>{message || `加载中`}</p></div>
+			resultDom = <div className="lm-ui-toast"><i className='lm-ui-toast-icon icon-fail'></i><p>{message || `加载失败`}</p></div>
 
 		} else if(toastType === "Netless") {
 
