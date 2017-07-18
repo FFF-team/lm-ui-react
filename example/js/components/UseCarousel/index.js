@@ -3,26 +3,13 @@ import { Carousel } from 'src/index';
 
 export default class UseCarousel extends React.Component {
 
-	constructor(props) {
-
-	    super(props);
-	    this.state = {
-
-	    	slideIndex: 2
-
-	    }
-	
-	}
-
-	render () { 
+	render () {
 
 		return (
 
 			<div className="test-frame">
 
-				<Carousel
-					afterSlide={(newIndex) => { this.setState({ slideIndex: newIndex }) }}
-					slideIndex={this.state.slideIndex}>
+				<Carousel autoplay={true}>
 
 					<div className="test-page1">1</div>
 					<div className="test-page2">2</div>
@@ -30,15 +17,6 @@ export default class UseCarousel extends React.Component {
 					<div className="test-page4">4</div>
 
 				</Carousel>
-
-				<ul>
-
-					<li onClick={() => {this.setState({ slideIndex: 0 })}}>1</li>
-					<li onClick={() => {this.setState({ slideIndex: 1 })}}>2</li>
-					<li onClick={() => {this.setState({ slideIndex: 2 })}}>3</li>
-					<li onClick={() => {this.setState({ slideIndex: 3 })}}>4</li>
-
-				</ul>
 
 			</div>
 

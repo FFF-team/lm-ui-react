@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
 // Use box sizing on all the things!
-html {
-    font-size: 50px;
-    height: 100%;
-}
+// html {
+//     font-size: 50px;
+//     height: 100%;
+// }
 
 body, p, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form, div, span, i, em, strong, b, fieldset, legend, input, select, textarea, button, th, td, menu{
     -webkit-box-sizing: border-box;
@@ -32,7 +32,7 @@ body {
 }
 // Universal link styling
 a {
-    color: #002be5;
+    //color: #002be5;
     text-decoration: none;
     outline: none;
     cursor: pointer;

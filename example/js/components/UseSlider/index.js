@@ -3,17 +3,6 @@ import { Slider } from 'src/index';
 
 export default class UseSlider extends React.Component {
 
-	constructor(props) {
-
-	    super(props);
-	    this.state = {
-
-	    	slideIndex: 2
-
-	    }
-	
-	}
-
 	render () { 
 
 		return (

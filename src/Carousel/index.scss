@@ -1,0 +1,27 @@
+.lm-ui-carousel-dot-list {
+
+	position: absolute;
+	left: 50%;
+	bottom: 15px;
+	display: flex;
+	transform: translateX(-50%);
+
+	.carousel-dot-item {
+		
+		display: block;
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		margin-left: 8px;
+		background-color: #75767c;
+		border: 2px solid rgb(201, 186, 182);
+
+	}
+	
+	.active {
+
+		background-color: #fff;
+
+	}
+
+}
