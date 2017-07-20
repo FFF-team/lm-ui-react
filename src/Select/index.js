@@ -62,7 +62,7 @@ export default class Select extends React.Component {
 			<div className="lm-ui-select-wrap">
 
 				<select 
-					className='lm-ui-select'
+					className={selectedValue !== '' ? 'lm-ui-select selected' : 'lm-ui-select'}
 					id={groupId && groupId}
 					value={selectedValue}
 					onChange={onChange}
