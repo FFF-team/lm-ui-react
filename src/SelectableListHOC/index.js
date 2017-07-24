@@ -30,8 +30,8 @@ const SelectedTableList = ({
             }
             
             return React.cloneElement(child, {
-                onSelectAction: (event) => {
-                    child.props.onSelectAction && child.props.onSelectAction(child);
+                onClick: (event) => {
+                    child.props.onClick && child.props.onClick(event);
                     this.handleClick(event, child);
                 },
                 style: mergedStyle,
@@ -48,7 +48,7 @@ const SelectedTableList = ({
             let value = item.props.value;
             
             if (value !== this.props.value) {
-                this.props.onSelectedChange && this.props.onSelectedChange(value, item)
+                this.props.onSelectedChange && this.props.onSelectedChange(event, value, item)
             }
         };
         

@@ -30,17 +30,14 @@ export ValidateValHOC from './ValidateValHOC';
 export Dialog from './Dialog/index.js';
 // Tab
 export { Tabs, TabsFooter, Tab } from './Tabs';
-// NormalList
-export { NList, NListItem } from './NormalList';
+// List
+export { List, ListItem } from './List';
 // SelectableList
 export SelectableListHOC from './SelectableListHOC';
 // Sort
 export { Sort, SortGroup } from './Sort'; 
 // Toast
 export Toast from './Toast/index.js';
-//表单列表
-export List from './List/index.js';
-export ListGroup from './ListGroup/index.js';
 // Icon
 export Icon from './Icon';
 export SvgIcon from './SvgIcon';
@@ -56,4 +53,7 @@ export Slider from './Slider';
 export API from './API';
 //ActionSheet
 export ActionSheet from './ActionSheet';
-
+//NotifyLabel
+export NotifyLabel from './NotifyLabel'
+//Divider
+export Divider from './Divider'

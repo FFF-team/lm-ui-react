@@ -94,7 +94,6 @@ class MultiFilter extends React.Component {
         
         return (
             <div className="demo-multi-filter" { ...other }>
-                <TopBanner backBtn={ false } name="筛选" />
                 <div className="filter-multi-term">
                     { this.renderItems() }
                 </div>

@@ -477,8 +477,8 @@ npm run build
 * props 与 Tabs props一致
 
 ******
-### NormalList
-* NList props
+### List
+* List props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
@@ -486,25 +486,33 @@ npm run build
 | value | 适用于增加SelectableListHOC后。选中和当前value匹配的item | string |  | 必选 |
 | onSelectedChange | 适用于增加SelectableListHOC后。选中项改变时触发.参数(value, item)| func | () => {} | 可选 |
 
-* NListItem props
+* ListItem props
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
 | primaryText | 文字 |  string | 'list-item' | 可选 |
 | secondaryText | 右侧文字 |  string | '' | 可选 |
+| leftIcon | 左侧图标 |  number | '' | 可选 |
+| rightArrow | 右侧箭头 |  element | '' | 可选 |
 | value | 适用于增加SelectableListHOC后。区分不同item唯一值 | string |  | 必选 |
-| onSelectAction | 适用于增加SelectableListHOC后。当前选中某项触发.参数(item)| func | () => {} | 可选 |
-| children | node |  node | null | 可选 |
+| onClick | 列表点击行为.若为可选择的列表，参数({value);若为普通列表,参数(event) | func | () => {} | 可选 |
+| children | 自定义组件内容 |  node | null | 可选 |
 
 *其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
-*当NListItem设置children，则primaryText, secondaryText失效*
+*当ListItem设置children，则primaryText, secondaryText失效*
 
 ```
-<NList>
-    <NListItem primaryText="内容" secondaryText="其他内容"/>
+<List>
+    <ListItem primaryText="内容" secondaryText="其他内容"/>
     ...
-</NList>
+</List>
 
+
+<ListItem onClick={ () => {} }>
+    <div>
+       自定义内容
+    </div>
+</ListItem>
 ```
 
 ******
@@ -522,20 +530,28 @@ npm run build
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
-| value | 区分sort的唯一值 | string |  | 可选 |
+| value | 区分sort的唯一值，与sortGroup配合 | string |  | 可选 |
 | label | 排序文字 |  string | 'sort' | 可选 |
-| sortInfo | 1.单项排序:['单项排序key'] 2.选择排序: [key: '', sortBy: 0].0为升序，1为降序. 3. 双向排序: ['双向排序key1', '双向排序key2'] | string |  | 可选 |
-| clickAction | 点击排序后的行为。参数：(key, sortBy) | func | () => {} | 可选 |
-| onSelectAction | 适用于多个sort为一组sortGroup情况. 当前选中某项触发.参数(item)| func | () => {} | 可选 |
+| sortInfo | 1.单条件:[{key: 'sort1'， sortBy: 0}] 0为升序，1为降序 2.双向排序: [{key: 'key1', sortBy: 0}, {key: 'key2', sortBy: 1}].0为升序，1为降序. 3. 多条件: [] (不需要传该字段) 4.需要排序 [{key: 'key1'}] | string |  | 可选 |
+| onClick | 点击排序后的行为。参数：({key, sortBy} | func | () => {} | 可选 |
+| icon | 用于多选排序时文字右侧的图标.若为true，则显示默认图标；若为自定义node，则显示自定义图标 | node | <SvgIcon> | 可选 |
+| initOpen | 初始值，是否打开sort里的筛选条件 | bool | false | 可选 |
+| open | 变为受控组件，sort里的筛选内容可根据传入的该字段值打开或关闭 | bool | false | 可选 |
 
 *其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
+*当sort有更多筛选条件时，组件需要实现onChange方法，若执行结果为true，则关闭当前删选条件弹层*
 
 ```
 单个sort：
 <Sort label="筛选"
-      sortInfo={ ['sortkey1', 'sortkey2] }
-      clickAction={ (key, sortBy) => {} }
-/>
+      sortInfo={ [{key: 'key1', sortBy: 0}] }
+      onClick={ ({key, sortBy}) => {} }
+      initOpen={false}
+>
+   <div>
+      // 这里是筛选条件
+   </div>
+</Sort>
 
 多个sort为一组：
 <SortGroup value="b" className="test">
@@ -562,8 +578,8 @@ const SelectableList = SelectableListHOC({
       selectedClassName: 'active'
   })(WrappedComponent);
 
-<SelectableList value='a'onSelectedChange={ (value, item) => {} }>
-   <Item value="a" onSelectAction={ (item) => {} } />
+<SelectableList value='a'onSelectedChange={ (event, value, item) => {} }>
+   <Item value="a" onClick={ () => {} } />
    <Item value="a" />
 </SelectableList>
 ```
@@ -611,5 +627,43 @@ const handleActionChange = (item) => {
 	onActionChange={ handleActionChange }
 	className="choose-type-modal"
 />
+```
+******
+### NotifyLabel props
+* desc
+
+  通知标签，一版般用在列表右侧，默认20x20圆形图标
+
+* params
+
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| content | 内容 | element |  | 可选 |
+| style | 自定义样式 | obj |  | 可选 |
+
+```
+<NotifyLabel content={1} style={{color: 'red'}}/>
+```
+******
+### Divider props
+* desc
+
+  分割线，一般用于列表之间
+
+* params
+
+
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| inset | 是否有14px的左右padding | boolean | false | 可选 |
+| style | 自定义样式 | obj |  | 可选 |
+
+```
+<List>
+    <ListItem />
+    <Divider />
+    <ListItem />
+</List>
+
 ```
 ******

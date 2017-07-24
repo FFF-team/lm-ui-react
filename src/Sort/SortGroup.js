@@ -13,12 +13,13 @@ class SortGroup extends React.Component {
             
             children,
             activeClassName,
+            className,
             ...other
         } = this.props;
         
         
         return (
-            <div { ...other }>
+            <div className="lm-ui-sort-group" { ...other }>
                 {
                     children
                 }
@@ -29,13 +30,16 @@ class SortGroup extends React.Component {
 
 SortGroup.PropTypes = {
     value: React.PropTypes.string,
+    onSelectedChange: React.PropTypes.func
 };
 
 SortGroup.defaultProps = {
+    onSelectedChange: () => {}
 };
 
 export default SelectableListHOC({
-    selectedStyle: {
-        color: '#ff552e'
-    }
+    // selectedStyle: {
+    //     color: '#ff552e'
+    // },
+    selectedClassName: 'lm-ui-sort-active'
 })(SortGroup)

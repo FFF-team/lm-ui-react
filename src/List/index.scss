@@ -1,69 +1,56 @@
-.lm-ui-list{
-	overflow: hidden;
-	box-sizing:border-box;
-	display: -webkit-box;
+.lm-ui-list {
+  background: #fff;
+  .lm-ui-list-item {
+    position: relative;
+    font-size: 14px;
+    padding: 14px;
+    min-height: 50px;
+    color: #333;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    height: 50px;
-    background-color: #FFFFFF;
-    padding:0px 14px;
-    color: #999999;
-    margin-bottom: 1px;
-    font-size: 16px;
-    .hide{
-		display: none;
+    // border-top: 1px solid transparent;
+
+    //&:before {
+    //  position: absolute;
+    //  left: 0;
+    //  right: 0;
+    //  bottom: 0;
+    //  height: 1px;
+    //  background-color: #e6e6e6;
+    //  content: '';
+    //  transform: scaleY(0.5);
+    //}
+
+    &:active {
+      background: #ededed;;
     }
-    .lm-ui-list-label{
-    	-webkit-box-flex: 1;
-	    -ms-flex: 1;
-	    flex: 1;
-	    color: #333333;
+
+    &.lm-ui-active:after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 4px;
+      transform: rotate(-45deg);
+      border-left: 2px solid #ff552e;
+      border-bottom: 2px solid #ff552e;
+      top: 50%;
+      margin-top: -5px;
+      right: 14px;
     }
-    .lm-ui-list-icon{
-		width: 14px;
-		height: 14px;
-		margin-right: 6px;
-		margin-left: 1px;
+
+    &-bd {
+      overflow: hidden;
+      flex: 1;
     }
-    .lm-ui-list-value{
-    	float: right;
+
+    &-ft {
+      color: #999;
+      font-size: 14px;
+      text-align: right;
     }
-    .lm-ui-list-unlink{
-    	float: right;
-    	width: 16px;
-    	margin-left: 10px;
+
+    &-children {
+      flex: 1;
     }
-    .lm-ui-list-link{
-    	float: right;
-    	width: 16px;
-    	margin-left: 10px;
-    	&:after{
-			display: block;
-		    width: 6px;
-		    height: 6px;
-		    margin-left: 0;
-		    content: '';
-		    border: 1px solid #c8c8c8;
-		    border-top: 0 none;
-		    border-left: 0 none;
-		    -webkit-transform: rotate(315deg);
-		    transform: rotate(315deg);
-    	}
-    }
-    .lm-ui-list-number{
-    	background-color: #FF552E;
-    	color: #FFFFFF;
-    	border-radius: 50%;
-    	padding: 2px;
-    	display: inline-block;
-    	height: 16px;
-    	width: 16px;
-    	font-size: 12px;
-    	text-align: center;
-    	line-height: 12px;
-    	vertical-align: text-top;
-    	margin-left: 5px;
-    }
+  }
 }

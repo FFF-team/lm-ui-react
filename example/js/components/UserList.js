@@ -1,6 +1,7 @@
 import React from 'react';
-import { List }  from 'src/index.js';
-import { ListGroup } from 'src/index.js';
+// import { List }  from 'src/index.js';
+// import { ListGroup } from 'src/index.js';
+import { List, ListItem, Icon, NotifyLabel, Divider } from 'src/index'
 import TopBanner from './TopBanner';
 
 export default class UserList extends React.Component {
@@ -26,35 +27,51 @@ export default class UserList extends React.Component {
 			<div>
 
 				<TopBanner name={this.props.location.query.name} />
-
-				<List 
-					label={this.data.label}
-					value={this.data.value}
-					arrow={this.data.arrow}
-					icon={this.data.icon}
-					onClick={this.data.onClick}
-				></List>
-
-				<List 
-					label={this.data.label}
-					value={this.data.value}
-					arrow={this.data.arrow}
-				></List>
-
-				<ListGroup>
-					<List
-						label={this.data.label}
-						value={this.data.value}
-						icon={this.data.icon}
-					></List>
-
-					<List 
-						label={this.data.label}
-						value={this.data.value}
-						activeNumber={this.data.activeNumber}
-						arrow={this.data.arrow}
-					></List>
-				</ListGroup>
+				
+				<List>
+					
+					<ListItem secondaryText='次要内容'
+							  primaryText='主要内容'
+							  leftIcon={ <Icon style={{
+								  backgroundImage: `url(${this.data.icon})`
+							  }}/> }
+					/>
+					
+					<Divider/>
+					
+					<ListItem secondaryText={ <span style={{color: 'red'}}>次要内容</span> }
+							  primaryText='主要内容'
+							  rightArrow={ true }
+							  onClick={ (e) => { console.log(e.target) } }
+							  
+					/>
+					
+					<Divider inset={ true }/>
+					
+					<ListItem secondaryText={ <span>次要内容</span> }
+							  primaryText='主要内容'
+							  rightArrow={ true }
+							  rightIcon={ <NotifyLabel content={ 1 }/> }
+							  leftIcon={ <Icon><img width={'100%'} src="http://img.58cdn.com.cn/finance/58/m/img/lottery_m/bigLottery_logo.7de7ae83.png"/></Icon> }
+					
+					/>
+					
+					<Divider/>
+					
+					<ListItem rightArrow={ true }>
+						<div style={{display: 'flex'}}>
+							<div style={{width: 60}}>
+								<Icon style={{ width: 50, height: 50, background: 'red' }}/>
+							</div>
+							<div>
+								<p>自定义内容</p>
+								<p>次要内容</p>
+							</div>
+						</div>
+						
+					</ListItem>
+					
+				</List>
 				
 			</div>
 			

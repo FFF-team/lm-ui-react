@@ -30,7 +30,7 @@ class Icon extends React.Component {
 }
 
 Icon.PropTypes = {
-    style: React.PropTypes.object
+    // style: React.PropTypes.object
 };
 
 Icon.defaultTypes = {
