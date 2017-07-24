@@ -267,7 +267,7 @@ class Input extends React.Component {
 				<div className="lm-ui-input-core">
 
 					<input 
-						type="text" 
+						type={type}
 						id={groupId && groupId}
 						value={value}
 						className={validateClass}
@@ -347,20 +347,16 @@ class Input extends React.Component {
 
 		const { type } = this.props;
 
-		if (type === 'input') {
-
-			return this.renderInput()
-
-		} else if (type === 'textarea') {
+		if (type === 'textarea') {
 
 			return this.renderTextarea()
 
 		} else {
 
-			return null 
+			return this.renderInput()
 
 		}
-
+ 
 	}
 
 }

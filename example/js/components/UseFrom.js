@@ -224,12 +224,12 @@ export default class UseAlert extends React.Component {
 						
 							<Label>
 						
-								<span>姓名</span>
+								<span>电话</span>
 						
 							</Label>
 						
 							<Input 
-								type='input'
+								type='tel'
 								cleanBtn={{ state: true, cleanFun: () => {this.setState({test8: ''})} }}
 								value={this.state.test8}
 								defaultText={'aaa'}

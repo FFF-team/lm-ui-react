@@ -4,8 +4,8 @@
 import React, { PropTypes } from 'react';
 import createReactClass from 'create-react-class';
 import tweenState from 'react-tween-state';
+import CarouselDot from './decorate';
 import { API } from '../API';
-import './index.scss';
 
 const Carousel = createReactClass({
 
@@ -59,7 +59,7 @@ const Carousel = createReactClass({
 			beforeSlide: () => {},
 			afterSlide: () => {},
 			arrow: false,
-			dots: false
+			dots: true
 
 		}
 
@@ -534,6 +534,23 @@ const Carousel = createReactClass({
 		}	
 
 	},
+
+	switchCurrentSlide (nextSlide) {
+
+		if (nextSlide === this.state.currentSlide) return;
+
+		this.setState({
+
+			currentSlide: nextSlide
+
+		}, () => {
+
+			this.goToSlide(nextSlide)
+
+		})
+		
+
+	},
 	//******************************
 	//包装children
 	formatChildren (children) {
@@ -568,6 +585,15 @@ const Carousel = createReactClass({
 						{ children }
 
 					</ul>
+
+					{
+
+						this.props.dots && <CarouselDot
+											currentSlide={this.state.currentSlide}
+											dotCount={React.Children.count(this.props.children)}
+											clickHandler={this.switchCurrentSlide} />
+
+					}
 
 				</div>
 

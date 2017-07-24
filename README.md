@@ -66,6 +66,8 @@ npm run build
 * [NListItem](#normallist)
 * [SelectableListHOC](#selectablelisthoc)
 * [ActionSheet](#actionSheet功能列表弹层)
+* [Carousel](#carousel)
+* [Slider](#slider)
 
 ******
 ### Dialog
@@ -641,8 +643,61 @@ const handleActionChange = (item) => {
 | content | 内容 | element |  | 可选 |
 | style | 自定义样式 | obj |  | 可选 |
 
+  ```
+  <NotifyLabel content={1} style={{color: 'red'}}/>
+  ```
+
+******
+### Carousel
+* desc
+
+  跑马灯
+
+* params
+
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| width | 宽度 | number or string | 100% | 可选 |
+| height | 高度 | number | 200 | 可选 |
+| slideIndex | 当前所处焦点 | number | 0 | 可选 |
+| swipeSpeed | 切换命中比例 | number | 3 | 可选 |
+| speed | 切换时间 | number | 300 | 可选 |
+| easing | 动画曲线 | string | easeOutCirc（https://github.com/chenglou/tween-functions） | 可选 |
+| autoplay | 是否自动播放 | bool | false | 可选 |
+| autoplayInterval | 自动播放时间间隔 | number | 8000 | 可选 |
+| arrow | 下方圆点 | bool | true | 可选 |
+| beforeSlide | 滑动前函数 | fun | () => {} | 可选 |
+| beforeSlide | 滑动后函数 | fun | () => {} | 可选 |
 ```
-<NotifyLabel content={1} style={{color: 'red'}}/>
+<Carousel autoplay={true}>
+
+	<div className="test-page1">1</div>
+	<div className="test-page2">2</div>
+	<div className="test-page3">3</div>
+	<div className="test-page4">4</div>
+
+</Carousel>
+```
+******
+### Slider
+* desc
+
+  slider 横向滚动
+
+* params
+
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| children | 子 | node | 无 | 可选 |
+```
+<Slider>
+
+	<div style={{width: 200, height: 150, backgroundColor: '#cccccc'}}></div>
+	<div style={{width: 200, height: 150, backgroundColor: 'pink'}}></div>
+	<div style={{width: 200, height: 150, backgroundColor: '#8a2be2'}}></div>
+	<div style={{width: 200, height: 150, backgroundColor: '#FF9912'}}></div>
+
+</Slider>
 ```
 ******
 ### Divider props

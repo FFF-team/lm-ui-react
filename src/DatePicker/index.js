@@ -60,11 +60,12 @@ export default class DatePicker extends React.Component {
 
     }
 
-    clickHandler () {
+    clickHandler (event) {
 
     	// this.setState({ age: this.state.age + 1 })
     	// debugger
     	// this.setState({ age: this.state.age + 1 })
+        event.stopPropagation()
         console.log('合成')
 
     }
@@ -81,7 +82,12 @@ export default class DatePicker extends React.Component {
 
 		return (
 
-			<div onClick={this.clickHandler.bind(this)}>{this.state.age}</div>
+			<div onClick={this.clickHandler.bind(this)}>
+
+                {this.state.age}
+                <div onClick={this.clickHandler.bind(this)}>aaaaaa</div>
+
+            </div>
 
 		)
 

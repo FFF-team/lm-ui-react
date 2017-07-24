@@ -10,6 +10,7 @@ import ModelHOC from '../ModelHOC/index.js';
  */
 
 const propTypes = {
+
 	toastType: React.PropTypes.string.isRequired,
 	opacity: React.PropTypes.number,
 	showState: React.PropTypes.bool.isRequired,
@@ -17,10 +18,10 @@ const propTypes = {
 };
 
 const defaultProps = {
+
 	toastType: "Hint",
 	showState: false,
-	opacity: 5,
-	message: '提示'
+	opacity: 5
 
 };
 
@@ -43,7 +44,7 @@ class Toast extends React.Component {
 
 		if(toastType === "Hint") {
 
-			resultDom = <div className="lm-ui-toast toast-text-content"><p>{message}</p></div>;
+			resultDom = <div className="lm-ui-toast toast-text-content"><p>{message || `提示`}</p></div>;
 			
 		} else if(toastType === "Loading") {
 
@@ -55,7 +56,7 @@ class Toast extends React.Component {
 
 		} else if(toastType === "Fail") {
 
-			resultDom = <div className="lm-ui-toast"><i className='lm-ui-toast-icon icon-fail'></i><p>{message || `加载中`}</p></div>
+			resultDom = <div className="lm-ui-toast"><i className='lm-ui-toast-icon icon-fail'></i><p>{message || `加载失败`}</p></div>
 
 		} else if(toastType === "Netless") {
 
