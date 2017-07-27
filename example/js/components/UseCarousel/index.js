@@ -9,7 +9,7 @@ export default class UseCarousel extends React.Component {
 
 			<div className="test-frame">
 
-				<Carousel autoplay={true}>
+				<Carousel autoplay={true} page={true}>
 
 					<div className="test-page1">1</div>
 					<div className="test-page2">2</div>

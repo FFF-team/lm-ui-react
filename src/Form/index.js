@@ -26,28 +26,38 @@ export default class Form extends React.Component {
 
 			requiredMap: []
 
-		}
+		};
+
+		this.errorMsgListener = this.errorMsgListener.bind(this);
 
 	}
 
 	componentDidMount () {
-		
-		const { listenRequireMapFun } = this.props;
-		/* 
-		 * 单纯的负责监听errorMsg事件，并记录接收到的信息，
-		 * 并通过listenRequireMapFun接口输出。
-		 */
-		emitter.addListener('errorMsg', (id, data) => {
-			//每个input都有唯一的数字id
+
+		emitter.addListener('errorMsg', this.errorMsgListener);
+
+	}
+
+	errorMsgListener (id, data) {
+
+		if (this.refs.lmUiFormRef) {
+			/* 
+			 * 单纯的负责监听errorMsg事件，并记录接收到的信息，
+			 * 并通过listenRequireMapFun接口输出。
+			 */
+			const { listenRequireMapFun } = this.props;
 			let map = [...this.state.requiredMap];
-			
 			map[id.id] = data;
-
 			this.setState({ requiredMap: map })
-
 			listenRequireMapFun(this.state.requiredMap)
 
-		});
+		}
+
+	}
+
+	componentWillUnmount () {
+
+		emitter.removeListener('errorMsg', this.errorMsgListener)
 
 	}
 
@@ -57,7 +67,7 @@ export default class Form extends React.Component {
 
 		return (
 
-			<form {...arg}>
+			<form {...arg} ref={'lmUiFormRef'}>
 
 				{children}
 

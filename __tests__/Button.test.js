@@ -31,7 +31,7 @@ describe('Test Button', () => {
 
         const wrapper = mount(normalButton);
 
-        wrapper.find('button').simulate('click');
+        wrapper.find('.lm-ui-btn').simulate('click');
         expect(onClick.called).toBe(true);
 
     });

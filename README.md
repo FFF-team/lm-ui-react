@@ -633,6 +633,7 @@ const handleActionChange = (item) => {
 | autoplay | 是否自动播放 | bool | false | 可选 |
 | autoplayInterval | 自动播放时间间隔 | number | 8000 | 可选 |
 | arrow | 下方圆点 | bool | true | 可选 |
+| page | 页码 | bool | false | 可选 |
 | beforeSlide | 滑动前函数 | fun | () => {} | 可选 |
 | beforeSlide | 滑动后函数 | fun | () => {} | 可选 |
 ```
