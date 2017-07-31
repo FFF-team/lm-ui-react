@@ -1,6 +1,6 @@
 {
   "name": "lm-ui-react",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "loan mobile UI with react",
   "main": "lib/index.js",
   "scripts": {

@@ -1,10 +1,9 @@
-//deepEqual
 const type = (data) => {
 
 	return Object.prototype.toString.call(data).match(/.*\s(.*)]/)[1].toLowerCase();
 
 };
-
+//deepEqual 分类处理所有数据类型
 export function funDeepEqual (arg1, arg2) {
 
 	if (arg1 === arg2) {
@@ -94,9 +93,60 @@ export function funDeepEqual (arg1, arg2) {
 	return false;
 
 };
-//deepClone
+//deepClone 分类处理所有数据类型
 export function funDeepClone (arg1) {
 
-	
-	
+	let result;
+	//undefined, null, '', 0, false
+	if (!arg1) {
+
+		return arg1;
+
+	}
+	//基础类型判断（string，number，boolean）
+	let baseTypeList = ['string', 'number', 'boolean'];
+	if (baseTypeList.indexOf(typeof arg1) !== -1) {
+
+		return arg1
+
+	}
+	//复杂类型判断
+	if (type(arg1) === 'array') {
+
+		result = [];
+
+		arg1.forEach((item, index) => {
+
+			result[index] = funDeepClone(item)
+
+		})
+
+	} else if (type(arg1) === 'object') {
+
+		result = {};
+
+		let keyList = Object.keys(arg1);
+
+		for (let i = 0, len = keyList.length; i < len; i++) {
+
+			result[keyList[i]] = funDeepClone(arg1[keyList[i]])
+
+		}
+
+	} else if (type(arg1) === 'function') {
+
+		result = new Function(arg1);
+
+	} else if (type(arg1) === 'date') {
+
+		result = new Date(arg1);
+
+	} else if (type(arg1) === 'regexp') {
+
+		result = new RegExp(arg1);
+
+	}
+
+	return result;
+
 };
