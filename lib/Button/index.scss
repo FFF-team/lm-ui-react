@@ -1,10 +1,11 @@
 /*通用样式*/
 .lm-ui-btn{
+	box-sizing: border-box;
 	display: block;
 	font-size: 16px;
 	border-width: 1px;
 	border-style: solid;
-	padding: 12px 20px;
+	//padding: 12px 20px;
 	text-align: center;
 	.lm-ui-btn-icon{
         display: inline-block;
@@ -26,21 +27,30 @@
 
 /*尺寸样式*/
 .lm-ui-btn-small{
-	font-size:12px;
-	padding: 8px 10px;
+	font-size:14px;
+	//padding: 8px 10px;
+	height: 30px;
+	line-height: 30px;
 }
 .lm-ui-btn-middle{
 	font-size:14px;
-	padding: 8px 15px;
+	//padding: 8px 15px;
+	height: 30px;
+	line-height: 30px;
 }
 .lm-ui-btn-big{
 	font-size:16px;
-	padding: 14px 20px;
+	//padding: 14px 20px;
+	height: 44px;
+	line-height: 44px;
 }
-.lm-ui-btn-long{
+.lm-ui-btn-long{ 
+	font-size:16px;
 	display: block;
 	width: 100%;
-	padding: 11px 0px;
+	//padding: 11px 0px;
+	height: 44px;
+	line-height: 44px;
 }
 
 

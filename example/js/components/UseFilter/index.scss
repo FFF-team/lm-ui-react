@@ -1,6 +1,8 @@
 .demo-filter-bar {
   display: flex;
   background: #fff;
+  top: 100px;
+  left: 0;
   .lm-ui-sort {
     flex: 1;
   }
@@ -25,12 +27,18 @@
   }
 }
 
+.lm-ui-sort-group {
+  .lm-ui-model {
+    top: 94px;
+  }
+}
+
 .demo-multi-filter {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  top: 0;
+  top: 95px;
   background: #fff;
   z-index: 99;
   .btn-group {

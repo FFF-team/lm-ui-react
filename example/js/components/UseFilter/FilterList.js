@@ -1,30 +1,33 @@
 import React from 'react'
 
-import {NListItem, NList, SelectableListHOC} from 'src/index'
+import {ListItem, List, SelectableListHOC, Divider} from 'src/index'
 
 const SelectableList = SelectableListHOC({
     selectedClassName: 'lm-ui-active'
-})(NList);
+})(List);
 
 class FilterList extends React.Component {
     constructor(props) {
         super(props);
         
         this.state = {
-            selectedValue: this.props.value
+            selectedValue: this.props.defaultValue
         }
     }
     
-    handleChange = (value, item) => {
-        this.props.onChange && this.props.onChange(value, item);
+    handleChange = (event, value, item) => {
+        this.props.onChange && this.props.onChange({
+            value,
+            item
+        });
         
         this.setState({
             selectedValue: value
         })
     };
     
-    selectAction2(item) {
-        console.log('点击了filterList中的第二项')
+    selectAction2({value}) {
+        console.log('点击了filterList中的第二项' + value)
     }
     
     render() {
@@ -39,14 +42,21 @@ class FilterList extends React.Component {
             <SelectableList value={ this.state.selectedValue }
                             onSelectedChange={ this.handleChange }
                             { ...other }>
-                <NListItem value={ 'byTime' }
+                <ListItem value={ 'byTime' }
                            primaryText="按时间"
                 />
-                <NListItem value={ 'byNo' }
+                
+                <Divider/>
+                
+                <ListItem value={ 'byNo' }
                            primaryText="按序号"
-                           onSelectAction={ this.selectAction2 }
+                           onClick={ this.selectAction2 }
                 />
-                <NListItem value={ 'byName' }
+    
+                <Divider/>
+                
+                <ListItem value={ 'byName' }
+                          
                            primaryText="按名称"
                 />
             </SelectableList>

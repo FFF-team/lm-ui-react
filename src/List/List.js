@@ -6,7 +6,7 @@ import classnames from 'classnames';
 
 import './index.scss'
 
-class NList extends React.Component {
+class List extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -20,7 +20,7 @@ class NList extends React.Component {
             className,
             ...other } = this.props;
         
-        const cn = classnames('lm-ui-cells', className)
+        const cn = classnames('lm-ui-list', className)
         
         return (
             <div { ...other } className={ cn }>
@@ -30,13 +30,13 @@ class NList extends React.Component {
     }
 }
 
-NList.propTypes = {
+List.propTypes = {
     onSelectedChange: React.PropTypes.func,
     value: React.PropTypes.string
 };
 
-NList.defaultProps = {
+List.defaultProps = {
     onSelectedChange: () => {}
 };
 
-export default NList
+export default List

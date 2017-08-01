@@ -2,7 +2,7 @@ import React from 'react'
 
 import './index.scss'
 import FilterBar from './FilterBar'
-import { NList, NListItem } from 'src/index'
+import { List, ListItem, Divider } from 'src/index'
 import TopBanner from '../TopBanner';
 
 class FilterPage extends React.Component {
@@ -82,26 +82,37 @@ class FilterPage extends React.Component {
     
     
     render() {
+        
+        
+        const renderItems = () => {
+    
+            let listItems = [];
+            
+            this.state.data.forEach((item, index) => {
+                listItems.push((
+                    <ListItem key={ item.id }
+                              secondaryText={ `2017-01-0${index}` }
+                              primaryText={ `${item.id}、${item.value}` }
+                    />
+                    
+                ));
+                listItems.push(<Divider key={ `divider-${index}` }/>)
+            })
+            
+            return listItems
+        };
+        
+        
         return (
             <div>
                 <TopBanner name={this.props.location.query.name} />
                 <FilterBar onFilterChange={ this.changeList }/>
                 <div>
-                    <NList>
-                        { this.state.data.map((item, index) => {
-                            return (
-                                <NListItem key={ item.id }
-                                    // secondaryText={ `2017-01-0${index}` }
-                                    // primaryText={ `${item.id}、${item.value}` }
-                                >
-                                    <p>
-                                        <span>{ `${item.id}、${item.value}` }</span>
-                                        <span style={{float: 'right'}}>{ `2017-01-0${index}` }</span>
-                                    </p>
-                                </NListItem>
-                            )
-                        }) }
-                    </NList>
+                    <List>
+                        {
+                            renderItems()
+                        }
+                    </List>
                 </div>
             </div>
         )
