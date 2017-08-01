@@ -4,7 +4,7 @@
 import React, { PropTypes } from 'react';
 import createReactClass from 'create-react-class';
 import tweenState from 'react-tween-state';
-import CarouselDot from './decorate';
+import { CarouselDot, CarouselPage } from './decorate';
 import { API } from '../API';
 
 const Carousel = createReactClass({
@@ -41,6 +41,7 @@ const Carousel = createReactClass({
 
 		arrow: PropTypes.bool,                //是否显示左右箭头
 		dots: PropTypes.bool,                 //是否显示面板指示点
+		page: PropTypes.bool,                 //是否显示页码
  
 	},
 
@@ -59,7 +60,8 @@ const Carousel = createReactClass({
 			beforeSlide: () => {},
 			afterSlide: () => {},
 			arrow: false,
-			dots: true
+			dots: true,
+			page: false
 
 		}
 
@@ -224,7 +226,7 @@ const Carousel = createReactClass({
 	//确定滑动方向
 	swipeDirection(x1, x2, y1, y2) {
 
-		var xDist, yDist, r, swipeAngle;
+		let xDist, yDist, r, swipeAngle;
 
 		xDist = x1 - x2;
 		yDist = y1 - y2;
@@ -592,6 +594,14 @@ const Carousel = createReactClass({
 											currentSlide={this.state.currentSlide}
 											dotCount={React.Children.count(this.props.children)}
 											clickHandler={this.switchCurrentSlide} />
+
+					}
+
+					{
+
+						this.props.page && <CarouselPage
+							currentSlide={this.state.currentSlide}
+							pageTotel={React.Children.count(this.props.children)} />
 
 					}
 

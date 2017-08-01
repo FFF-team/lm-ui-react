@@ -1,0 +1,84 @@
+@import '../Style/_variables.scss';
+.lm-ui-form-group {
+
+	display: flex;
+	background-color: #fff;
+	padding: 0 14px;
+    min-height: 50px;
+    color: #333;
+    position: relative;
+    border-top: 1px solid transparent;
+    font-size: 14px;
+    &::after {
+
+	    position: absolute;
+	    left: 14px;
+	    right: 0;
+	    bottom: 0;
+	    height: 1px;
+	    background-color: #e6e6e6;
+	    content: '';
+	    -webkit-transform: scaleY(0.5);
+	    transform: scaleY(0.5);
+
+    }
+
+    &:last-of-type::after {
+
+		content: none;
+
+    }
+
+}
+
+//flex-direction
+.lm-ui-layout-flex-direction-row {
+
+	flex-direction: row;
+
+}
+
+.lm-ui-layout-flex-direction-column {
+
+	flex-direction: column;
+
+}
+//justify-content
+.lm-ui-layout-justify-content-flex-start {
+
+	justify-content: flex-start;
+
+}
+
+.lm-ui-layout-justify-content-space-between {
+
+	justify-content: space-between;
+
+}
+
+.lm-ui-layout-justify-content-space-around {
+	
+	justify-content: space-between;	
+
+}
+//align-items
+.lm-ui-layout-align-items-flex-start {
+	
+	align-items: flex-start;
+
+}
+
+.lm-ui-layout-align-items-flex-end {
+	
+	align-items: flex-end;
+
+}
+
+.lm-ui-layout-align-items-center {
+	
+	align-items: center;
+
+}
+
+
+

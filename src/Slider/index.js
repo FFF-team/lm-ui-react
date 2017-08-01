@@ -31,6 +31,14 @@ export default class Slider extends React.Component {
 
 	}
 
+	componentWillUnMount () {
+
+		ulDom.removeEventListener('touchstart', touchHandlerCenter.touchStartHandler)
+		ulDom.removeEventListener('touchmove', touchHandlerCenter.touchMoveHandler)
+		ulDom.removeEventListener('touchend', touchHandlerCenter.touchEndHandler)
+
+	}
+
 	touchHandlerCenter () {
 
 		let self = this;
@@ -41,17 +49,31 @@ export default class Slider extends React.Component {
 
 				self.touchObj = {
 
-					startX: e.touches[0].pageX
+					startX: e.touches[0].pageX,
+					startY: e.touches[0].pageY
 
 				}
 
 			},
 			touchMoveHandler (e) {
-				//计算方向
+
+				let direction = self.swipeDirection(
+
+					self.touchObj.startX,
+          			e.touches[0].pageX,
+          			self.touchObj.startY,
+         			e.touches[0].pageY
+
+				)
+				//拦截纵向滚动
+				if (direction !== 1) return;
+				//计算横向方向
 				let diff = e.touches[0].pageX - self.touchObj.startX;
+
 				//最外层宽度,以及左边滚动位置
 				let sliderDom = self.refs.sliderX;
 				let sliderDomLeft = sliderDom.scrollLeft;
+
 				let sliderDomWidth = getDomSize(sliderDom).width;
 				//UI宽度
 				let ulDom = self.refs.sliderXUl;
@@ -75,6 +97,32 @@ export default class Slider extends React.Component {
 			}
 
 		}
+
+	}
+
+	//确定滑动方向 1-横向 2-纵向
+	swipeDirection(x1, x2, y1, y2) {
+
+		let xDist, yDist, r, swipeAngle;
+
+		xDist = x1 - x2;
+		yDist = y1 - y2;
+		r = Math.atan2(yDist, xDist);
+		swipeAngle = Math.round(r * 180 / Math.PI);
+
+		if (swipeAngle < 0) {
+
+		  	swipeAngle = 360 - Math.abs(swipeAngle);
+
+		}
+
+		if ((swipeAngle > 45 && swipeAngle < 135) || (swipeAngle > 225 && swipeAngle < 315)) {
+
+			return 2
+
+		}
+
+		return 1;
 
 	}
 

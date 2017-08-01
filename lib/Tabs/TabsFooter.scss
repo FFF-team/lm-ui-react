@@ -1,0 +1,68 @@
+@import "../Style/mixin";
+@import "../Style/css3";
+
+%display-flex {
+  @include display-flex();
+}
+
+%flex {
+  @include flex(1);
+}
+
+.lm-ui-footer-nav {
+  position: fixed;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  @extend %display-flex;
+
+  background-color: #fff;
+
+  @include hairline(double, #e6e6e6, 0);
+
+  &-item {
+    @extend %flex;
+    color: #aaa;
+    font-size: 12px;
+    text-align: center;
+    padding: 6px 0;
+    &.active {
+      color: #ff552e;
+    }
+    &.active-svg-icon {
+      svg {
+        fill: #ff552e !important;
+      }
+    }
+    a {
+      color: inherit;
+    }
+  }
+
+  &-icon {
+    display: inline-block;
+    position: relative;
+
+    width: 20px;
+    height: 20px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 20px;
+      height: 20px;
+
+      // background-image: url('/page/footer_nav/images/icon1.png?__inline');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+
+  &-content {
+    margin-top: 2px;
+    line-height: 1;
+  }
+}

@@ -348,7 +348,7 @@ npm run build
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
-| size | 按钮大小 | string(small,middle,big,long) | small | 可选 |
+| size | 按钮大小 | string(small,big,long) | small | 可选 |
 | type | 按钮类型 | string(primary,colorfulHollow,grayHollow) | primary | 可选 |
 | icon | 按钮内图标地址 | string | 空 | 可选 |
 | isDisabled | 是否禁用 | bool | false | 可选 |
@@ -665,6 +665,7 @@ const handleActionChange = (item) => {
 | autoplay | 是否自动播放 | bool | false | 可选 |
 | autoplayInterval | 自动播放时间间隔 | number | 8000 | 可选 |
 | arrow | 下方圆点 | bool | true | 可选 |
+| page | 页码 | bool | false | 可选 |
 | beforeSlide | 滑动前函数 | fun | () => {} | 可选 |
 | beforeSlide | 滑动后函数 | fun | () => {} | 可选 |
 ```

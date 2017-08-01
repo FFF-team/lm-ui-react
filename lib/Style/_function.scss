@@ -1,0 +1,57 @@
+/**
+ * 
+ * @authors      Benjamin (cuew1987@gmail.com)
+ * @link         https://github.com/benjamin-zuo
+ * @date         2016-03-11 15:30:03
+ * @description  Function 常用自定义函数
+ * @version      $Id$
+ */
+
+/**
+ * ===========================================================================
+ * @source       https://github.com/pierreburel/sass-rem,
+ *               https://sass-compatibility.github.io/#list_separator_function    
+ * @description  remTOpx and pxTOrem
+ * ===========================================================================
+ */
+
+$rem-baseline: 60px !default;
+$rem-fallback: true !default;
+$rem-px-only: false !default;
+$rem-device-px-ratio: 2 !default;
+
+@function do-separator($list) {
+  @if function-exists("list-separator") == true {
+    @return list-separator($list);
+  }
+
+  $test-list: ();
+  @each $item in $list {
+    $test-list: append($test-list, $item, space);
+  }
+
+  @return if($test-list == $list, space, comma);
+}
+
+@mixin rem-baseline($zoom: 100%) {
+  font-size: $zoom / 16px * $rem-baseline;
+}
+
+
+/* 百分比 */
+@function percent($values, $dividend: 750px) {
+    $result: ();
+    $separator: do-separator($values);
+
+    @each $value in $values {
+        @if type-of($value) == "number" and unit($value) == "px" {
+            $result: append($result, $value / $dividend * 100%, $separator);
+        } @else if type-of($value) == "list" {
+            $result: append($result, percent($value...), $separator);
+        } @else {
+            $result: append($result, $value, $separator);
+        }
+    }
+
+    @return $result;
+}

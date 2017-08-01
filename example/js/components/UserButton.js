@@ -68,7 +68,7 @@ export default class UserButton extends React.Component {
 					<div className='box'>
 						<div>
 							<Button
-								size='big'
+								size='small'
 								btnType='primary'
 								isRadius={false}
 							>立即申请</Button>
@@ -76,7 +76,7 @@ export default class UserButton extends React.Component {
 
 						<div>
 							<Button
-								size='middle'
+								size='small'
 								btnType='colorfulHollow'
 							>立即申请</Button>
 						</div>
@@ -91,7 +91,7 @@ export default class UserButton extends React.Component {
 					<div className='box'>
 						<div>
 							<Button
-								size='big'
+								size='small'
 								btnType='grayHollow'
 								onClick={(e)=>{this.callbackFun(e)}}
 							>点我呀</Button>
@@ -99,7 +99,7 @@ export default class UserButton extends React.Component {
 
 						<div>
 							<Button
-								size='middle'
+								size='small'
 								btnType='primary'
 							>立即申请</Button>
 						</div>
@@ -118,7 +118,7 @@ export default class UserButton extends React.Component {
 						<Button
 							size='long'
 							btnType='colorfulHollow'
-							style={{width:'400px',margin:'0 auto'}}
+							style={{width:'260px',margin:'0 auto'}}
 						>自定义其他属性</Button>
 						
 					</div>

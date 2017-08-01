@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import createReactClass from 'create-react-class';
 import './index.scss';
 
-const CarouselDot = createReactClass({
+export const CarouselDot = createReactClass({
 
 	render () {
 
@@ -34,4 +34,23 @@ const CarouselDot = createReactClass({
 
 });
 
-export default CarouselDot;
+export const CarouselPage = createReactClass({
+
+	render () {
+
+		const { pageTotel, currentSlide } = this.props;
+		//let emptyArray = new Array(dotCount).toString().split(',');
+		
+		return (
+
+			<span className="lm-ui-carousel-page">
+
+				{`${currentSlide + 1}/${pageTotel}`}
+
+			</span>
+
+		)
+
+	}
+
+});

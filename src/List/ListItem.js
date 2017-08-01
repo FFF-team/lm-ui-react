@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import classnames from 'classnames';
-import { Icon } from 'src/index'
+import { Icon } from '../Icon/index';
 
 function getStyles() {
     

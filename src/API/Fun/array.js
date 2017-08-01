@@ -23,13 +23,13 @@ export const arrSortMerge = (arr) => {
 
 	};
 
-	if (a.length === 1) return a;
+	if (arr.length === 1) return arr;
 
 	let pivotIndex = Math.floor(arr.length/2);
 	let left = arr.slice(0, pivotIndex);
 	let right = arr.slice(pivotIndex);
 	
-	return merge(arrSortMerge(left, right));
+	return merge(arrSortMerge(left), arrSortMerge(right));
 
 };
 //排序-不稳定的排序算法-复杂-快速排序 O(nlogn)

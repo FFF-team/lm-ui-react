@@ -59,9 +59,6 @@ export default class Button extends React.Component {
 			case 'small':
 				classnames += 'lm-ui-btn-small ';
 				break;
-			case 'middle':
-				classnames += 'lm-ui-btn-middle ';
-				break;
 			case 'big':
 				classnames += 'lm-ui-btn-big ';
 				break;
