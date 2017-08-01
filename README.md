@@ -525,8 +525,7 @@ npm run build
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
 | children | <Sort> | node |  | 是 |
-| value | 选中和当前value匹配的tab | string |  | 可选 |
-| onSelectedChange | 适用于多个sort为一组sortGroup情况. 选中项改变时触发.参数(value, item) | func | () => {} | 可选 |
+| initValue | 默认匹配的tab | string |  | 可选 |
 
 * Sort props
 
@@ -541,7 +540,7 @@ npm run build
 | open | 变为受控组件，sort里的筛选内容可根据传入的该字段值打开或关闭 | bool | false | 可选 |
 
 *其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
-*当sort有更多筛选条件时，组件需要实现onChange方法，若执行结果为true，则关闭当前删选条件弹层*
+*当sort有更多筛选条件时，Sort可以嵌套一个子组件，并且该组件需要实现onChange方法且该方法返回{label: 'xxx'}，则关闭当前删选条件弹层并更新Sort组件中的label*
 
 ```
 单个sort：

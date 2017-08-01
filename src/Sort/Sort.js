@@ -68,6 +68,7 @@ class Sort extends React.Component {
         this.state = {
             sortBy: this.getSortBy(this.props.sortInfo), // 上下标示 0 上， 1下
             sortKey: this.getSortKey(this.props.sortInfo),
+            label: this.props.label,
             
             open: false
         };
@@ -215,7 +216,12 @@ class Sort extends React.Component {
         return React.cloneElement(child, {
             onChange: (result) => {
                 let canClose =  child.props.onChange && child.props.onChange(result);
-                if (canClose ) this.close();
+                if (canClose ) {
+                    this.setState({
+                        label: canClose.label
+                    })
+                    this.close()
+                }
             },
         })
     }
@@ -249,11 +255,11 @@ class Sort extends React.Component {
             'positive-sort': this.state.sortBy === 0,
             'reverse-sort': this.state.sortBy === 1,
         }, 'lm-ui-sort-icon');
-        
+
         return (
             <div className="lm-ui-sort-wrap">
                 <span className={ cnSort } { ...other }>
-                    <em className="label">{ label }</em>
+                    <em className="label">{ this.state.label }</em>
                     <span className={ cnIcon }>
                         { this.getSortByIcon() }
                     </span>
@@ -267,8 +273,12 @@ class Sort extends React.Component {
                     children ? (
                         <div style={{display: this.state.open ? 'block' : 'none'}}>
                             {
-                                React.Children.map(children, (child) => {
-                                    return this.extendChildren(child)
+                                React.Children.map(children, (child, index) => {
+                                    // 约定：强制只输出第一个子组件，其他忽略
+                                    if (index === 0) {
+                                        return this.extendChildren(child)
+                                    }
+
                                 })
                             }
                         </div>
