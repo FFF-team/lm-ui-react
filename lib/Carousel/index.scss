@@ -2,25 +2,25 @@
 
 	position: absolute;
 	left: 50%;
-	bottom: 15px;
+	bottom: 7px;
 	display: flex;
 	transform: translateX(-50%);
 
 	.carousel-dot-item {
 		
 		display: block;
-		width: 12px;
-		height: 12px;
+		width: 6px;
+		height: 6px;
 		border-radius: 50%;
-		margin-left: 8px;
+		margin-left: 3px;
 		background-color: #75767c;
-		border: 2px solid rgb(201, 186, 182);
+		border: 1px solid #bdbdbd;
 
 	}
 	
 	.active {
 
-		background-color: #fff;
+		background-color: #f5f5f5;
 
 	}
 

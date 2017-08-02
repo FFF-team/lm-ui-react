@@ -163,6 +163,12 @@ class Input extends React.Component {
 		 */
 
 		setTimeout(() => {
+			//因为是异步执行，需要判断实例是否被移除
+			if ((this.props.type === 'input' && !this.inputDom) || (this.props.type === 'textarea' && !this.textareaDom)) {
+
+				return
+
+			}
 
 			const {value, validate} = this.props;
 
@@ -256,7 +262,7 @@ class Input extends React.Component {
 		
 		return (
 
-			<div className="lm-ui-input-wrap">
+			<div className="lm-ui-input-wrap" ref={(dom) => { this.inputDom = dom; }}>
 
 				{
 
@@ -316,7 +322,7 @@ class Input extends React.Component {
 
 		return (
 
-			<div className="lm-ui-textarea-wrap">
+			<div className="lm-ui-textarea-wrap" ref={(dom) => { this.textareaDom = dom; }}>
 
 				<textarea
 					className="lm-ui-textarea"
