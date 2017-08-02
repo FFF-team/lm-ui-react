@@ -469,6 +469,7 @@ npm run build
 | children | 自定义组件内容 |  node | null | 可选 |
 
 *其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
+
 *当ListItem设置children，则primaryText, secondaryText失效*
 
 ```
@@ -508,6 +509,7 @@ npm run build
 | open | 变为受控组件，sort里的筛选内容可根据传入的该字段值打开或关闭 | bool | false | 可选 |
 
 *其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
+
 *当sort有更多筛选条件时，Sort可以嵌套一个子组件，并且该组件需要实现onChange方法且该方法返回{label: 'xxx'}，则关闭当前删选条件弹层并更新Sort组件中的label*
 
 ```
