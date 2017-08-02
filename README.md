@@ -470,7 +470,7 @@ npm run build
 
 *其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
 
-*当ListItem设置children，则primaryText, secondaryText失效*
+**当ListItem设置children，则primaryText, secondaryText失效**
 
 ```
 <List>
@@ -510,7 +510,7 @@ npm run build
 
 *其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
 
-*当sort有更多筛选条件时，Sort可以嵌套一个子组件，并且该组件需要实现onChange方法且该方法返回{label: 'xxx'}，则关闭当前删选条件弹层并更新Sort组件中的label*
+**当sort有更多筛选条件时，Sort可以嵌套一个子组件，并且该组件需要实现onChange方法且该方法返回{label: 'xxx'}，则关闭当前删选条件弹层并更新Sort组件中的label**
 
 ```
 单个sort：
