@@ -54,7 +54,7 @@ npm run build
 * [CheckBtn](#checkbtn)
 * [GetCodeBtn](#getcodebtn表单中特殊按钮)
 * [Button](#button)
-* [List](#list表单展示)
+* [List](#list)
 * [Icon](#icon)
 * [SvgIcon](#svgicon)
 * [Tabs](#tab标签切换)
@@ -62,8 +62,6 @@ npm run build
 * [TabsFooter](#tabsfooter标签切换)
 * [SortGroup](#sort排序)
 * [Sort](#sort排序)
-* [NList](#normallist)
-* [NListItem](#normallist)
 * [SelectableListHOC](#selectablelisthoc)
 * [ActionSheet](#actionSheet功能列表弹层)
 * [Carousel](#carousel)
@@ -363,36 +361,6 @@ npm run build
 >开关按钮</Button>
 ```
 
-******
-### List(表单展示)
-* props
-
-|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
-| ---------- | ------ | ------ | --------- | --------- |
-| label | 表单标题 | string | 空 | 可选 |
-| value | 表单值 | string | 空 | 可选 |
-| icon | 表单标题前图标 | string | 空 | 可选 |
-| activeNumber | 圆形提示数值 | number | 无 | 可选 |
-| onClick | 点击事件 |  func | ()=>{} | 可选 |
-| arrow | 是否有箭头 |  bool | false | 可选 |
-
-```
-<ListGroup>
-	<List
-		label={this.data.label}
-		value={this.data.value}
-		icon={this.data.icon}
-	></List>
-
-	<List 
-		label={this.data.label}
-		value={this.data.value}
-		activeNumber={this.data.activeNumber}
-		arrow={this.data.arrow}
-	></List>
-</ListGroup>
-
-```
 ******
 ### Icon
 * desc
