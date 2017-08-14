@@ -1,6 +1,7 @@
 import React from 'react';
 import Dialog from '../src/Dialog';
 import { shallow, mount } from 'enzyme';
+import sinon from 'sinon';
 
 describe('Test Alert', () => {
 
@@ -36,5 +37,33 @@ describe('Test Alert', () => {
 	  	expect(p.text()).toBe('test head');
 
 	});	
+
+	it('dialog click event', () => {
+
+		const onClick = sinon.spy();
+		const onClick1 = sinon.spy();
+		const onClick2 = sinon.spy();
+
+		const wrapper = mount(
+
+	    	<Dialog
+	    		dialogType={'Confirm'} 
+				showState={true}
+				headText={'test head'}
+				contentText={'提示内容提示内容提示内容提示内容提示内容提示内容'} 
+				btnCommonFun={() => { onClick(); }}
+				btnLeftCbFun={() => { onClick1(); }}
+				btnRightCbFun={onClick2}/>
+
+	  	);
+
+	  	wrapper.find('.dialog-btn').at(0).simulate('click');
+	  	wrapper.find('.special').at(0).simulate('click');
+
+	  	expect(onClick.called).toBe(true);
+	  	expect(onClick1.called).toBe(true);
+	  	expect(onClick2.called).toBe(true);
+
+	});
 
 });
