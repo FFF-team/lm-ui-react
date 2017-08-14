@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './TabsFooter.scss'
 import TabsHOC from './TabsHOC'
 
@@ -26,9 +27,9 @@ const TabsFooter = ({
 };
 
 TabsFooter.propTypes = {
-    initSelectedIndex: React.PropTypes.number, // 当前选中的tab index
-    onSelectedChange: React.PropTypes.func, // tab改变后调用
-    value: React.PropTypes.string // 各个tab唯一name
+    initSelectedIndex: PropTypes.number, // 当前选中的tab index
+    onSelectedChange: PropTypes.func, // tab改变后调用
+    value: PropTypes.string // 各个tab唯一name
 };
 
 TabsFooter.defaultProps = {

@@ -2,6 +2,7 @@
  * Created by khongyan on 2017/3/31.
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import './index.scss'
@@ -25,8 +26,8 @@ const List = ({
 }
 
 List.propTypes = {
-    onSelectedChange: React.PropTypes.func,
-    value: React.PropTypes.string
+    onSelectedChange: PropTypes.func,
+    value: PropTypes.string
 };
 
 List.defaultProps = {

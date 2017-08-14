@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class EnhancedToggle extends React.Component {
     constructor(props) {
@@ -51,11 +52,11 @@ class EnhancedToggle extends React.Component {
 }
 
 EnhancedToggle.PropTypes = {
-    style: React.PropTypes.object,
-    onParentShouldUpdate: React.PropTypes.func,
-    toggle: React.PropTypes.bool,
-    disabled: React.PropTypes.bool,
-    iniChecked: React.PropTypes.checked
+    style: PropTypes.object,
+    onParentShouldUpdate: PropTypes.func,
+    toggle: PropTypes.bool,
+    disabled: PropTypes.bool,
+    iniChecked: PropTypes.checked
 };
 
 EnhancedToggle.defaultProps = {
