@@ -7,6 +7,10 @@
 * react 
 * jest && enzyme(单元测试)
 
+## 目标
+* 拥抱函数式无状态组件，使组件更加简洁可靠
+* 单元测试覆盖率达到80%以上
+
 ## 目录结构
 * /src 存放es6编写的源码
 * /lib 存放经过babel编译的es5代码
@@ -35,6 +39,39 @@ npm run lib
 ```  
 npm run build
 ```
+### 基本原则
+
+- 对于展示组件来说，多用函数式无状态组件
+    - 语法简洁性（fb）
+    - 初始化快（就是一个纯函数，不需要在构建类）首次render性能好
+    - 占内存少
+- 请慎用setState，确保你的每一次setState都确实会体现到UI上
+    - 每次setState都会引起组件重新渲染，确保你的每一次setState都是有意义的。（性能相关）
+    - 某些setState前先判断新旧值是否相同
+- 请慎将component当作props传入
+    - 这种方式性能消耗较大
+    - 推荐<parent><son></son></parent>这种包裹方式
+    - 如果是前缀后缀之类的情景，请传入函数式无状态组件
+- 请将方法的bind函数一律置于constructor
+    - 在constructor只需要bind一次，如果在render中每次render都会去执行bind方法（性能相关）
+- 请只将组件需要的props传入组件，避免其他不相关props改变引起组件重新渲染
+    - 避免引起组件不必要的渲染
+- 请在希望发生重新渲染的dom或组件上设置唯一key,否则react可能在某些情况下不会重新渲染
+    - 如果你希望某个状态改变后，这个组件会执行卸载并重建操作，那么请给他一个key(可以用这个改变的状态当key！)否则很有可能会执行更新操作（特定需求场景）
+- 慎用太新ES6语法
+    - 比如：Object.assign进行浅复制（微信上不支持）等...
+    - 如果一定要用得话，请增加对应polyfile
+
+### 进一步优化原则
+
+- 请将jsbundle拆分为几个chunk，进行异步加载。router中内置require.ensure
+    - 原则上控制主包大小在100KB左右
+
+- 请使用immutable和PureComponent对渲染进行优化，提升项目性能
+    - 务必一起使用
+    - immutable不可变数据结构
+    - PureComponent实质在组件shouldComponentUpdate生命周期中对新旧props，state做了次浅对比
+    
 ----------
 ## DOC
 ---------

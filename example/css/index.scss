@@ -238,7 +238,27 @@
 
 
 
+//test
+.banner-1 { background-image: url(http://j1.58cdn.com.cn/jinrong/yuefu/meiyan/m/static/media/banner_1.3536d8b8.jpg); }
+.banner-2 { background-image: url(http://j1.58cdn.com.cn/jinrong/yuefu/meiyan/m/static/media/banner_1.3536d8b8.jpg); }
 
+.banner {
+
+	height: 100%;
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.aa a {
+
+	display: block;
+    height: 100%;
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
+
+}
 
 
 

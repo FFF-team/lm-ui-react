@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Button button click event 1`] = `
+<Button
+  btnType="primary"
+  isDisabled={false}
+  isRadius={false}
+  onClick={[Function]}
+  size="small"
+>
+  <a
+    className="lm-ui-btn lm-ui-btn-primary lm-ui-btn-small "
+    href="javascript:;"
+    onClick={[Function]}
+  >
+    <img
+      className="hide"
+    />
+    test
+  </a>
+</Button>
+`;
+
+exports[`Test Button render the Button wrapper 1`] = `
+<a
+  className="lm-ui-btn lm-ui-btn-primary lm-ui-btn-small "
+  href="javascript:;"
+  onClick={[Function]}
+>
+  <img
+    className="hide"
+  />
+  test
+</a>
+`;

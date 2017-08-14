@@ -35,6 +35,7 @@ export default class UseAlert extends React.Component {
 			checked: true,
 			checked1: false,
 			selectVal: '',
+			selectVal1: '',
 			radioVal: 1,
 			radioVal1: 1,
 			checkboxVal: [1,2],
@@ -314,6 +315,22 @@ export default class UseAlert extends React.Component {
 							<Select
 								selectedValue={this.state.selectVal}
 								onChange={(e) => {this.setState({selectVal: e.target.value})}}
+								optionMap={[{text:1, value:1}, {text:2, value:2}, {text:3, value:3}]} />
+						
+						</FormGroup>
+
+						<FormGroup
+							layout={{ direction: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+
+							<Label>
+					
+								<span>姓名</span>
+						
+							</Label>
+						
+							<Select
+								selectedValue={this.state.selectVal1}
+								onChange={(e) => {this.setState({selectVal1: e.target.value})}}
 								optionMap={[{text:1, value:1}, {text:2, value:2}, {text:3, value:3}]} />
 						
 						</FormGroup>

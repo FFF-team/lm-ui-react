@@ -7,7 +7,8 @@
     "build": "babel-node tools/build-cli.js --build",
     "lib": "babel-node tools/build-cli.js --lib",
     "example": "babel-node tools/build-cli.js --example",
-    "test": "jest"
+    "test": "jest",
+    "testc": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -43,6 +44,7 @@
     "colors": "^1.1.2",
     "css-loader": "^0.25.0",
     "enzyme": "^2.8.0",
+    "enzyme-to-json": "^1.5.1",
     "eslint": "^3.18.0",
     "faker": "^4.1.0",
     "file-loader": "^0.9.0",

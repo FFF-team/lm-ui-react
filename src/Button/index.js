@@ -28,7 +28,6 @@ export default class Button extends React.Component {
 		this.props.onClick(e.target);
 	}
 
-
 	render () {
 
 		const { children,size, btnType , isRadius , isDisabled , onClick , icon ,...arg } = this.props;
