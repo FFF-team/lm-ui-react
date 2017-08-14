@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 
 /*
@@ -16,13 +17,13 @@ import './index.scss';
 
 const propTypes = {
 
-	btnMap: React.PropTypes.array.isRequired,
-	selectedValue: React.PropTypes.oneOfType([
-    	React.PropTypes.string,
-    	React.PropTypes.number,
-    	React.PropTypes.bool
+	btnMap: PropTypes.array.isRequired,
+	selectedValue: PropTypes.oneOfType([
+    	PropTypes.string,
+    	PropTypes.number,
+    	PropTypes.bool
   	]).isRequired,
-  	onChange: React.PropTypes.func.isRequired
+  	onChange: PropTypes.func.isRequired
 
 };
 

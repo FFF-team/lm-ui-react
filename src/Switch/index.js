@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 
 /*	
@@ -19,8 +20,8 @@ import './index.scss';
 
 const propTypes = {
 
-	checked: React.PropTypes.bool.isRequired,
-	onChange: React.PropTypes.func.isRequired
+	checked: PropTypes.bool.isRequired,
+	onChange: PropTypes.func.isRequired
 
 };
 
@@ -32,10 +33,10 @@ const defaultProps = {
 
 const contextTypes = {
 
-	groupId: React.PropTypes.oneOfType([
+	groupId: PropTypes.oneOfType([
 
-		React.PropTypes.string,
-		React.PropTypes.number
+		PropTypes.string,
+		PropTypes.number
 
 	])
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ValidateValHOC from '../ValidateValHOC';
 import { isEmptyObj } from './tools';
 import emitter from '../Events';
@@ -34,21 +35,21 @@ import './index.scss';
 let id = 0;
 const propTypes = {
 
-	type: React.PropTypes.string.isRequired,
-	value: React.PropTypes.any.isRequired,
-	defaultText: React.PropTypes.string,
-	preffix: React.PropTypes.node,
-	suffix: React.PropTypes.node,
-	onChange: React.PropTypes.func.isRequired,
-	vaildate: React.PropTypes.object,
-	validateData: React.PropTypes.object,
-	cleanBtn: React.PropTypes.shape({
+	type: PropTypes.string.isRequired,
+	value: PropTypes.any.isRequired,
+	defaultText: PropTypes.string,
+	preffix: PropTypes.node,
+	suffix: PropTypes.node,
+	onChange: PropTypes.func.isRequired,
+	vaildate: PropTypes.object,
+	validateData: PropTypes.object,
+	cleanBtn: PropTypes.shape({
 
-		state: React.PropTypes.bool,
-		cleanFun: React.PropTypes.func
+		state: PropTypes.bool,
+		cleanFun: PropTypes.func
 
 	}),
-	maxLength: React.PropTypes.number
+	maxLength: PropTypes.number
 
 };
 
@@ -68,10 +69,10 @@ const defaultProps = {
 
 const contextTypes = {
 
-	groupId: React.PropTypes.oneOfType([
+	groupId: PropTypes.oneOfType([
 
-		React.PropTypes.string,
-		React.PropTypes.number
+		PropTypes.string,
+		PropTypes.number
 
 	])
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './GetCodeBtn.scss';
 
 /*
@@ -16,9 +17,9 @@ import './GetCodeBtn.scss';
 
 const propTypes = {
 
-	text: React.PropTypes.string,
-	countNum: React.PropTypes.number,
-	onClick: React.PropTypes.func
+	text: PropTypes.string,
+	countNum: PropTypes.number,
+	onClick: PropTypes.func
 
 };
 const defaultProps = {

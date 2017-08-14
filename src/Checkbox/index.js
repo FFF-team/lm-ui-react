@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 
 /*
@@ -11,27 +12,27 @@ import './index.scss';
 
 const propTypes = {
 
-	text: React.PropTypes.oneOfType([
+	text: PropTypes.oneOfType([
 
-      React.PropTypes.string,
-      React.PropTypes.number,
-      React.PropTypes.bool
-
-    ]),
-    value: React.PropTypes.oneOfType([
-
-      React.PropTypes.string,
-      React.PropTypes.number,
-      React.PropTypes.bool
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.bool
 
     ]),
-    preffix: React.PropTypes.node,
-	suffix: React.PropTypes.node,
-	mode: React.PropTypes.string,
-	uniqueId: React.PropTypes.oneOfType([
+    value: PropTypes.oneOfType([
 
-      React.PropTypes.string,
-      React.PropTypes.number
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.bool
+
+    ]),
+    preffix: PropTypes.node,
+	suffix: PropTypes.node,
+	mode: PropTypes.string,
+	uniqueId: PropTypes.oneOfType([
+
+      PropTypes.string,
+      PropTypes.number
 
     ])
 
@@ -45,7 +46,7 @@ const defaultProps = {
 
 const contextTypes = {
 
-	checkboxGroup: React.PropTypes.object
+	checkboxGroup: PropTypes.object
 
 };
 

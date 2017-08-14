@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 import ModelHOC from '../ModelHOC/index.js';
 
@@ -16,16 +17,16 @@ import ModelHOC from '../ModelHOC/index.js';
  */
 
 const propTypes = {
-	dialogType: React.PropTypes.string.isRequired,
-	showState: React.PropTypes.bool.isRequired,
-	opacity: React.PropTypes.number,
-    headText: React.PropTypes.node,
-	contentText: React.PropTypes.node,
-	btnLeftText: React.PropTypes.string,
-	btnRightText: React.PropTypes.string,
-	btnCommonFun: React.PropTypes.func,
-	btnLeftCbFun: React.PropTypes.func,
-	btnRightCbFun: React.PropTypes.func
+	dialogType: PropTypes.string.isRequired,
+	showState: PropTypes.bool.isRequired,
+	opacity: PropTypes.number,
+    headText: PropTypes.node,
+	contentText: PropTypes.node,
+	btnLeftText: PropTypes.string,
+	btnRightText: PropTypes.string,
+	btnCommonFun: PropTypes.func,
+	btnLeftCbFun: PropTypes.func,
+	btnRightCbFun: PropTypes.func
 
 };
 

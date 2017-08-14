@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 
 /*
@@ -21,15 +22,15 @@ import './index.scss';
 
 const propTypes = {
 
-	name: React.PropTypes.string,
-	selectedValue: React.PropTypes.oneOfType([
+	name: PropTypes.string,
+	selectedValue: PropTypes.oneOfType([
 
-      React.PropTypes.string,
-      React.PropTypes.number,
-      React.PropTypes.bool
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.bool
 
     ]).isRequired,
-    onChange: React.PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired
 
 };
 
@@ -37,7 +38,7 @@ const defaultProps = {};
 
 const childContextTypes = {
 
-	radioGroup: React.PropTypes.object
+	radioGroup: PropTypes.object
 
 };
 

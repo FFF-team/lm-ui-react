@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 
 /*
@@ -10,10 +11,10 @@ const propTypes = {};
 const defaultProps = {};
 const contextTypes = {
 
-	groupId: React.PropTypes.oneOfType([
+	groupId: PropTypes.oneOfType([
 
-		React.PropTypes.string,
-		React.PropTypes.number
+		PropTypes.string,
+		PropTypes.number
 
 	])
 

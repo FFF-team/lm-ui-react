@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 
 /*
@@ -14,12 +15,12 @@ import './index.scss';
 
 const propTypes = {
 
-	groupId: React.PropTypes.string,
-	layout: React.PropTypes.shape({
+	groupId: PropTypes.string,
+	layout: PropTypes.shape({
 
-		direction: React.PropTypes.string,
-		justifyContent: React.PropTypes.string,
-		alignItems: React.PropTypes.string
+		direction: PropTypes.string,
+		justifyContent: PropTypes.string,
+		alignItems: PropTypes.string
 		
 	})
 
@@ -40,10 +41,10 @@ const defaultProps = {
 
 const childContextTypes = {
 
-	groupId: React.PropTypes.oneOfType([
+	groupId: PropTypes.oneOfType([
 
-		React.PropTypes.string,
-		React.PropTypes.number
+		PropTypes.string,
+		PropTypes.number
 
 	])
 
