@@ -19,30 +19,28 @@ const contextTypes = {
 
 };
 
-export default class Label extends React.Component {
+const Label = (props, context) => {
 
-	render () {
+	const { children, ...arg } = props;
+	const { groupId } = context;
 
-		const { children, ...arg } = this.props;
-		const { groupId } = this.context;
+	return (
 
-		return (
+		<label 
+			htmlFor={groupId && groupId} 
+			className="lm-ui-label"
+			{...arg}>
 
-			<label 
-				htmlFor={groupId && groupId} 
-				className="lm-ui-label"
-				{...arg}>
+			{children}
 
-				{children}
+		</label>
 
-			</label>
+	)
 
-		)
-
-	}
-
-}
+};
 
 Label.propTypes = propTypes;
 Label.defaultProps = defaultProps;
 Label.contextTypes = contextTypes;
+
+export default Label;

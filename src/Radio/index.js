@@ -49,79 +49,77 @@ const contextTypes = {
 
 };
 
-export default class Radio extends React.Component {
+const Radio = (props, context) => {
 
-	render () {
+	const { text, value, preffix, suffix, mode, uniqueId, ...arg } = props;
+	const { name, selectedValue, onChange } = context.radioGroup;  
+	const optional = {};
 
-		const { text, value, preffix, suffix, mode, uniqueId, ...arg } = this.props;
-		const { name, selectedValue, onChange } = this.context.radioGroup;  
-		const optional = {};
+	if (selectedValue !== undefined) {
 
-		if (selectedValue !== undefined) {
-
-			optional.checked = (value === selectedValue);
-
-		}
-
-		optional.onChange = onChange.bind(null, value);
-
-		switch (mode) {
-
-			case 'form':
-
-				return (
-
-					<div className="lm-ui-radio-wrap">
-
-						<input 
-							name={name&&name}
-							type="radio" 
-							className="lm-ui-radio"
-							{...optional}
-							{...arg}/>
-
-						{ suffix && suffix }
-						<span className="lm-ui-icon-check"></span>
-						<div className="lm-ui-radio-label">{text}</div>
-						{ preffix && preffix }
-						
-					</div>
-
-				)
-
-				break;
-
-			case 'button':
-
-				return (
-
-					<div className="lm-ui-radio-wrap-btn">
-
-						<input 
-							id={uniqueId}
-							name={name&&name}
-							type="radio" 
-							className="lm-ui-radio"
-							{...optional}/>
-
-						<label htmlFor={uniqueId} className="lm-ui-radio-btn" {...arg}>
-
-							{ text }
-
-						</label>
-
-					</div>
-
-				)
-
-				break;
-
-		}
+		optional.checked = (value === selectedValue);
 
 	}
 
-}
+	optional.onChange = onChange.bind(null, value);
+
+	switch (mode) {
+
+		case 'form':
+
+			return (
+
+				<div className="lm-ui-radio-wrap">
+
+					<input 
+						name={name&&name}
+						type="radio" 
+						className="lm-ui-radio"
+						{...optional}
+						{...arg}/>
+
+					{ suffix && suffix }
+					<span className="lm-ui-icon-check"></span>
+					<div className="lm-ui-radio-label">{text}</div>
+					{ preffix && preffix }
+					
+				</div>
+
+			)
+
+			break;
+
+		case 'button':
+
+			return (
+
+				<div className="lm-ui-radio-wrap-btn">
+
+					<input 
+						id={uniqueId}
+						name={name&&name}
+						type="radio" 
+						className="lm-ui-radio"
+						{...optional}/>
+
+					<label htmlFor={uniqueId} className="lm-ui-radio-btn" {...arg}>
+
+						{ text }
+
+					</label>
+
+				</div>
+
+			)
+
+			break;
+
+	}
+
+};
 
 Radio.propTypes = propTypes;
 Radio.defaultProps = defaultProps;
 Radio.contextTypes = contextTypes;
+
+export default Radio;

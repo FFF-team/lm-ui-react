@@ -29,10 +29,37 @@ describe('Test Button', () => {
         
     })
 
+    it('render the Button wrapper', () => {
+
+        const button = <Button
+                        size='long'
+                        btnType='colorfulHollow'
+                        isRadius={true}
+                        onClick={onClick}
+                        >test</Button>;
+        const wrapper = shallow(button);
+        const wrapperClass = wrapper.find('.lm-ui-btn');
+        expect(wrapperClass.length === 1);
+        
+    })
+
+    it('render the Button wrapper', () => {
+
+        const button = <Button
+                        size='long'
+                        btnType='grayHollow'
+                        isRadius={true}
+                        onClick={onClick}
+                        >test</Button>;
+        const wrapper = shallow(button);
+        const wrapperClass = wrapper.find('.lm-ui-btn');
+        expect(wrapperClass.length === 1);
+        
+    })
+
     it('button click event', () => {
 
         const wrapper = mount(normalButton);
-        console.log(wrapper.html())
         wrapper.find('.lm-ui-btn').at(0).simulate('click');
         expect(onClick.called).toBe(true);
         //之后每一次进行快照对比时，都会和保存的内容作对比

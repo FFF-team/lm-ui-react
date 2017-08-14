@@ -17,70 +17,66 @@ const defaultProps = {
 	onClick:() => {}
 };
 
-export default class Button extends React.Component {
+const Button = (props) => {
 
-	constructor (props) {
-		// debugger;
-		super (props);
+	const clickhandle = (e) => {
+
+		props.onClick(e.target);
+
+	};
+
+	const { children,size, btnType , isRadius , isDisabled , onClick , icon ,...arg } = props;
+
+	let classnames = 'lm-ui-btn ';
+
+	switch(btnType){
+		case 'primary':
+			classnames += 'lm-ui-btn-primary ';
+			break;
+		case 'colorfulHollow':
+			classnames += 'lm-ui-btn-colorful-hollow ';
+			break;
+		case 'grayHollow':
+			classnames += 'lm-ui-btn-gray-hollow ';
+			break;
 	}
 
-	clickhandle(e){
-		this.props.onClick(e.target);
+	if(isRadius){
+		classnames += 'lm-ui-btn-radius ';
 	}
 
-	render () {
-
-		const { children,size, btnType , isRadius , isDisabled , onClick , icon ,...arg } = this.props;
-
-		let classnames = 'lm-ui-btn ';
-
-		switch(btnType){
-			case 'primary':
-				classnames += 'lm-ui-btn-primary ';
-				break;
-			case 'colorfulHollow':
-				classnames += 'lm-ui-btn-colorful-hollow ';
-				break;
-			case 'grayHollow':
-				classnames += 'lm-ui-btn-gray-hollow ';
-				break;
-		}
-
-		if(isRadius){
-			classnames += 'lm-ui-btn-radius ';
-		}
-
-		if(isDisabled){
-			classnames += 'lm-ui-btn-disable ';
-		}
-
-		switch(size){
-			case 'small':
-				classnames += 'lm-ui-btn-small ';
-				break;
-			case 'big':
-				classnames += 'lm-ui-btn-big ';
-				break;
-			case 'long':
-				classnames += 'lm-ui-btn-long ';
-				break;
-		}
-
-		return (
-
-			<a href="javascript:;" 
-				onClick={isDisabled ? undefined : this.clickhandle.bind(this)}
-				className={classnames} 
-				{...arg} >
-				<img src={icon} className={icon ? 'lm-ui-btn-icon' : 'hide'} />
-				{ children }
-			</a>
-
-		)
-
+	if(isDisabled){
+		classnames += 'lm-ui-btn-disable ';
 	}
+
+	switch(size){
+		case 'small':
+			classnames += 'lm-ui-btn-small ';
+			break;
+		case 'big':
+			classnames += 'lm-ui-btn-big ';
+			break;
+		case 'long':
+			classnames += 'lm-ui-btn-long ';
+			break;
+	}
+
+
+	return (
+
+		<a href="javascript:;" 
+			onClick={isDisabled ? undefined : clickhandle}
+			className={classnames} 
+			{...arg} >
+			<img src={icon} className={icon ? 'lm-ui-btn-icon' : 'hide'} />
+			{ props.children }
+		</a>
+
+	)
 
 }
 
 Button.propTypes = propTypes;
 Button.defaultProps = defaultProps;
+
+export default Button;

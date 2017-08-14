@@ -49,19 +49,21 @@ const contextTypes = {
 
 };
 
-export default class Checkbox extends React.Component {
+const Checkbox = (props, context) => {
 
-	clickHandler () {
+	const { text, value, preffix, suffix, mode, uniqueId, ...arg } = props;
+	const { name, selectedValue, onChange } = context.checkboxGroup;  
+	const optional = {};
+	const clickHandler = () => {
 
-		const { value } = this.props;
-		const { selectedValue, onChange } = this.context.checkboxGroup; 
 		let index =  selectedValue.indexOf(value);
 		let newValue = [];
 
 		if (index !== -1) {
 
-			selectedValue.splice(index,1)
-			newValue = selectedValue
+			let tmplVal = selectedValue.slice(0);
+			tmplVal.splice(index,1);
+			newValue = tmplVal;
 
 		} else {
 
@@ -71,79 +73,73 @@ export default class Checkbox extends React.Component {
 
 		onChange(newValue);
 
-	}
+	};
 
-	render () {
+	if (selectedValue !== undefined) {
 
-		const { text, value, preffix, suffix, mode, uniqueId, ...arg } = this.props;
-		const { name, selectedValue, onChange } = this.context.checkboxGroup;  
-		const optional = {};
-
-		if (selectedValue !== undefined) {
-
-			optional.checked = (selectedValue.indexOf(value) !== -1);
-
-		}
-
-		optional.onChange = this.clickHandler.bind(this);
-
-		switch (mode) {
-
-			case 'form':
-
-				return (
-
-					<div className="lm-ui-checkbox-wrap">
-
-						<input 
-							name={name&&name}
-							type="checkbox" 
-							className="lm-ui-checkbox"
-							{...optional}
-							{...arg}/>
-
-						{ suffix && suffix }
-						<span className="lm-ui-icon-check"></span>
-						<div className="lm-ui-checkbox-label">{text}</div>	
-						{ preffix && preffix }
-
-					</div>
-
-				)
-
-				break;
-
-			case 'button':
-
-				return (
-
-					<div className="lm-ui-checkbox-wrap-btn">
-
-						<input 
-							id={uniqueId}
-							name={name&&name}
-							type="checkbox" 
-							className="lm-ui-checkbox"
-							{...optional}/>
-
-						<label htmlFor={uniqueId} className="lm-ui-checkbox-btn" {...arg}>
-
-							{ text }
-
-						</label>
-
-					</div>
-
-				)
-
-				break;
-
-		}
+		optional.checked = (selectedValue.indexOf(value) !== -1);
 
 	}
 
-}
+	optional.onChange = clickHandler;
+
+	switch (mode) {
+
+		case 'form':
+
+			return (
+
+				<div className="lm-ui-checkbox-wrap">
+
+					<input 
+						name={name&&name}
+						type="checkbox" 
+						className="lm-ui-checkbox"
+						{...optional}
+						{...arg}/>
+
+					{ suffix && suffix }
+					<span className="lm-ui-icon-check"></span>
+					<div className="lm-ui-checkbox-label">{text}</div>	
+					{ preffix && preffix }
+
+				</div>
+
+			)
+
+			break;
+
+		case 'button':
+
+			return (
+
+				<div className="lm-ui-checkbox-wrap-btn">
+
+					<input 
+						id={uniqueId}
+						name={name&&name}
+						type="checkbox" 
+						className="lm-ui-checkbox"
+						{...optional}/>
+
+					<label htmlFor={uniqueId} className="lm-ui-checkbox-btn" {...arg}>
+
+						{ text }
+
+					</label>
+
+				</div>
+
+			)
+
+			break;
+
+	}
+
+};
 
 Checkbox.propTypes = propTypes;
 Checkbox.defaultProps = defaultProps;
 Checkbox.contextTypes = contextTypes;
+
+export default Checkbox;

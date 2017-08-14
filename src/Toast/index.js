@@ -25,20 +25,11 @@ const defaultProps = {
 
 };
 
-
-class Toast extends React.Component {
-
-	constructor (props) {
-
-		super (props);
-
-	}
-
-	render () {
+const Toast = (props) => {
 
 		const { 
 				toastType,
-				message } = this.props;
+				message } = props;
 
 		let resultDom = null;
 
@@ -64,12 +55,9 @@ class Toast extends React.Component {
 
 		}
 
+		return ( resultDom )	
 
-		return ( resultDom )
-
-	}
-
-}
+};
 
 Toast.propTypes = propTypes;
 Toast.defaultProps = defaultProps;

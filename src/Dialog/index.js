@@ -43,13 +43,22 @@ const defaultProps = {
 
 };
 
-class Dialog extends React.Component {
+const Dialog = (props) => {
 
-	clickHandler (dir) {
+	const { 
+			dialogType,
+			opacity,
+			showState,
+            headText,
+			contentText,
+			btnLeftText,
+			btnRightText } = props;
+
+	const clickHandler = (dir) => {
 
 		const { btnLeftCbFun,
 				btnRightCbFun,
-				btnCommonFun } = this.props;
+				btnCommonFun } = props;
 
 		btnCommonFun();
 
@@ -57,18 +66,7 @@ class Dialog extends React.Component {
 
 	}
 
-	render () {
-
-		const { 
-				dialogType,
-				opacity,
-				showState,
-                headText,
-				contentText,
-				btnLeftText,
-				btnRightText } = this.props;
-
-		return (
+	return (
 
 			<div className="lm-ui-dialog">
 				
@@ -87,7 +85,7 @@ class Dialog extends React.Component {
 					<a 
 						href="javascript:;" 
 						className="dialog-btn"
-						onClick={this.clickHandler.bind(this, 'left')}>
+						onClick={clickHandler.bind(null, 'left')}>
 						{btnLeftText}
 					</a>
 					) : null }
@@ -95,7 +93,7 @@ class Dialog extends React.Component {
 					<a 
 						href="javascript:;" 
 						className="dialog-btn special"
-						onClick={this.clickHandler.bind(this, 'right')}>
+						onClick={clickHandler.bind(null, 'right')}>
 						{btnRightText}
 					</a>
 
@@ -103,11 +101,9 @@ class Dialog extends React.Component {
 
 			</div>
 
-		)
+	)
 
-	}
-
-}
+};
 
 Dialog.propTypes = propTypes;
 Dialog.defaultProps = defaultProps;

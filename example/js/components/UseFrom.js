@@ -399,7 +399,7 @@ export default class UseAlert extends React.Component {
 				
 						<div className="form-title">表单校验</div>
 				
-						<FormGroup  groupId={'inputId'}>
+						<FormGroup  groupId={'inputId0'}>
 						
 							<Label>
 					
@@ -418,7 +418,7 @@ export default class UseAlert extends React.Component {
 						
 						</FormGroup>
 
-						<FormGroup  groupId={'inputId'}>
+						<FormGroup  groupId={'inputId1'}>
 						
 							<Label>
 					
@@ -427,7 +427,7 @@ export default class UseAlert extends React.Component {
 							</Label>
 						
 							<Input
-								name={'a2'}
+								name={'a22'}
 								type='input' 
 								validateData={{ promptText: '请输入正确的姓名2', validateFun: (value) => { return !!value && (value.trim() != '') && /^[\.·\u4e00-\u9fa5]{2,20}$/.test(value); } }}
 								value={this.state.test9}
@@ -437,7 +437,7 @@ export default class UseAlert extends React.Component {
 						
 						</FormGroup>
 
-						<FormGroup  groupId={'inputId'}>
+						<FormGroup  groupId={'inputId2'}>
 						
 							<Label>
 					
@@ -446,7 +446,7 @@ export default class UseAlert extends React.Component {
 							</Label>
 						
 							<Input
-								name={'a2'}
+								name={'a222'}
 								type='input' 
 								validateData={{ promptText: '请输入正确的姓名3', validateFun: (value) => { return !!value && (value.trim() != '') && /^[\.·\u4e00-\u9fa5]{2,20}$/.test(value); } }}
 								value={this.state.test10}

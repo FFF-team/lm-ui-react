@@ -32,44 +32,40 @@ const defaultProps = {
 	onChange: () => {}
 
 };
+const CheckBtn = (props) => {
 
-export default class CheckBtn extends React.Component {
+	const { btnMap, selectedValue, onChange, ...arg } = props;
 
-	render () {
+	return (
 
-		const { btnMap, selectedValue, onChange, ...arg } = this.props;
+		<div className="lm-ui-check-btn-wrap">
 
-		return (
+			{
 
-			<div className="lm-ui-check-btn-wrap">
+				btnMap.map((item, index) => {
 
-				{
+					return <div className="lm-ui-check-btn-cont" key={index}>
 
-					btnMap.map((item, index) => {
+						<input 
+							type="radio" 
+							className="lm-ui-check-btn" 
+							value={item.value}
+							checked={selectedValue === item.value}
+							onChange={onChange.bind(null, item.value)} />
+						<span className="lm-ui-check-btn-appearance">{item.text}</span>
 
-						return <div className="lm-ui-check-btn-cont" key={index}>
+					</div>
 
-							<input 
-								type="radio" 
-								className="lm-ui-check-btn" 
-								value={item.value}
-								checked={selectedValue === item.value}
-								onChange={onChange.bind(null, item.value)} />
-							<span className="lm-ui-check-btn-appearance">{item.text}</span>
+				})
 
-						</div>
+			}
 
-					})
+		</div>
 
-				}
+	)
 
-			</div>
-
-		)
-
-	}
-
-}
+};
 
 CheckBtn.propTypes = propTypes;
 CheckBtn.defaultProps = defaultProps;
+export default CheckBtn;
