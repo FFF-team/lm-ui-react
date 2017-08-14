@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 class SvgIcon extends React.Component {
     static lmuiName = 'SvgIcon';
@@ -42,10 +43,10 @@ class SvgIcon extends React.Component {
 }
 
 SvgIcon.propTypes = {
-    children: React.PropTypes.node,
-    color: React.PropTypes.string,
-    viewBox: React.PropTypes.string,
-    style: React.PropTypes.object
+    children: PropTypes.node,
+    color: PropTypes.string,
+    viewBox: PropTypes.string,
+    style: PropTypes.object
 };
 
 export default SvgIcon

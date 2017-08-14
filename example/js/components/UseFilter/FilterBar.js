@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 import {Sort, SortGroup, SvgIcon, ModelHOC } from 'src/index'
 import FilterList from  './FilterList'
@@ -123,7 +124,7 @@ class FilterBar extends React.Component {
 }
 
 FilterBar.propTypes = {
-    onFilterChange: React.PropTypes.func
+    onFilterChange: PropTypes.func
 };
 
 FilterBar.defaultProps = {

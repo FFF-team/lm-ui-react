@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import ModelHOC from '../ModelHOC/index.js';
 import './index.scss'
 
@@ -54,12 +55,12 @@ const OperateList = ({// eslint-disable-next-line
 }
 
 OperateList.propsType = {
-    showState: React.PropTypes.bool,
-    label: React.PropTypes.string || React.PropTypes.node,
-    tip: React.PropTypes.string || React.PropTypes.node,
-    onActionChange: React.PropTypes.func,
-    list: React.PropTypes.array,
-    bottom: React.PropTypes.array
+    showState: PropTypes.bool,
+    label: PropTypes.string || PropTypes.node,
+    tip: PropTypes.string || PropTypes.node,
+    onActionChange: PropTypes.func,
+    list: PropTypes.array,
+    bottom: PropTypes.array
 };
 
 OperateList.defaultProps = {

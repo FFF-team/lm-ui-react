@@ -1,5 +1,5 @@
 import React from 'react'
-
+import PropTypes from 'prop-types';
 import {ListItem, List, SelectableListHOC, Divider} from 'src/index'
 
 const SelectableList = SelectableListHOC({
@@ -65,7 +65,7 @@ class FilterList extends React.Component {
 }
 
 FilterList.PropTypes = {
-    onChange: React.PropTypes.func
+    onChange: PropTypes.func
 };
 
 export default FilterList

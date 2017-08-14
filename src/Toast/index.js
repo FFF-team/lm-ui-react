@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 import ModelHOC from '../ModelHOC/index.js';
 
@@ -11,10 +12,10 @@ import ModelHOC from '../ModelHOC/index.js';
 
 const propTypes = {
 
-	toastType: React.PropTypes.string.isRequired,
-	opacity: React.PropTypes.number,
-	showState: React.PropTypes.bool.isRequired,
-	message: React.PropTypes.string
+	toastType: PropTypes.string.isRequired,
+	opacity: PropTypes.number,
+	showState: PropTypes.bool.isRequired,
+	message: PropTypes.string
 };
 
 const defaultProps = {

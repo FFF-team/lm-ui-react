@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import classNames from 'classnames'
 
 class Tab extends React.Component {
@@ -47,10 +48,10 @@ class Tab extends React.Component {
 }
 
 Tab.propTypes = {
-    label: React.PropTypes.string,
-    icon: React.PropTypes.node,
+    label: PropTypes.string,
+    icon: PropTypes.node,
     onSelectAction: () => {},
-    value: React.PropTypes.string
+    value: PropTypes.string
 };
 
 Tab.defaultProps = {

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import SelectableListHOC from '../SelectableListHOC'
 import classnames from 'classnames';
 
@@ -40,8 +41,8 @@ class Wrapper extends React.Component {
 }
 
 Wrapper.PropTypes = {
-    value: React.PropTypes.string,
-    onSelectedChange: React.PropTypes.func
+    value: PropTypes.string,
+    onSelectedChange: PropTypes.func
 };
 
 Wrapper.defaultProps = {
@@ -124,8 +125,8 @@ class SortGroup extends React.Component {
 
 
 SortGroup.PropTypes = {
-    value: React.PropTypes.string,
-    initValue: React.PropTypes.string
+    value: PropTypes.string,
+    initValue: PropTypes.string
 };
 
 SortGroup.defaultProps = {

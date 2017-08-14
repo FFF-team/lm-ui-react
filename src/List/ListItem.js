@@ -2,6 +2,7 @@
  * Created by khongyan on 2017/3/31.
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Icon } from '../Icon/index';
 
@@ -167,14 +168,14 @@ class ListItem extends React.Component {
 }
 
 ListItem.propTypes = {
-    primaryText: React.PropTypes.node,
-    secondaryText: React.PropTypes.node,
-    onClick: React.PropTypes.func,
-    className: React.PropTypes.string,
-    value: React.PropTypes.string,
-    children: React.PropTypes.node,
-    leftIcon: React.PropTypes.element,
-    rightArrow: React.PropTypes.bool
+    primaryText: PropTypes.node,
+    secondaryText: PropTypes.node,
+    onClick: PropTypes.func,
+    className: PropTypes.string,
+    value: PropTypes.string,
+    children: PropTypes.node,
+    leftIcon: PropTypes.element,
+    rightArrow: PropTypes.bool
 };
 
 ListItem.defaultProps = {

@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import createReactClass from 'create-react-class';
 import './index.scss';
 

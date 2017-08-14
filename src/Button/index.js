@@ -1,13 +1,14 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import './index.scss';
 
 const propTypes = {
-	size:React.PropTypes.string,//small middle big long
-	btnType:React.PropTypes.string,//primary colorfulHollow  grayHollow
-	icon:React.PropTypes.string,
-	isDisabled:React.PropTypes.bool,
-	isRadius:React.PropTypes.bool,
-	onClick:React.PropTypes.func
+	size:PropTypes.string,//small middle big long
+	btnType:PropTypes.string,//primary colorfulHollow  grayHollow
+	icon:PropTypes.string,
+	isDisabled:PropTypes.bool,
+	isRadius:PropTypes.bool,
+	onClick:PropTypes.func
 };
 const defaultProps = {
 	size:'small',

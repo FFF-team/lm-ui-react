@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 
 import {MAX_TAB} from './config';
 import TabsHOC from './TabsHOC'
@@ -40,9 +41,9 @@ const Tabs = ({
 }
 
 Tabs.propTypes = {
-    initSelectedIndex: React.PropTypes.number, // 当前选中的tab index
-    onSelectedChange: React.PropTypes.func, // tab改变后调用
-    value: React.PropTypes.string // 各个tab唯一name
+    initSelectedIndex: PropTypes.number, // 当前选中的tab index
+    onSelectedChange: PropTypes.func, // tab改变后调用
+    value: PropTypes.string // 各个tab唯一name
 };
 
 Tabs.defaultProps = {

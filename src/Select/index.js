@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 
 /*	
@@ -20,13 +21,13 @@ import './index.scss';
 
 const propTypes = {
 
-	optionMap: React.PropTypes.array.isRequired,
-	onChange: React.PropTypes.func.isRequired,
-	selectedValue: React.PropTypes.oneOfType([
+	optionMap: PropTypes.array.isRequired,
+	onChange: PropTypes.func.isRequired,
+	selectedValue: PropTypes.oneOfType([
 
-    	React.PropTypes.string,
-    	React.PropTypes.number,
-    	React.PropTypes.bool
+    	PropTypes.string,
+    	PropTypes.number,
+    	PropTypes.bool
 
   	]) 
 
@@ -41,10 +42,10 @@ const defaultProps = {
 
 const contextTypes = {
 
-	groupId: React.PropTypes.oneOfType([
+	groupId: PropTypes.oneOfType([
 
-		React.PropTypes.string,
-		React.PropTypes.number
+		PropTypes.string,
+		PropTypes.number
 
 	])
 

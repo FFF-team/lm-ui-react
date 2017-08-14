@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 
 /*
@@ -21,9 +22,9 @@ import './index.scss';
 
 const propTypes = {
 
-	name: React.PropTypes.string,
-	selectedValue: React.PropTypes.array.isRequired,
-    onChange: React.PropTypes.func.isRequired
+	name: PropTypes.string,
+	selectedValue: PropTypes.array.isRequired,
+    onChange: PropTypes.func.isRequired
 
 };
 
@@ -31,7 +32,7 @@ const defaultProps = {};
 
 const childContextTypes = {
 
-	checkboxGroup: React.PropTypes.object
+	checkboxGroup: PropTypes.object
 
 };
 

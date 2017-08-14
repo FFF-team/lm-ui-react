@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import classnames from 'classnames'
 
 import Icon from '../Icon'
@@ -291,12 +292,12 @@ class Sort extends React.Component {
 }
 
 Sort.PropTypes = {
-    value: React.PropTypes.string,
-    label: React.PropTypes.string,
-    sortInfo: React.PropTypes.array, // 0: 升序， 1： 降序
-    icon: React.PropTypes.node,
-    open: React.PropTypes.bool,
-    initOpen: React.PropTypes.bool,
+    value: PropTypes.string,
+    label: PropTypes.string,
+    sortInfo: PropTypes.array, // 0: 升序， 1： 降序
+    icon: PropTypes.node,
+    open: PropTypes.bool,
+    initOpen: PropTypes.bool,
 };
 
 Sort.defaultProps = {

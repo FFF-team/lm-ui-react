@@ -1,7 +1,8 @@
 //因为此空间需要引用到react-tween-state https://github.com/chenglou/react-tween-state
 //但是react-tween-state为mixins引用形式，但是es6 class不支持mixins形式
 //所以决定次控件不采用es6 class语法 而采用react.createCls
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import createReactClass from 'create-react-class';
 import tweenState from 'react-tween-state';
 import { CarouselDot, CarouselPage } from './decorate';

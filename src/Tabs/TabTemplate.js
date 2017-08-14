@@ -1,7 +1,8 @@
 /**
  * Created by khongyan on 2017/3/29.
  */
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames'
 
 const TabTemplate = ({children, selected}) => {
