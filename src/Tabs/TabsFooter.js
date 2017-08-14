@@ -2,35 +2,28 @@ import React from 'react';
 import './TabsFooter.scss'
 import TabsHOC from './TabsHOC'
 
-class TabsFooter extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    
-    
-    render() {
-        const {
-            tabs,
-            content,
-            onSelectedChange,
-            initSelectedIndex,
-            value,
-            children,
-            ...other
-        } = this.props;
-        
-        let cn = 'lm-ui-footer-nav';
-        
-        return (
-            <div { ...other }>
-                <ul className={ cn }>
-                    { tabs }
-                </ul>
-                { content }
-            </div>
-        )
-    }
-}
+const TabsFooter = ({
+                        tabs,
+                        content,
+                        onSelectedChange,
+                        initSelectedIndex,
+                        value,
+                        children,
+                        ...other
+                    }) => {
+
+    let cn = 'lm-ui-footer-nav';
+
+    return (
+        <div { ...other }>
+            <ul className={ cn }>
+                { tabs }
+            </ul>
+            { content }
+        </div>
+    )
+
+};
 
 TabsFooter.propTypes = {
     initSelectedIndex: React.PropTypes.number, // 当前选中的tab index

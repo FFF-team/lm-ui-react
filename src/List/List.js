@@ -6,28 +6,22 @@ import classnames from 'classnames';
 
 import './index.scss'
 
-class List extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-    
-    render() {
-        const {
-            value, // SelectableListHOC
-            onSelectedChange, // SelectableListHOC
-            
-            children,
-            className,
-            ...other } = this.props;
-        
-        const cn = classnames('lm-ui-list', className)
-        
-        return (
-            <div { ...other } className={ cn }>
-                { children }
-            </div>
-        )
-    }
+const List = ({
+                  value, // SelectableListHOC
+                  onSelectedChange, // SelectableListHOC
+
+                  children,
+                  className,
+                  ...other
+              }) => {
+
+    const cn = classnames('lm-ui-list', className)
+
+    return (
+        <div { ...other } className={ cn }>
+            { children }
+        </div>
+    )
 }
 
 List.propTypes = {

@@ -2,61 +2,55 @@ import React from 'react'
 import ModelHOC from '../ModelHOC/index.js';
 import './index.scss'
 
-class OperateList extends React.Component {
+const OperateList = ({// eslint-disable-next-line
+                         showState, // eslint-disable-next-line
+                         label,
+                         tip,
+                         className,
+                         list,
+                         bottom,
+
+                         onActionChange
+                     }) => {
     
-    componentWillMount() {
-    
-    }
-    
-    handleClick = (item) => {
+
+    let handleClick = (item) => {
         
         // todo: 加promise支持
-        this.props.onActionChange(item)
+        onActionChange(item)
         
     };
-    
-    
-    render() {
-        
-        const {// eslint-disable-next-line
-            showState, // eslint-disable-next-line
-            label,
-            tip,
-            className,
-            list,
-            bottom
-        } = this.props;
-        
-        return (
-            <div className={ className ? className + ' lm-ui-action-sheet' : 'lm-ui-action-sheet' }>
-                <ul className="type-wrap">
-                    <li className="title g-color-grey">
-                        { label }
-                    </li>
-                    <li>
-                        { tip }
-                    </li>
-                    
-                    {
-                        list.map((item, index) => (
-                            <li className="item" key={index} onClick={ () => this.handleClick(item) }>
-                                <a>{ item.label }</a>
-                            </li>
-                        ))
-                    }
-                </ul>
-                <ul className="type-wrap">
-                    {
-                        bottom.map((item, index) => (
-                            <li key={index}  onClick={ () => this.handleClick(item) } className="item cancel-item">
-                                <a>{ item.label }</a>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </div>
-        )
-    }
+
+
+    return (
+        <div className={ className ? className + ' lm-ui-action-sheet' : 'lm-ui-action-sheet' }>
+            <ul className="type-wrap">
+                <li className="title g-color-grey">
+                    { label }
+                </li>
+                <li>
+                    { tip }
+                </li>
+
+                {
+                    list.map((item, index) => (
+                        <li className="item" key={index} onClick={ () => handleClick(item) }>
+                            <a>{ item.label }</a>
+                        </li>
+                    ))
+                }
+            </ul>
+            <ul className="type-wrap">
+                {
+                    bottom.map((item, index) => (
+                        <li key={index}  onClick={ () => handleClick(item) } className="item cancel-item">
+                            <a>{ item.label }</a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    )
 }
 
 OperateList.propsType = {
