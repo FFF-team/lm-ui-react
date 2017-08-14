@@ -9,17 +9,17 @@ function getStyles() {
     
     const styles = {
         icons: {
-            height: 20,
-            width: 20,
-            display: 'block',
-            marginRight: 8,
+            // height: 20,
+            // width: 20,
+            // display: 'block',
+            // marginRight: 8,
         },
         leftIcon: {
         },
         rightArrow: {
-            width: 8,
-            height: 8,
-            marginLeft: 10
+            // width: 8,
+            // height: 8,
+            // marginLeft: 10
         },
         rightIcon: {
             marginLeft: 4
@@ -106,6 +106,7 @@ class ListItem extends React.Component {
         if (leftIcon) {
             const additionalProps = {
                 color: leftIcon.props.color,
+                className: classnames('lm-ui-list-icon', leftIcon.props.className)
             };
             this.pushElement(
                 contentChildren,
@@ -145,11 +146,14 @@ class ListItem extends React.Component {
         }
         
         if (rightArrow) { // 暂时不能配置颜色大小等
+            const additionalProps = {
+                className: 'lm-ui-icon lm-icon-link'
+            };
             this.pushElement(
                 contentChildren,
-                <i className="lm-ui-icon lm-icon-link"/>,
+                <i/>,
                 Object.assign({}, styles.rightArrow),
-                {}
+                additionalProps
             );
         }
         
