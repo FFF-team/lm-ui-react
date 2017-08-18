@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from '../src/Input';
-import { shallow, render, mount, unmount } from 'enzyme';
+import { shallow, render, mount } from 'enzyme';
 import sinon from 'sinon';
 /*
  * 测试点（渲染，初始化，交互）

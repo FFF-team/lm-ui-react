@@ -2,7 +2,7 @@ import { transform } from 'babel-core';
 import fs from 'fs';
 import path from 'path';
 import outputFileSync from 'output-file-sync';
-
+//http://babeljs.io/docs/usage/api/
 function buildContent(content, filename, destination, babelOptions = {}) {
   babelOptions.filename = filename;
   const result = transform(content, babelOptions);
