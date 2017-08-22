@@ -1,5 +1,6 @@
 import { transform } from 'babel-core';
 import fs from 'fs';
+import URL from 'url';
 import path from 'path';
 import outputFileSync from 'output-file-sync';
 //http://babeljs.io/docs/usage/api/
@@ -13,12 +14,6 @@ function buildCssContent(content, filename, destination, babelOptions = {}) {
   // babelOptions.filename = filename;
   // const result = transform(content, babelOptions);
   outputFileSync(destination, content, {encoding: 'utf8'});
-}
-
-function buildPngContent(content, filename, destination, babelOptions = {}) {
-  // babelOptions.filename = filename;
-  // const result = transform(content, babelOptions);
-  // outputFileSync(destination, content, {encoding: 'image'});
 }
 
 function buildFile(filename, destination, babelOptions = {}) {
@@ -35,10 +30,22 @@ function buildFile(filename, destination, babelOptions = {}) {
     buildCssContent(content, filename, outputPath, babelOptions);
 
   }
+  //.png读写
   if (path.extname(filename) === '.png') {
 
     const outputPath = path.join(destination, path.basename(filename));
-    buildPngContent(content, filename, outputPath, babelOptions);
+
+    fs.readFile(filename, (err, buffer) => {
+
+      if (err) throw err; 
+      let relativePath = path.relative(__dirname, outputPath).slice(1);
+      fs.writeFile(relativePath, buffer, function (err) {
+
+        console.log(err)
+
+      });
+
+    })
 
   }
 
