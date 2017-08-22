@@ -1,4 +1,5 @@
 # lm-ui-react
+[![Build Status](https://travis-ci.org/FFF-team/lm-ui-react.svg?branch=master)](https://travis-ci.org/FFF-team/lm-ui-react)
 
 ## 项目描述
 * 58金融贷款组ui库
