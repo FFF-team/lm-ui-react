@@ -117,16 +117,23 @@ npm run build
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
-| showState | 展示状态 | bool | false | 必要 |
-| dialogType | 展示形式 | string | Confirm(或Alert) | 必要 |
-| headText | 提示头文字 | string | '提示' | 可选 |
-| contentText | 提示内容文字 | string | '提示内容' | 可选 |
+| modelStyle | 遮罩层样式设置 | object | {} | 可选 |
 | opacity | 背景蒙层透明度 | number | 5 | 可选 |
+| showState | 展示状态 | bool | false | 必要 |
+| dialogType | 展示形式 | string | Confirm(Alert CustomPrompt CustomForm Custom) | 必要 |
+| dialogStyle | 弹窗样式设置 | object | {} | 可选 |
+| headerType | 弹窗头部展示类型 | string | Alert(Confirm CustomPrompt CustomForm) | 可选 |
+| headText | 提示头文字 | string | '提示' | 可选 |
+| headerStyle | 弹窗头部样式设置 | object | {} | 可选 |
+| contentText | 提示内容文字 | string | '提示内容' | 可选 |
+| contentStyle | 弹窗内容样式设置 | object | {} | 可选 |
+| footerTypee | 弹窗底部展示类型 | string | Alert(Confirm Close) | 可选 |
 | btnLeftText | 左按钮文案 | string | '取消' | 可选 |
 | btnRightText | 右按钮文案 | string | '确定' | 可选 |
 | btnLeftCbFun | 左按钮点击时触发的函数 | fun | ()=>{} | 可选 |
 | btnRightCbFun | 右按钮点击时触发的函数 | fun | ()=>{} | 可选 |
 | btnCommonFun | 按钮点击触发的共用函数 | fun | ()=>{} | 可选 |
+| btnCloseFun | 点击关闭按钮时触发的函数 | fun | ()=>{} | 可选 |
 
 ```
 <Dialog 
