@@ -1,4 +1,5 @@
 # lm-ui-react
+[![Build Status](https://travis-ci.org/FFF-team/lm-ui-react.svg?branch=master)](https://travis-ci.org/FFF-team/lm-ui-react)
 
 ## 项目描述
 * 58金融贷款组ui库
@@ -6,6 +7,7 @@
 ## 应用技术
 * react 
 * jest && enzyme(单元测试)
+* travis(持续集成)
 
 ## 目标
 * 拥抱函数式无状态组件，使组件更加简洁可靠
