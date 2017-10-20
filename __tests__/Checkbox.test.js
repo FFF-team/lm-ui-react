@@ -33,6 +33,38 @@ describe('Test Checkbox', () => {
 
 	});
 
+	it('render various mode', () => {
+
+		const normalCheckbox = <CheckboxGroup
+						name={'checkboxName'}
+						selectedValue={[1,2]}
+						onChange={onChange}
+						>
+
+						<Checkbox 
+							text={'11'} 
+							value={1} 
+							mode={'button'}
+							preffix={<div>preffix</div>} />
+						<Checkbox 
+							text={'22'} 
+							value={2}
+							mode={'button'}
+							suffix={<div>suffix</div>} />
+						<Checkbox 
+							text={'33'} 
+							value={3}
+							mode={'button'}
+							uniqueId={'uniqueId1'} />
+
+					</CheckboxGroup>;
+		const wrapper = shallow(normalCheckbox);
+	  	const wrapperClass = wrapper.find('.lm-ui-checkbox-group');
+	  	
+	  	expect(wrapperClass.length === 1);
+
+	});
+
 	it('init checkbox value', () => {
 
 		const wrapper = mount(normalCheckbox);

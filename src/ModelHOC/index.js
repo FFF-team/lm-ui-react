@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 
 /*
@@ -71,7 +72,7 @@ const ModelHOC = (WrappedComponent) =>
 		}
 
 		render () {
-			const { showState, opacity} = this.props;
+			const { showState, opacity, modelStyle } = this.props;
 			//MXR modified at 2017-04-09
 			// let { showState } = this.state;
 
@@ -81,7 +82,7 @@ const ModelHOC = (WrappedComponent) =>
 
 			return (
 
-				<div key="modelHOC" className={ HOCclass }>
+				<div key="modelHOC" className={ HOCclass } style={ modelStyle || {} }>
 					
 					{
 					showState ? <WrappedComponent {...this.props} /> : null

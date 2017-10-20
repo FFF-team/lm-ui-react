@@ -29,7 +29,7 @@ describe('Test Button', () => {
         
     })
 
-    it('render the Button wrapper', () => {
+    it('render the Button type 0', () => {
 
         const button = <Button
                         size='long'
@@ -43,10 +43,39 @@ describe('Test Button', () => {
         
     })
 
-    it('render the Button wrapper', () => {
+    it('render the Button type 1', () => {
 
         const button = <Button
                         size='long'
+                        btnType='grayHollow'
+                        isRadius={true}
+                        onClick={onClick}
+                        isDisabled={true}
+                        >test</Button>;
+        const wrapper = shallow(button);
+        const wrapperClass = wrapper.find('.lm-ui-btn');
+        expect(wrapperClass.length === 1);
+        
+    })
+
+    it('render the Button type 2', () => {
+
+        const button = <Button
+                        size='long'
+                        btnType='grayHollow'
+                        isRadius={true}
+                        onClick={onClick}
+                        >test</Button>;
+        const wrapper = shallow(button);
+        const wrapperClass = wrapper.find('.lm-ui-btn');
+        expect(wrapperClass.length === 1);
+        
+    })
+
+    it('render the Button type 3', () => {
+
+        const button = <Button
+                        size='big'
                         btnType='grayHollow'
                         isRadius={true}
                         onClick={onClick}
