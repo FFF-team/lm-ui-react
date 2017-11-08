@@ -3,6 +3,7 @@
 
 	width: 72%;
 	max-width: 270px;
+	position: relative;
 	border-radius: 4px;
 	background-color: #FFF;
 
@@ -10,43 +11,20 @@
 
 		text-align: center;
 	    padding: 28px 28px 10px;
-	    font-size: 16px;
 		font-size: 16px;
 		color: #333;
 
 	}
 
-	.dialog-icon-close {
-		
-		&::before {
-			content: "";
-	    	position: absolute;
-	    	width: 17px;
-	    	height: 2px;
-	    	top: 20px;
-	    	left: 12px;
-	    	background-color: #e6e6e6;
-	    	-webkit-transform: rotateZ(45deg);
-	    	        transform: rotateZ(45deg);
-		};
+	.header-close {
 
 	    position: absolute;
 	    top: 3px;
 	    right: 0;
 	    width: 40px;
 	    height: 40px;
-
-	    &::after {
-	    	content: "";
-	    	position: absolute;
-	    	width: 17px;
-	    	height: 2px;
-	    	top: 20px;
-	    	left: 12px;
-	    	background-color: #e6e6e6;
-	    	-webkit-transform: rotateZ(-45deg);
-	    	        transform: rotateZ(-45deg);
-	    }
+	    background: url(./icon-dialog-close.png) no-repeat center;
+		background-size: 12px 12px;
 	}
 
 	.head-confirm {
@@ -136,5 +114,76 @@
 
 	.special { color: #ff552e; }
 
+
+	.dialog-prompt-content {
+		margin: 10px 0 100px;
+		overflow: auto;
+		max-height: 70%;
+		max-height: calc(100% - 82px - 81px);
+		display: block;
+	}
+
+	.dialog-btn-prompt {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 82px;
+
+		&::before {
+			content: initial;
+		};
+	}
+
+	.dialog-btn-prompt .dialog-btn {
+		position: absolute;
+		padding: 0;
+		top: 10px;
+	    width: 22px;
+	    height: 22px;
+	    background: url(./icon-dialog-close.png) no-repeat center;
+		background-size: 22px 22px;
+		
+	}
+
+	.header-form-title {
+		position: relative;
+		text-align: left;
+		padding: 12px;
+
+		&::after {
+			content: "";
+			position: absolute;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
+		    height: 1px;
+		    background-color: #e6e6e6;
+		    content: '';
+		    -webkit-transform: scaleY(0.5);
+		    transform: scaleY(0.5);
+		};
+    }
+
+    .dialog-header-prompt .header-form-title {
+    	text-align: center;
+    }
+
+    .dialog-header-prompt, .dialog-header-form {
+    	padding-bottom: 0;
+    }
+	
+
+}
+
+.lm-ui-dialog-full {  
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: inherit;
+    max-width: inherit;
+	background: rgba(255, 255, 255, 0.9); 
 }
 
