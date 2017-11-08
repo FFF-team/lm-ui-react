@@ -606,11 +606,11 @@ const SelectableList = SelectableListHOC({
   })(List);
 
 <SelectableList value='a' onSelectedChange={ (event, value, item) => {} }>
-   <ListItem>
-      <Item value="a" onClick={ () => {} } />
+   <ListItem value="a" onClick={ () => {} } >
+      <自定义内容/>
    </ListItem>
-   <ListItem>
-      <Item value="a" />
+   <ListItem value="a" >
+      <自定义内容/>
    </ListItem>
 </SelectableList>
 ```
