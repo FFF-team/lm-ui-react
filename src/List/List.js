@@ -10,6 +10,7 @@ import './index.scss'
 const List = ({
                   value, // SelectableListHOC
                   onSelectedChange, // SelectableListHOC
+                  initValue, // SelectableListHOC
 
                   children,
                   className,

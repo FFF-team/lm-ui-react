@@ -7,7 +7,7 @@ import classnames from 'classnames';
 import { Icon } from '../Icon/index';
 
 function getStyles() {
-    
+
     const styles = {
         icons: {
             // height: 20,
@@ -25,18 +25,18 @@ function getStyles() {
         rightIcon: {
             marginLeft: 4
         }
-        
+
     };
-    
+
     return styles
-    
+
 }
 
 class ListItem extends React.Component {
     constructor(props) {
         super(props)
     }
-    
+
     pushElement(children, element, baseStyles, additionalProps) {
         if (element) {
             const styles = Object.assign({}, baseStyles, element.props.style);
@@ -49,11 +49,11 @@ class ListItem extends React.Component {
             );
         }
     }
-    
+
     createTextElement(styles, data, key, className) {
         let cn = className;
         if (React.isValidElement(data)) {
-            
+
             let style = Object.assign({}, styles, data.props.style);
             cn = classnames(className, data.props.className);
             return React.cloneElement(data, {
@@ -62,19 +62,19 @@ class ListItem extends React.Component {
                 className: cn
             });
         }
-        
+
         return (
             <div key={key} className={ cn }>
                 {data}
             </div>
         );
     }
-    
+
     render() {
         const {
             onClick, // SelectableListHOC
             value, // SelectableListHOC
-            
+
             primaryText,
             secondaryText,
             leftIcon,
@@ -84,26 +84,24 @@ class ListItem extends React.Component {
             children,
             ...other
         } = this.props;
-    
+
         const styles = getStyles();
         const cn = classnames('lm-ui-list-item', className);
-        
+
         if (children) return (
             <div { ...other } onClick={ (e) => onClick(value ? {value} : e) } className={ cn }>
-                <div className="lm-ui-list-item-children">
-                    { this.createTextElement(
-                        {},
-                        children,
-                        'children',
-                        'lm-ui-list-item-children'
-                    ) }
-                </div>
+                { this.createTextElement(
+                    {},
+                    children,
+                    'children',
+                    'lm-ui-list-item-children'
+                ) }
             </div>
         );
-        
+
         const contentChildren = [];
-       
-        
+
+
         if (leftIcon) {
             const additionalProps = {
                 color: leftIcon.props.color,
@@ -116,7 +114,7 @@ class ListItem extends React.Component {
                 additionalProps
             );
         }
-    
+
         if (primaryText) {
             const primaryTextElement = this.createTextElement(
                 {},
@@ -126,7 +124,7 @@ class ListItem extends React.Component {
             );
             contentChildren.push(primaryTextElement);
         }
-    
+
         if (secondaryText) {
             const secondaryTextElement = this.createTextElement(
                 {},
@@ -136,7 +134,7 @@ class ListItem extends React.Component {
             );
             contentChildren.push(secondaryTextElement);
         }
-        
+
         if (rightIcon) {
             this.pushElement(
                 contentChildren,
@@ -145,7 +143,7 @@ class ListItem extends React.Component {
                 {}
             );
         }
-        
+
         if (rightArrow) { // 暂时不能配置颜色大小等
             const additionalProps = {
                 className: 'lm-ui-icon lm-icon-link'
@@ -157,13 +155,13 @@ class ListItem extends React.Component {
                 additionalProps
             );
         }
-        
+
         return (
             <div { ...other } onClick={ (e) => onClick(value ? {value} : e) } className={ cn }>
                 { contentChildren }
             </div>
         )
-        
+
     }
 }
 

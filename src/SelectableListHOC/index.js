@@ -1,26 +1,36 @@
 import React from 'react'
 import classnames from 'classnames'
 
-const SelectedTableList = ({
-    selectedStyle = {color: '#ff552e'},
-    selectedClassName = ''
-}) => (WrappedComponent) =>
-    class extends React.Component {
+const SelectableList = (
+    config = {
+        selectedStyle: {color: '#ff552e'},
+        selectedClassName: ''
+    }
+) => (WrappedComponent) =>
+    class extends React.PureComponent {
         constructor(props) {
             super(props);
-        }
-    
-        componentDidMount() {
+
+            // value 受控组件
+            // initValue 当initValue不为undefined时，hoc控制state
             this.state = {
-                selectedValue: this.props.value
+                value: this.props.initValue === undefined ? this.props.value : this.props.initValue
             }
         }
-    
-        componentWillReceiveProps(newProps) {
-        
+
+        componentDidMount() {
+
         }
-        
-        extendChildren(child, selectedStyle) {
+
+        componentWillReceiveProps(newProps) {
+            if (newProps.open !== '') {
+                this.setState({
+                    value: newProps.value
+                })
+            }
+        }
+
+        extendChildren(child, selectedStyle, selectedClassName) {
             let activeClassName = this.props.activeClassName;
             let mergedStyle = Object.assign({}, child.props.style);
             let mergedClassName = child.props.className;
@@ -28,7 +38,7 @@ const SelectedTableList = ({
                 mergedStyle = Object.assign({}, mergedStyle, selectedStyle);
                 mergedClassName = activeClassName ? activeClassName : classnames(mergedClassName, selectedClassName)
             }
-            
+
             return React.cloneElement(child, {
                 onClick: (event) => {
                     child.props.onClick && child.props.onClick(event);
@@ -37,33 +47,40 @@ const SelectedTableList = ({
                 style: mergedStyle,
                 className: mergedClassName
             })
-            
+
         }
-        
+
         isChildSelected(child, props) {
-            return this.props.value === child.props.value;
+            return this.state.value === child.props.value;
         }
-        
+
         handleClick = (event, item) => {
             let value = item.props.value;
-            
-            if (value !== this.props.value) {
-                this.props.onSelectedChange && this.props.onSelectedChange(event, value, item)
+
+            if (this.props.initValue !== undefined) {
+                this.setState({
+                    value: value
+                })
             }
+
+            // if (value !== this.state.value) {
+            //     this.props.onSelectedChange && this.props.onSelectedChange(event, value, item)
+            // }
+            this.props.onSelectedChange && this.props.onSelectedChange(event, value, item)
         };
-        
+
         render() {
             const {
                 children,
                 ...other
             } = this.props;
-            
-            
+
+
             return (
                 <WrappedComponent { ...other }>
                     {
                         React.Children.map(children, (child) => {
-                            return this.extendChildren(child, selectedStyle)
+                            return this.extendChildren(child, config.selectedStyle, config.selectedClassName)
                         })
                     }
                 </WrappedComponent>
@@ -71,5 +88,4 @@ const SelectedTableList = ({
         }
     };
 
-export default SelectedTableList
-    
+export default SelectableList

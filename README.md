@@ -593,17 +593,25 @@ npm run build
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
 | config | 自定义选中项样式，可添加selectedClassName或selectedStyle, | obj | {selectedClassName: '', selectedStyle: {color: '#ff552e'}} | 可选 |
-| component | 任意react组件 | node |  | 必选 |
+| component | List | node |  | 必选 |
+| children | ListItem | node |  | 必选 |
+| value | 当前选中项，受控，需要在onSelectedChange中手动更新value | string |  | 必选 |
+| initValue | 初始选中项 | string |  | 否 |
+| onSelectedChange | 点击某项触发 | func |  | 必选 |
 
 
 ```
 const SelectableList = SelectableListHOC({
       selectedClassName: 'active'
-  })(WrappedComponent);
+  })(List);
 
-<SelectableList value='a'onSelectedChange={ (event, value, item) => {} }>
-   <Item value="a" onClick={ () => {} } />
-   <Item value="a" />
+<SelectableList value='a' onSelectedChange={ (event, value, item) => {} }>
+   <ListItem>
+      <Item value="a" onClick={ () => {} } />
+   </ListItem>
+   <ListItem>
+      <Item value="a" />
+   </ListItem>
 </SelectableList>
 ```
 ******
