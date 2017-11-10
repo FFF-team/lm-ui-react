@@ -1,89 +1,112 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './index.scss';
+import classname from 'classnames'
 
 /*
  * showState: true false
+ * timeControl: {time: xx, cbFunc: () => {}}
  * opacity 0-10
  */
 
 const opacitys = ["lm-opcity0", "lm-opcity1", 'lm-opcity2', 'lm-opcity3', 'lm-opcity4', 'lm-opcity5', 'lm-opcity6', 'lm-opcity7', 'lm-opcity8', 'lm-opcity9', 'lm-opcity10']
 
-const ModelHOC = (WrappedComponent) => 
-	
+const ModelHOC = (WrappedComponent) =>
+
 	class extends React.Component {
 
 		constructor (props) {
 
 			super (props);
 			this.timer = null;
-			this.state = {};
+
+			this.data = {
+				time: 0,
+				timeFun: () => { this.setState({showState: false}) }
+			};
+
+			// init state
+			this.state = {
+				showState: false
+			};
 
 		}
 
 		componentDidMount () {
-			//MXR modified at 2017-04-09
-			let timeControl = this.props.timeControl;
-			if (timeControl) {
-
-				this.updataTimeInfo(timeControl);
-
-			}
-
+            this.init(this.props);
 		}
 
-		updataTimeInfo (info) {
+        componentWillReceiveProps (nextProps) {
+			if (this.isPropsDifferent(this.props, nextProps)) {
+                this.init(nextProps)
+			}
+        }
+
+        componentWillUnmount () {
+            if (this.timer) clearTimeout(this.timer);
+        }
+
+        isPropsDifferent(prev, next) {
+			// todo: 只判断showState情况
+			if (prev.showState !== next.showState) {
+				return true
+			}
+
+			return false
+		}
+
+        init (props) {
+
+			const { showState, timeControl = {} } = props;
+
+			const { time, timeFun } = this.data;
+
+			this.data = {
+                time: timeControl.time || time,
+                timeFun: timeControl.cbFun || timeFun,
+			};
 
 			this.setState({
 
-				time: info.time,
-				timeFun: info.cbFun
+                showState: showState
 
-			})
-
-		}
-
-		componentWillReceiveProps (nextProps) {
-			//只有设置了timeControl
-			if (nextProps.showState && this.props.timeControl) {
-
-				this.timeControlShow()
-
-			}
+			}, () => {
+                this.timeControlShow()
+			});
 
 		}
 
 		timeControlShow () {
-			//MXR modified at 2017-04-09
-			let { time, timeFun } = this.state;
-			this.setState({ showState: true })
-			this.timer = setTimeout(() => {
 
-				timeFun()
+			const { showState } = this.state;
 
-			}, time)
+			const { time, timeFun } = this.data;
 
-		}
 
-		componentWillUnmount () {
-			//MXR modified at 2017-04-09
-			//如果存在timer，干掉。
-			if (this.timer) clearTimeout(this.timer);
+			if (time > 0 && showState === true) {
+                this.timer = setTimeout(() => {
+
+                    timeFun();
+
+                }, time)
+			}
+
+
 		}
 
 		render () {
-			const { showState, opacity, modelStyle } = this.props;
-			//MXR modified at 2017-04-09
-			// let { showState } = this.state;
+			const { opacity, modelStyle } = this.props;
+			const { showState } = this.state;
 
-			let HOCclass = showState ? "lm-ui-model" : "lm-ui-model hide";
-
-			HOCclass = opacity%1 === 0 ? HOCclass + " " + opacitys[opacity] : HOCclass;
+			const cn = classname({
+				'hide': !showState,
+				[opacitys[opacity]]: opacity%1 === 0
+			}, 'lm-ui-model');
 
 			return (
 
-				<div key="modelHOC" className={ HOCclass } style={ modelStyle || {} }>
-					
+				<div key="modelHOC" className={ cn } style={ modelStyle || {} }>
+
 					{
 					showState ? <WrappedComponent {...this.props} /> : null
 					}
