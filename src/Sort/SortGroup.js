@@ -3,46 +3,29 @@ import PropTypes from 'prop-types';
 import SelectableListHOC from '../SelectableListHOC'
 import classnames from 'classnames';
 
-class Wrapper extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
+const Wrapper = ({
+                  value, // SelectableListHOC
+                  onSelectedChange, // SelectableListHOC
+                  initValue, // SelectableListHOC
 
-        if (nextProps.value !== this.props.value) {
-            return true
-        }
+                  children,
+                  className,
+                  ...other
+              }) => {
 
-        return false
-    }
+    const cn = classnames('lm-ui-sort-group', className)
 
+    return (
+        <div { ...other } className={ cn }>
+            { children }
+        </div>
+    )
+};
 
-    render() {
-        const {
-            value, // SelectableListHOC
-            onSelectedChange, // SelectableListHOC
-            
-            children,
-            className,
-            ...other
-        } = this.props;
-
-        const cn = classnames('lm-ui-sort-group', className);
-        
-        return (
-            <div className={ cn } { ...other }>
-                {
-                    children
-                }
-            </div>
-        )
-    }
-}
-
-Wrapper.PropTypes = {
-    value: PropTypes.string,
-    onSelectedChange: PropTypes.func
+Wrapper.propTypes = {
+    onSelectedChange: PropTypes.func,
+    value: PropTypes.string
 };
 
 Wrapper.defaultProps = {
@@ -57,11 +40,31 @@ const SelectableWrapper = SelectableListHOC({
 
 class SortGroup extends React.Component {
 
-    componentWillMount() {
+    constructor(props) {
+        super(props);
+
         this.state = {
             value: '',
-            open: false
+            children: this.props.children.map((child, index) => {
+
+                return React.cloneElement(child, {
+                    open: false,
+                    key: index,
+                })
+
+
+            })
         }
+    }
+
+    getChildContext() {
+        return {
+            updateSortOpen: (value, state) => {
+
+                this.updateSortOpen(value, state)
+            }
+
+        };
     }
 
     componentDidMount() {
@@ -86,40 +89,88 @@ class SortGroup extends React.Component {
             value: value,
         });
 
+        this.openChild(value)
+
     };
+
+    updateSortOpen(value, state) {
+
+        const { children } = this.state;
+
+        const newChildren = children.map((child, index) => {
+
+            if (value === child.props.value) {
+                return React.cloneElement(child, {
+                    open: state,
+                    key: index,
+                })
+            }
+
+            return React.cloneElement(child, {
+                open: child.props.open,
+                key: index,
+            })
+
+
+        });
+
+        this.setState({
+            children: newChildren
+        })
+    }
+
+    openChild(value) {
+        const { children } = this.state;
+
+        const newChildren = children.map((child, index) => {
+
+            if (value === child.props.value) {
+                const originOpen = child.props.open;
+
+                return React.cloneElement(child, {
+                    open: !originOpen,
+                    key: index,
+                })
+            }
+
+            return React.cloneElement(child, {
+                open: false,
+                key: index,
+            })
+
+
+        });
+
+        this.setState({
+            children: newChildren
+        })
+    }
 
 
     render() {
 
         const {
-            onSelectedChange, // SelectableListHOC
+            // onSelectedChange, // SelectableListHOC
 
-            children,
-            initValue,  // 初始值，不受控
-            value, // 受控
+            // children,
+            // initValue,  // 初始值，不受控
+            // value, // 受控
             ...other
         } = this.props;
 
+        const { value, children } = this.state;
+
 
         return (
-            <SelectableWrapper value={ this.state.value }
+            <SelectableWrapper value={ value }
                                onSelectedChange={ this.handleSelectedChange }
-                               { ...other }
             >
                 {
-                    children.map((child, index) => {
-
-                        return React.cloneElement(child, {
-                            open: this.state.value === child.props.value,
-                            key: index
-                        })
-
-
-                    })
+                    children
                 }
-
             </SelectableWrapper>
         )
+
     }
 }
 
@@ -133,6 +184,10 @@ SortGroup.defaultProps = {
     value: '',
     initValue: ''
 };
+
+SortGroup.childContextTypes = {
+    updateSortOpen: PropTypes.func
+}
 
 
 export default SortGroup

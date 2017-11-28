@@ -30,25 +30,25 @@ function shallowEqual(objA, objB) {
     if (is(objA, objB)) {
         return true;
     }
-    
+
     if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
         return false;
     }
-    
+
     var keysA = Object.keys(objA);
     var keysB = Object.keys(objB);
-    
+
     if (keysA.length !== keysB.length) {
         return false;
     }
-    
+
     // Test for A's keys different from B.
     for (var i = 0; i < keysA.length; i++) {
         if (!hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
             return false;
         }
     }
-    
+
     return true;
 }
 
@@ -56,7 +56,7 @@ function shallowEqual(objA, objB) {
 class Sort extends React.Component {
     constructor(props) {
         super(props);
-        
+
         this.toggleStyle = {
             position: 'absolute',
             width: '100%',
@@ -65,28 +65,28 @@ class Sort extends React.Component {
             top: 0,
             zIndex: 1
         };
-        
+
         this.state = {
             sortBy: this.getSortBy(this.props.sortInfo), // 上下标示 0 上， 1下
             sortKey: this.getSortKey(this.props.sortInfo),
             label: this.props.label,
-            
+
             open: false
         };
-        
+
         this.canToggle = this.props.sortInfo.length === 2;
         this.initCheck = this.getSortBy(this.props.sortInfo)
     }
-    
+
     componentWillMount() {
         this.setState({
             open: this.props.open === null ? this.props.initOpen === true : this.props.open,
         });
     }
-    
+
     componentDidMount() {
     }
-    
+
     shouldComponentUpdate(nextProps, nextState, nextContext) {
         return (
             !shallowEqual(this.props, nextProps) ||
@@ -94,7 +94,7 @@ class Sort extends React.Component {
             !shallowEqual(this.context, nextContext)
         );
     }
-    
+
     componentWillReceiveProps(nextProps) {
         // controlled open
         if (nextProps.open !== null) {
@@ -103,41 +103,41 @@ class Sort extends React.Component {
             })
         }
     }
-    
+
     getSortKey(sortInfo, sortBy) {
         if (sortBy === undefined)
         return sortInfo[0].key !== undefined ? sortInfo[0].key : sortInfo[0]
-        
+
         for(let i = 0, len = sortInfo.length; i < len; i++) {
             if (sortInfo[i].sortBy === sortBy) {
                 return sortInfo[i].key
             }
         }
-        
+
         return ''
     }
-    
+
     getSortBy(sortInfo) {
         return sortInfo[0]['sortBy'] !== undefined ? sortInfo[0]['sortBy'] : '';
     }
-    
-    
+
+
     toggleStatus = (status) => {
         let sortInfo = this.props.sortInfo;
         let sortKey;
         let sortBy;
-        
+
         if (sortInfo.length === 2) { // todo:双向切换
             sortBy = status === true ? 0 : 1;
             sortKey = this.getSortKey(sortInfo, sortBy);
-    
+
             this.setState({
                 sortBy: sortBy
             });
         } else { // todo:单项切换
             sortBy = this.getSortBy(sortInfo);
             sortKey = this.getSortKey(sortInfo);
-            
+
             this.setState({
                 sortBy: sortBy
             });
@@ -146,19 +146,19 @@ class Sort extends React.Component {
             key: sortKey,
             sortBy
         });
-        
+
         this.props.children && this.setState({
             open: !this.state.open
         })
-        
+
         // this.props.onSelectAction && this.props.onSelectAction();
-        
+
     }
-    
+
     getSortByIcon() {
         let sortInfo = this.props.sortInfo;
         let currentSortBy = this.state.sortBy;
-        
+
         let iconsStyle = [
             {
                 className: classnames({'lm-icon-arrow-active': currentSortBy === 0},'lm-ui-icon lm-icon-arrow-top'),
@@ -181,14 +181,14 @@ class Sort extends React.Component {
                 sortKey: 1
             }
         ]
-        
+
         if (sortInfo.length === 2) {
             // 双向切换
-            
+
             return iconsStyle.map((iconStyle, index) => (<Icon key={index} style={ iconStyle.style } className={ iconStyle.className }/>))
-            
+
         }
-        
+
         if (sortInfo && sortInfo[0] && (sortInfo[0].sortBy === 0 || sortInfo[0].sortBy === 1) && sortInfo.length === 1) {
             // 单项切换
             let sort = this.getSortBy(sortInfo);
@@ -209,33 +209,38 @@ class Sort extends React.Component {
                 </SvgIcon>
             ) : this.props.icon
         }
-        
+
     }
-    
-    
+
+
     extendChildren(child) {
+
         return React.cloneElement(child, {
             onChange: (result) => {
-                let canClose =  child.props.onChange && child.props.onChange(result);
-                if (canClose ) {
+                let ret =  child.props.onChange && child.props.onChange(result);
+                if (ret ) {
                     this.setState({
-                        label: canClose.label
-                    })
-                    this.close()
+                        label: ret.label
+                    });
+                    this.close(this.props.value, false)
                 }
             },
         })
     }
-    
-    
-    close = () => {
+
+
+    close = (value, state) => {
+
+        // open status
+        this.context.updateSortOpen && this.context.updateSortOpen(value, state)
+
         this.setState({
-            open: false
+            open: state
         })
     }
-    
+
     render() {
-        
+
         const {
             value,
             label,
@@ -249,9 +254,9 @@ class Sort extends React.Component {
             initOpen,
             ...other
         } = this.props;
-        
+
         const cnSort = classnames('lm-ui-sort', className);
-        
+
         const cnIcon = classnames({
             'positive-sort': this.state.sortBy === 0,
             'reverse-sort': this.state.sortBy === 1,
@@ -285,7 +290,7 @@ class Sort extends React.Component {
                         </div>
                     ) : null
                 }
-                
+
             </div>
         );
     }
@@ -308,6 +313,10 @@ Sort.defaultProps = {
     }],
     open: null,
     initOpen: false,
+};
+
+Sort.contextTypes = {
+    updateSortOpen: PropTypes.func
 };
 
 export default Sort

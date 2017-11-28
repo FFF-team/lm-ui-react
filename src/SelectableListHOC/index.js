@@ -23,7 +23,7 @@ const SelectableList = (
         }
 
         componentWillReceiveProps(newProps) {
-            if (newProps.open !== '') {
+            if (newProps.value !== undefined && this.props.value !== newProps.value) {
                 this.setState({
                     value: newProps.value
                 })

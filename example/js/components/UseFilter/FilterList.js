@@ -7,29 +7,19 @@ const SelectableList = SelectableListHOC({
 })(List);
 
 class FilterList extends React.Component {
-    constructor(props) {
-        super(props);
-        
-        this.state = {
-            selectedValue: this.props.defaultValue
-        }
-    }
-    
+
     handleChange = (event, value, item) => {
         this.props.onChange && this.props.onChange({
             value,
             item
         });
-        
-        this.setState({
-            selectedValue: value
-        })
+
     };
-    
+
     selectAction2({value}) {
         console.log('点击了filterList中的第二项' + value)
     }
-    
+
     render() {
         const {
             onChange,
@@ -37,26 +27,28 @@ class FilterList extends React.Component {
             showState,
             ...other
         } = this.props;
-        
+
+
+
         return (
-            <SelectableList value={ this.state.selectedValue }
+            <SelectableList initValue={ this.props.defaultValue }
                             onSelectedChange={ this.handleChange }
                             { ...other }>
                 <ListItem value={ 'byTime' }
                            primaryText="按时间"
                 />
-                
+
                 <Divider/>
-                
+
                 <ListItem value={ 'byNo' }
                            primaryText="按序号"
                            onClick={ this.selectAction2 }
                 />
-    
+
                 <Divider/>
-                
+
                 <ListItem value={ 'byName' }
-                          
+
                            primaryText="按名称"
                 />
             </SelectableList>
