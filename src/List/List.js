@@ -14,14 +14,14 @@ const List = ({
 
                   children,
                   className,
-                  ...other
+                  style
               }) => {
 
     const cn = classnames('lm-ui-list', className)
 
     return (
-        <div { ...other } className={ cn }>
-            { children }
+        <div style={style} className={cn}>
+            {children}
         </div>
     )
 }
@@ -32,7 +32,8 @@ List.propTypes = {
 };
 
 List.defaultProps = {
-    onSelectedChange: () => {}
+    onSelectedChange: () => {
+    }
 };
 
 export default List

@@ -30,59 +30,11 @@ class FilterPage extends React.Component {
         }
     }
 
-    showSortList() {
 
-    }
+    changeList = (ret) => {
+        console.log(`===开始筛选：===`);
+        console.log(ret)
 
-    changeList = (key, sortBy) => {
-        console.log(`===开始筛选：key->${key}, sortBy->${sortBy}===`);
-        let data;
-
-        switch (key) {
-            case '单项排序key':
-                data = [{
-                    id: 1,
-                    value: 'item1'
-                }, {
-                    id: 3,
-                    value: 'item3'
-                }, {
-                    id: 2,
-                    value: 'item2'
-                }];
-                break;
-            case 'byTime':
-                data = [{
-                    id: 1,
-                    value: 'item1'
-                }, {
-                    id: 2,
-                    value: 'item2'
-                }, {
-                    id: 3,
-                    value: 'item3'
-                }];
-                break;
-            case 'showList':
-                break;
-            default:
-                data = [{
-                    id: 2,
-                    value: 'item2'
-                }, {
-                    id: 1,
-                    value: 'item1'
-                }, {
-                    id: 3,
-                    value: 'item3'
-                }];
-                break;
-
-        }
-
-        this.setState({
-            data: data
-        });
     };
 
 

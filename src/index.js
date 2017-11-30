@@ -35,7 +35,7 @@ export { List, ListItem } from './List';
 // SelectableList
 export SelectableListHOC from './SelectableListHOC';
 // Sort
-export { Sort, SortGroup } from './Sort'; 
+export { SortGroup, SortLabel, SortMulti, SortList, SortToggle } from './Sort';
 // Toast
 export Toast from './Toast/index.js';
 // Icon

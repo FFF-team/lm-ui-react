@@ -1,60 +1,35 @@
 import React from 'react'
 
 import {CheckboxGroup, Checkbox, Button} from 'src/index'
-import TopBanner from '../TopBanner';
 
-class MultiFilter extends React.Component {
-    
+class FilterMulti extends React.Component {
+
     constructor(props) {
         super(props);
-        
-        this.data = [
-            {
-                title: '标题',
-                items: [
-                    {
-                        key: 'filter1',
-                        label: '选项1'
-                    },
-                    {
-                        key: 'filter2',
-                        label: '选项2'
-                    }
-                ]
-            },
-            {
-                title: '标题2',
-                items: [
-                    {
-                        key: 'filter3',
-                        label: '选项3'
-                    },
-                    {
-                        key: 'filter4',
-                        label: '选项4'
-                    }
-                ]
-            }
-        ];
-        
-        
+
         this.state = {
             checkboxVal: this.props.checkboxVal
         }
     }
-    
+
     okBtn = () => {
-        this.props.onChange(this.state.checkboxVal)
+        this.props.onChange({
+            isAll: this.state.checkboxVal.length === 0,
+            data: this.state.checkboxVal
+        })
     };
-    
+
     resetBtn = () => {
         this.setState({
             checkboxVal: []
         })
     };
-    
+
     renderItems() {
-        return this.data.map((list, i) => {
+
+        const { data } = this.props;
+
+        return data.map((list, i) => {
             return (
                 <dl key={ i } className="term-cell">
                     <dt>{ list.title }</dt>
@@ -70,30 +45,30 @@ class MultiFilter extends React.Component {
                             <dd key={ index }>
                                 <a className="lft-item">
                                     <Checkbox mode="button"
-                                              uniqueId={ item.key }
+                                              uniqueId={ item.value }
                                               text={ item.label }
-                                              value={ item.key }
+                                              value={ item.value }
                                     />
                                 </a>
                             </dd>)
                         ) }
                     </CheckboxGroup>
-                
+
                 </dl>
             )
         })
     }
-    
+
     render() {
-        
+
         const {
             onChange,
             checkboxVal,
             ...other
         } = this.props;
-        
+
         return (
-            <div className="demo-multi-filter" { ...other }>
+            <div className="lm-multi-filter" { ...other }>
                 <div className="filter-multi-term">
                     { this.renderItems() }
                 </div>
@@ -122,4 +97,4 @@ class MultiFilter extends React.Component {
     }
 }
 
-export default MultiFilter
+export default FilterMulti

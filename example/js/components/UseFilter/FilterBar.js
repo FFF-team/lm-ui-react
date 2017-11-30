@@ -1,140 +1,151 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
-import {Sort, SortGroup, SvgIcon, ModelHOC } from 'src/index'
-import FilterList from  './FilterList'
-import MultiFilter from './MultiFilter'
+import SortList from 'src/Sort/SortList'
+import SortToggle from 'src/Sort/SortToggle'
+import SortMulti from 'src/Sort/SortMulti'
+import SortLabel from 'src/Sort/SortLabel'
 
-const ModelList = ModelHOC(FilterList);
+import {Sort, SortGroup, SvgIcon, ModelHOC } from 'src/index'
+
 
 class FilterBar extends React.Component {
-    constructor(props) {
-        super(props);
 
 
-        this.state = {
-            multiFilterSelected: [], // 多选结果
-        }
-    }
+    handleSortInfoUpdate = (ret) => {
 
-
-
-    handleClick2 = ({key, sortBy}) => {
-        // todo: do something on sort2
-        this.props.onFilterChange(key, sortBy);
-
-
-    }
-
-
-    handleClick4 = ({key, sortBy}) => {
-        this.props.onFilterChange(key, sortBy);
-
-    }
-
-    handleFilterListChange = (result) => {
-        let {value, item } = result;
-
-        this.props.onFilterChange(value, 0);
-
-
-        return {
-            label: item.props.primaryText,
-        }
-
+        this.props.onFilterChange(ret)
     };
 
-    handleMultiFilterChange = (result) => {
-
-        let value = result;
-
-        this.props.onFilterChange(value, '');
-
-        this.setState({
-            multiFilterSelected: value,
-        });
-
-        return {
-            label: '多条件'
-        }
-
-    };
 
     render() {
         return (
             <div>
 
-
-                {/*<Sort value='1'
-                      label={ '按时间' }
-                      sortInfo={ [{key: 'byTime', sortBy: 1}] }
-                      onClick={ this.handleClick1 }
-                      initOpen={ false }
-                >
-
-                    <ModelList defaultValue={ 'byTime' }
-                               showState={true}
-                               className="demo-filter-bar-list"
-                               onChange={ this.handleFilterListChange }/>
-
-                </Sort>*/}
-
-
                 <SortGroup className="demo-filter-bar"
-                           initValue={ '1' }
+                           onSortInfoUpdate={ this.handleSortInfoUpdate }
                 >
-                    <Sort value='1'
-                          label={ '按时间' }
-                          sortInfo={ [{key: 'byTime', sortBy: 1}] }
-                          initOpen={ false }
-                    >
 
-                        <ModelList defaultValue={ 'byTime' }
-                                   showState={true}
-                                   className="demo-filter-bar-list"
-                                   onChange={ this.handleFilterListChange }/>
+                    <SortList
+                        name='list'
+                        initActiveItem={{
+                            value: 'all',
+                            label: '全部',
+                            isDefault: true,
+                            isAll: true
+                        }}
+                        onClick={ (info) => {console.log(info)} }
+                        filterItem={() => {
+                            return new Promise((resolve) => {
+                                setTimeout(() => {
+                                    resolve(
+                                        [
+                                            {
+                                                value: 'all',
+                                                label: '全部',
+                                                isDefault: true,
+                                                isAll: true
+                                            },
+                                            {
+                                                value: 'byTime',
+                                                label: '按时间',
+                                            },
+                                            {
+                                                value: 'byName',
+                                                label: '按名次',
+                                            },
+                                            {
+                                                value: 'byNo',
+                                                label: '按序号',
+                                            }
+                                        ]
+                                    )
+                                }, 3000)
+                            })
+                        }}
 
-                    </Sort>
+                         /*filterItem={[
+                            {
+                                 value: 'all',
+                                 label: '全部',
+                                 isDefault: true,
+                                 isAll: true
+                             },
+                             {
+                                 value: 'byTime',
+                                 label: '按时间',
+                             },
+                             {
+                                 value: 'byName',
+                                 label: '按名次',
+                             },
+                            {
+                                 value: 'byNo',
+                                 label: '按序号',
+                             }
+                         ]}*/
 
-
-                    <Sort value='2'
-                          label="按名称"
-                          sortInfo={ [{key: '降序', sortBy: 1}, {key: '升序', sortBy: 0}]}
-                          onClick={ this.handleClick2 }
                     />
 
-
-                    <Sort value='3'
-                          label="多条件"
-                          sortInfo={ [{key: '', sortBy: ''}] }
-                          icon={ true }
-                          // open={ this.state.open3 }
-                    >
-                        <MultiFilter checkboxVal={ this.state.multiFilterSelected }
-                                     onChange={ this.handleMultiFilterChange }
-                        />
-                    </Sort>
-
-                    <Sort value="4"
-                          label="序号排序"
-                          sortInfo={ [{key: 'order'}] }
-                          onClick={ this.handleClick4 }
+                    <SortToggle
+                        name='toggle'
+                        filterItem={[
+                            {
+                                value: 'up',
+                                label: '按名称'
+                            },
+                            {
+                                value: 'down',
+                                label: '按名称'
+                            }
+                        ]}
                     />
+
+                    <SortMulti
+                        name='multi'
+                        label='筛选'
+                        filterItem={[
+                            {
+                                title: '标题',
+                                items: [
+                                    {
+                                        value: 'filter1',
+                                        label: '选项1'
+                                    },
+                                    {
+                                        value: 'filter2',
+                                        label: '选项2'
+                                    }
+                                ]
+                            },
+                            {
+                                title: '标题2',
+                                items: [
+                                    {
+                                        value: 'filter3',
+                                        label: '选项3'
+                                    },
+                                    {
+                                        value: 'filter4',
+                                        label: '选项4'
+                                    }
+                                ]
+                            }
+                        ]}
+                    />
+
+                    <SortLabel
+                        name='text'
+                        label="按时间"
+                        filterItem={{
+                            value: 'filter3',
+                            label: '选项3'
+                        }}
+                    />
+
 
                 </SortGroup>
 
-
-                {/*<Sort value='1'
-                      label={ this.state.sort1Label }
-                      sortInfo={ [{key: this.state.sort1, sortBy: 1}] }
-                >
-
-                    <ModelList defaultValue={ this.state.sort1 }
-                               showState={true}
-                               className="demo-filter-bar-list"
-                               onChange={ this.handleFilterListChange }/>
-
-                </Sort>*/}
 
             </div>
         )
