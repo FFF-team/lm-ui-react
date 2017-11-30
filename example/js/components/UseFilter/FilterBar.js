@@ -26,6 +26,7 @@ class FilterBar extends React.Component {
                         initActiveItem={{
                             value: 'all',
                             label: '全部',
+                            displayLabel: '请选择',
                             isDefault: true,
                             isAll: true
                         }}
@@ -38,6 +39,7 @@ class FilterBar extends React.Component {
                                             {
                                                 value: 'all',
                                                 label: '全部',
+                                                displayLabel: '请选择',
                                                 isDefault: true,
                                                 isAll: true
                                             },

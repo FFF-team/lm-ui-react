@@ -20,7 +20,7 @@ class SortList extends React.Component {
 
 
         this.state = {
-            defaultItem: {value: '', label: ''},
+            defaultItem: {value: '', label: '', displayLabel: ''},
             filterData: [],
             isLoading: false
         };
@@ -30,7 +30,7 @@ class SortList extends React.Component {
 
     componentDidMount() {
         this.setState({
-            defaultItem: this.getDefaultFilterItem() || this.props.initActiveItem || {value: '', label: ''},
+            defaultItem: this.getDefaultFilterItem() || this.props.initActiveItem || this.state.defaultItem,
             filterData: this.props.filterItem
         });
     }
@@ -43,10 +43,7 @@ class SortList extends React.Component {
         if (isArray(filterItem)) {
             for(let i = 0, len = filterItem.length; i < len; i ++) {
                 if (filterItem[i].isDefault) {
-                    return {
-                        value: filterItem[i].value,
-                        label: filterItem[i].label
-                    }
+                    return filterItem[i]
                 }
             }
         }
@@ -155,7 +152,7 @@ class SortList extends React.Component {
         return (
             <div className={ sortWrapcn }>
                 <span className={ cnSort }  onClick={ this.handleClick }>
-                    <em className="label">{ defaultItem.label }</em>
+                    <em className="label">{ defaultItem.displayLabel || defaultItem.label }</em>
                     <span className='lm-ui-sort-icon'>
                         { this.getSortByIcon() }
                     </span>
