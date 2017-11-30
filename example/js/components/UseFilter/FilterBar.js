@@ -1,12 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
-import SortList from 'src/Sort/SortList'
-import SortToggle from 'src/Sort/SortToggle'
-import SortMulti from 'src/Sort/SortMulti'
-import SortLabel from 'src/Sort/SortLabel'
-
-import {Sort, SortGroup, SvgIcon, ModelHOC } from 'src/index'
+import {SortList, SortGroup, SortToggle, SortMulti, SortLabel } from 'src/index'
 
 
 class FilterBar extends React.Component {

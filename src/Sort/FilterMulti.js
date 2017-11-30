@@ -1,6 +1,8 @@
 import React from 'react'
 
-import {CheckboxGroup, Checkbox, Button} from 'src/index'
+import CheckboxGroup from '../CheckboxGroup'
+import Checkbox from '../Checkbox'
+import Button from '../Button'
 
 class FilterMulti extends React.Component {
 
