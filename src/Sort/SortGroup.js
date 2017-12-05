@@ -21,10 +21,14 @@ class SortGroup extends React.Component {
     componentDidMount() {
         this.setState({
             children: this.props.children.map((child, index) => {
-                this.collectTabInfo(child.props.name, child.props.initActiveItem || null);
+
+                const childName = child.props.name || `sort_${index}`;
+
+                this.collectTabInfo(childName, child.props.initActiveItem || null);
                 return React.cloneElement(child, {
                     open: false,
                     key: index,
+                    name: childName
                 })
             })
         })

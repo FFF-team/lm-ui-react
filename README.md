@@ -545,41 +545,59 @@ npm run build
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
-| children | <Sort> | node |  | 是 |
-| initValue | 默认匹配的tab | string |  | 可选 |
+| children | <SortToggle>, <SortLabel>, <SortList>, <SortMulti>其中一个或多个的集合| node |  | 是 |
+| onSortInfoUpdate | 筛选条件变化后的回调，参数(sortInfo)当前的筛选条件 | func | () => {} | 可选 |
 
-* Sort props
+* SortLabel、SortList、SortToggle props
+
 
 |   参数    | 说明 | 类型 | 默认值 | 是否必要 |
 | ---------- | ------ | ------ | --------- | --------- |
-| value | 区分sort的唯一值，与sortGroup配合 | string |  | 可选 |
-| label | 排序文字 |  string | 'sort' | 可选 |
-| sortInfo | 1.单条件:[{key: 'sort1'， sortBy: 0}] 0为升序，1为降序 2.双向排序: [{key: 'key1', sortBy: 0}, {key: 'key2', sortBy: 1}].0为升序，1为降序. 3. 多条件: [] (不需要传该字段) 4.需要排序 [{key: 'key1'}] | string |  | 可选 |
-| onClick | 点击排序后的行为。参数：({key, sortBy} | func | () => {} | 可选 |
-| icon | 用于多选排序时文字右侧的图标.若为true，则显示默认图标；若为自定义node，则显示自定义图标 | node | <SvgIcon> | 可选 |
-| initOpen | 初始值，是否打开sort里的筛选条件 | bool | false | 可选 |
-| open | 变为受控组件，sort里的筛选内容可根据传入的该字段值打开或关闭 | bool | false | 可选 |
+| filterItem | 筛选条件，具体格式如下说明 | array | [{label: '筛选',value: '1'}] | 是 |
+| onClick | 点击排序后的回调。参数：(当前选中的筛选条件， 选中状态) | func | () => {} | 可选 |
+| name | 唯一，sortGroup用来搜集当前选中的项 | string | 'sort_index' | 可选 |
 
-*其他属性(eg: className等未在文档中声明的属性)，也可加到当前元素上*
+filterItem说明：对于SortList可为函数，且返回promise，用于异步获取list
 
-**当sort有更多筛选条件时，Sort可以嵌套一个子组件，并且该组件需要实现onChange方法且该方法返回{label: 'xxx'}，则关闭当前删选条件弹层并更新Sort组件中的label**
+|   参数    | 说明 | 类型 |
+| ---------- | ------ | ------ |
+| value | 筛选key值，唯一 | string |
+| label | 文本，即选择某项筛选条件后显示的名称 | string |
+| displayLabel | 文本，通常用于SortList下拉列表中选中某项后，最终展示的标题 | string |
+| isDefault | 是否默认选中.通常用于SortList | bool |
+| isAll | 点击该项时，不进行筛选.通常用于SortList | bool |
+
+* SortMulti props
+
+|   参数    | 说明 | 类型 | 默认值 | 是否必要 |
+| ---------- | ------ | ------ | --------- | --------- |
+| filterItem | 筛选条件 | array | [{title: '多选标题', items: \[{label: xx, value: xx}\]] | 是 |
+| onClick | 同上 | func | () => {} | 可选 |
+| name | 同上 | string | '' | 可选 |
 
 ```
-单个sort：
-<Sort label="筛选"
-      sortInfo={ [{key: 'key1', sortBy: 0}] }
-      onClick={ ({key, sortBy}) => {} }
-      initOpen={false}
->
-   <div>
-      // 这里是筛选条件
-   </div>
-</Sort>
 
-多个sort为一组：
-<SortGroup value="b" className="test">
-    <Sort value="a"/>
-    <Sort value="b"/>
+const onSortInfoUpdate = (ret) => {
+    console.log(ret)
+    // {
+    //    sort_0:  {label: 'xx', value: '1'},
+    //    sort_1: {xxxxx}
+    // }
+}
+
+<SortGroup onSortInfoUpdate={onSortInfoUpdate}>
+    <SortLabel filterItem={[{label: '筛选', value: '1'}]}/>
+    <SortList filterItem={
+       [
+          label: '条件1',
+          vlaue: '1',
+          isDefault: true
+       ],
+       [
+          label: '条件2',
+          value: '2'
+       ]
+    }/>
 </SortGroup>
 ```
 ******

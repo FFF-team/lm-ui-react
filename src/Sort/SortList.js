@@ -188,7 +188,13 @@ SortList.PropTypes = {
 SortList.defaultProps = {
     open: null,
     initOpen: false,
-    filterItem: [],
+    filterItem: [{
+        value: 'all',
+        label: '全部',
+        displayLabel: '请选择',
+        isDefault: true,
+        isAll: true
+    }],
     initActiveItem: null,
     _type: 'sortList'
 };

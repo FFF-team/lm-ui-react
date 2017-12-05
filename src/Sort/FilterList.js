@@ -14,12 +14,13 @@ class FilterList extends React.Component {
 
     handleChange = (event, value, item) => {
 
-        const ret = this.getItemByValue(value);
+        if (value !== undefined) {
+            const ret = this.getItemByValue(value);
 
-        this.props.onChange && this.props.onChange({
-            ...ret
-        });
-
+            this.props.onChange && this.props.onChange({
+                ...ret
+            });
+        }
     };
 
 
@@ -80,6 +81,10 @@ class FilterList extends React.Component {
         const { className, showState, isLoading, defaultValue } = this.props;
         // const defaultValue = this.getDefaultValue();
 
+        if (isLoading) {
+            return <p className='sort-loading'>加载中...</p>
+        }
+
         return (
             <SelectableList initValue={ defaultValue }
                             onSelectedChange={ this.handleChange }
@@ -88,7 +93,7 @@ class FilterList extends React.Component {
             >
 
                 {
-                    isLoading ? <ListItem primaryText='加载中...'/> : this.renderList()
+                    this.renderList()
                 }
             </SelectableList>
         )

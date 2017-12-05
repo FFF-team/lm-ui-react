@@ -15,7 +15,7 @@ class SortLabel extends React.Component {
         const { name, filterItem, open } = this.props;
 
         // update sortInfo
-        this.context.collectTabInfo(name, open ? null : filterItem);
+        this.context.collectTabInfo(name, open ? null : filterItem[0]);
 
         // update sortOpen
         this.context.updateSortOpen && this.context.updateSortOpen(name, !open);
@@ -34,7 +34,7 @@ class SortLabel extends React.Component {
 
         const {
             className,
-            label,
+            filterItem
         } = this.props;
 
 
@@ -47,7 +47,7 @@ class SortLabel extends React.Component {
         return (
             <div className={ sortWrapcn } >
                 <span className={ cnSort } onClick={ this.handleClick }>
-                    <em className="label">{ label }</em>
+                    <em className="label">{ filterItem[0].label }</em>
                     <span className='lm-ui-sort-icon'>
                     </span>
                 </span>
@@ -64,16 +64,17 @@ SortLabel.PropTypes = {
     name: PropTypes.string,
     onClick: PropTypes.func,
     initActiveItem: PropTypes.any,
-    label: PropTypes.string
 };
 
 SortLabel.defaultProps = {
     open: null,
     initOpen: false,
-    filterItem: [],
+    filterItem: [{
+        label: '筛选',
+        value: '1'
+    }],
     initActiveItem: null,
     _type: 'sortLabel',
-    label: '筛选'
 };
 
 SortLabel.contextTypes = {

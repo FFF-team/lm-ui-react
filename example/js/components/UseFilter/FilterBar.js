@@ -132,12 +132,13 @@ class FilterBar extends React.Component {
                     />
 
                     <SortLabel
-                        name='text'
-                        label="按时间"
-                        filterItem={{
-                            value: 'filter3',
-                            label: '选项3'
-                        }}
+                        // name='text'
+                        filterItem={[
+                            {
+                                value: 'filter3',
+                                label: '按时间2'
+                            }
+                        ]}
                     />
 
 

@@ -155,6 +155,17 @@
         }
     }
 
+    .sort-loading {
+        position: absolute;
+        background: #fff;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        left: 0;
+        top: 0;
+        font-size: 14px;
+        padding-left: 20px;
+    }
 
 }
 
