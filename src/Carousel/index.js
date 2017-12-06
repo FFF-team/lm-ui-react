@@ -90,14 +90,7 @@ const Carousel = createReactClass({
 
 	componentDidMount () {
 
-        window.addEventListener('resize', () => {
-        	this.setState({
-                left: 0,
-                width: this.props.width,
-                height: this.props.height
-			});
-            this.setDimensions();
-        }, false);
+        window.addEventListener('resize', this.resizeDimensions, false);
 
         this.setDimensions();
 		this.props.autoplay && this.startAutoplay();
@@ -128,7 +121,23 @@ const Carousel = createReactClass({
 
 		this.stopAutoplay();
 
+        window.removeEventListener('resize', this.resizeDimensions);
+
 	},
+
+	resizeDimensions() {
+		setTimeout(() => {
+            this.setState({
+                left: 0,
+                width: this.props.width,
+                height: this.props.height
+            });
+            this.setDimensions();
+		}, 300)
+
+        // this.setDimensions();
+	},
+
 	//******************************
 	//初始化尺寸
 	setInitialDimensions () {
