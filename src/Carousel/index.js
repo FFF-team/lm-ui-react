@@ -90,7 +90,16 @@ const Carousel = createReactClass({
 
 	componentDidMount () {
 
-		this.setDimensions();
+        window.addEventListener('resize', () => {
+        	this.setState({
+                left: 0,
+                width: this.props.width,
+                height: this.props.height
+			});
+            this.setDimensions();
+        }, false);
+
+        this.setDimensions();
 		this.props.autoplay && this.startAutoplay();
 
 	},
