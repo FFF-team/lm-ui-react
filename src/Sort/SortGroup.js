@@ -23,10 +23,12 @@ class SortGroup extends React.Component {
             children: this.props.children.map((child, index) => {
 
                 const childName = child.props.name || `sort_${index}`;
+                const sortType = child.props._type;
+                const initActiveItem = child.props.initActiveItem;
 
-                this.collectTabInfo(childName, child.props.initActiveItem || null);
+                this.collectTabInfo(childName, initActiveItem || null, sortType);
                 return React.cloneElement(child, {
-                    open: false,
+                    open: this.getInitOpen(sortType, initActiveItem),
                     key: index,
                     name: childName
                 })
@@ -35,8 +37,26 @@ class SortGroup extends React.Component {
 
     }
 
-    collectTabInfo(name, initActiveItem) {
-        this.sortInfo[name] = initActiveItem
+    getInitOpen(sortType, initData) {
+        if (sortType === 'sortLabel') {
+            if (initData) {
+                return true
+            }
+            return false
+        }
+
+        return false
+    }
+
+    collectTabInfo(name, initActiveItem, sortType) {
+        if (initActiveItem && sortType === 'sortMulti') {
+            this.sortInfo[name] = {
+                isAll: false,
+                data: initActiveItem
+            }
+        }  else {
+            this.sortInfo[name] = initActiveItem
+        }
     }
 
     getChildContext() {

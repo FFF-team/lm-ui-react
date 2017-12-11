@@ -30,7 +30,7 @@ class SortList extends React.Component {
 
     componentDidMount() {
         this.setState({
-            defaultItem: this.getDefaultFilterItem() || this.props.initActiveItem || this.state.defaultItem,
+            defaultItem: this.props.initActiveItem || this.getDefaultFilterItem()  || this.state.defaultItem,
             filterData: this.props.filterItem
         });
     }

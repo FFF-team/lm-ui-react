@@ -18,7 +18,7 @@ class SortToggle extends React.Component {
 
 
         this.state = {
-            sortBy: '', // 上下标示 0 上， 1下
+            sortBy: this.getDefaultFilterItem().value, // 上下标示 0 上， 1下
             label: this.getDefaultFilterItem().label,
         };
 
@@ -34,10 +34,10 @@ class SortToggle extends React.Component {
     };
 
     getDefaultFilterItem() {
-        const { filterItem } = this.props;
+        const { filterItem, initActiveItem } = this.props;
 
         for(let i = 0, len = filterItem.length; i < len; i ++) {
-            if (filterItem[i].isDefault) {
+            if (initActiveItem && filterItem[i].value === initActiveItem.value) {
                 return {
                     value: filterItem[i].value,
                     label: filterItem[i].label
@@ -46,7 +46,7 @@ class SortToggle extends React.Component {
         }
 
         return {
-            value: filterItem[0].value,
+            value: '',
             label: filterItem[0].label
         }
     }
@@ -130,7 +130,7 @@ class SortToggle extends React.Component {
                         { this.getSortByIcon() }
                     </span>
                     <EnhancedToggle style={ this.toggleStyle }
-                                    initChecked={ false }
+                                    initChecked={ !sortBy }
                                     toggle={ true }
                                     onParentShouldUpdate={ this.toggleStatus }
                     />

@@ -24,11 +24,8 @@ class FilterBar extends React.Component {
                     <SortList
                         name='list'
                         initActiveItem={{
-                            value: 'all',
-                            label: '全部',
-                            displayLabel: '请选择',
-                            isDefault: true,
-                            isAll: true
+                            value: 'byNo',
+                            label: '按序号',
                         }}
                         onClick={ (info) => {console.log(info)} }
                         filterItem={() => {
@@ -86,13 +83,17 @@ class FilterBar extends React.Component {
 
                     <SortToggle
                         name='toggle'
+                        // initActiveItem={{
+                        //     value: 0,
+                        //     label: '按名称',
+                        // }}
                         filterItem={[
                             {
-                                value: 'up',
-                                label: '按名称'
+                                value: 0,
+                                label: '按名称',
                             },
                             {
-                                value: 'down',
+                                value: 1,
                                 label: '按名称'
                             }
                         ]}
@@ -101,6 +102,7 @@ class FilterBar extends React.Component {
                     <SortMulti
                         name='multi'
                         label='筛选'
+                        // initActiveItem={['filter1', 'filter3']}
                         filterItem={[
                             {
                                 title: '标题',
@@ -133,6 +135,10 @@ class FilterBar extends React.Component {
 
                     <SortLabel
                         // name='text'
+                        // initActiveItem={{
+                        //     value: 'filter3',
+                        //     label: '按时间2'
+                        // }}
                         filterItem={[
                             {
                                 value: 'filter3',
