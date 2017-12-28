@@ -42,7 +42,7 @@ class FilterBar extends React.Component {
                                             },
                                             {
                                                 value: 'byTime',
-                                                label: '按时间',
+                                                label: '超长数据啊啊啊啊啊啊啊啊啊啊',
                                             },
                                             {
                                                 value: 'byName',

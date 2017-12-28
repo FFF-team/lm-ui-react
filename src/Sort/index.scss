@@ -10,6 +10,7 @@
 
     .lm-ui-sort-wrap {
         flex: 1;
+        width: 1%;
     }
 
     .lm-ui-sort {
@@ -42,6 +43,9 @@
         .label {
             display: inline-block;
             padding: 14px 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
         .lm-icon-arrow-top.lm-icon-arrow-active {
             border-bottom-color: red
@@ -96,7 +100,7 @@
         z-index: 2;
         top: 0;
         left: 0;
-        max-height: 70%;
+        max-height: 100%;
         overflow: scroll;
     }
 
