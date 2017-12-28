@@ -25,7 +25,6 @@
     color: #aaa;
     font-size: 12px;
     text-align: center;
-    padding: 6px 0;
     &.active {
       color: #ff552e;
     }
@@ -35,7 +34,9 @@
       }
     }
     a {
+      display: block;
       color: inherit;
+      padding: 6px 0;
     }
   }
 

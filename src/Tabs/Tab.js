@@ -39,8 +39,10 @@ class Tab extends React.Component {
                 onClick={ this.handleClick.bind(this) }
                 { ...other }
             >
-                { React.isValidElement(icon) && icon }
-                <p><a>{ label }</a></p>
+                <a>
+                    { React.isValidElement(icon) && icon }
+                    <p>{ label }</p>
+                </a>
             </li>
         )
     }
