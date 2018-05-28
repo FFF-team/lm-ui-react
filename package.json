@@ -1,6 +1,6 @@
 {
   "name": "lm-ui-react",
-  "version": "0.5.12",
+  "version": "0.5.13",
   "description": "loan mobile UI with react",
   "main": "lib/index.js",
   "scripts": {
@@ -21,8 +21,8 @@
   "author": "FFF-team",
   "license": "ISC",
   "peerDependencies": {
-    "react": ">=15.0.0",
-    "react-dom": ">=15.0.0"
+    "react": ">=15.6.1",
+    "react-dom": ">=15.6.1"
   },
   "bugs": {
     "url": "https://github.com/FFF-team/lm-ui-react/issues"
@@ -57,6 +57,8 @@
     "node-sass": "^3.10.0",
     "output-file-sync": "^2.0.0",
     "postcss": "^5.2.5",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "react-addons-test-utils": "^15.4.2",
     "react-test-renderer": "15.6.1",
     "sass-loader": "^4.0.2",
@@ -78,9 +80,7 @@
     "events": "^1.1.1",
     "history": "^3.3.0",
     "prop-types": "^15.5.10",
-    "react": "15.6.1",
     "react-addons-css-transition-group": "^15.4.2",
-    "react-dom": "15.6.1",
     "react-router": "~3.0.2",
     "react-tween-state": "^0.1.5"
   },
